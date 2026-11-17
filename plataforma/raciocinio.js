@@ -580,8 +580,93 @@ function edemaSVG(f) {
   </svg>`;
 }
 
+/* Laboratório de mecanismos: aba Abdome (inserido em raciocinio.js) */
+const AROW = [
+  ['insp', 'Inspeção', ['Plano, sem alterações', 'Globoso / batráquio (flancos abaulados)', 'Distendido com peristaltismo visível', 'Circulação colateral periumbilical + globoso', 'Equimoses (Cullen / Grey-Turner)', 'Imóvel, respiração superficial', 'Abaulamento no hipocôndrio esquerdo']],
+  ['ausc', 'Ausculta', ['RHA presentes e normoativos', 'RHA hipoativos ou abolidos', 'RHA hiperativos, timbre metálico']],
+  ['perc', 'Percussão', ['Timpânico, macicez hepática normal', 'Macicez nos flancos, timpanismo central', 'Hipertimpanismo difuso', 'Desaparecimento da macicez hepática', 'Macicez no espaço de Traube']],
+  ['palp', 'Palpação', ['Flácido e indolor', 'Defesa localizada', 'Defesa generalizada (abdome em tábua)', 'Dor localizada, sem defesa', 'Distendido, dor em cólica']],
+  ['visc', 'Fígado / baço / vesícula', ['Sem visceromegalias', 'Fígado nodular e baço palpável', 'Baço palpável, fígado normal', 'Ponto cístico muito doloroso']],
+  ['sinal', 'Sinal-chave', ['Nenhum sinal especial', 'Macicez móvel e semicírculo de Skoda', 'Piparote (+ macicez móvel e Skoda)', 'Blumberg difuso', 'Blumberg na FID + Rovsing + Psoas', 'Murphy', 'Jobert', 'Cullen / Grey-Turner', 'Giordano', 'Castell positivo']]
+];
+const ABD = {
+  normal: { n: 'Normal', chave: 'Alças com gás e líquido em movimento, fígado sob o rebordo, baço escondido atrás das costelas.', v: {
+    insp: [0, 'Parede íntegra e simétrica.'], ausc: [0, 'Peristaltismo normal: 5 a 34 ruídos por minuto.'], perc: [0, 'Gás nas alças dá timpanismo; o fígado dá macicez no hipocôndrio direito.'], palp: [0, 'Peritônio sem inflamação: parede relaxa.'], visc: [0, 'Baço normal não é palpável nem percutível.'], sinal: [0, '—'] } },
+  ascite: { n: 'Ascite', vol: true, chave: 'Líquido livre no peritônio. Em decúbito dorsal ele desce para os flancos e as alças com gás flutuam no centro.' },
+  portal: { n: 'Hipertensão portal (cirrose)', chave: 'O sangue não passa pelo fígado fibrosado: abre atalhos pela parede, congestiona o baço e transuda para o peritônio.', v: {
+    insp: [3, 'Veias periumbilicais recanalizadas (cabeça de medusa): fluxo para cima acima do umbigo e para baixo abaixo dele.'], ausc: [0, 'O intestino funciona normalmente.'], perc: [1, 'Ascite: líquido nos flancos, alças no centro.'], palp: [0, 'Sem inflamação peritoneal (salvo peritonite bacteriana espontânea).'], visc: [1, 'Fígado com nódulos de regeneração (borda romba, indolor) e baço congesto e aumentado.'], sinal: [2, 'Ascite volumosa: a onda líquida atravessa o abdome.'] } },
+  peritonite: { n: 'Peritonite difusa', chave: 'Peritônio parietal inflamado: qualquer movimento dói, a parede se contrai para proteger e o intestino para.', v: {
+    insp: [5, 'O paciente fica imóvel e respira curto porque mover o diafragma dói.'], ausc: [1, 'Íleo paralítico: a inflamação paralisa as alças.'], perc: [0, 'Timpanismo preservado (a percussão em si é dolorosa).'], palp: [2, 'Contratura involuntária da parede (defesa) em todo o abdome: "tábua".'], visc: [0, 'Não se consegue palpar profundamente.'], sinal: [3, 'Descompressão brusca separa folhetos inflamados aderidos por fibrina: dor.'] } },
+  apendicite: { n: 'Apendicite aguda', chave: 'Primeiro dor visceral mal localizada (umbigo); quando a inflamação toca o peritônio parietal, a dor fixa na FID.', v: {
+    insp: [0, 'Em geral sem alteração visível; o paciente evita se mexer e flete a coxa direita.'], ausc: [1, 'Inflamação local reduz o peristaltismo.'], perc: [0, 'Timpanismo preservado.'], palp: [1, 'Irritação peritoneal só sobre o apêndice: defesa na FID.'], visc: [0, 'Sem visceromegalias.'], sinal: [4, 'Blumberg no McBurney (irritação local), Rovsing (gás empurrado até o ceco), Psoas (apêndice encostado no músculo).'] } },
+  colecistite: { n: 'Colecistite aguda', chave: 'Cálculo obstrui o ducto cístico; a vesícula distende e inflama sob o fígado.', v: {
+    insp: [0, 'Sem alterações visíveis.'], ausc: [0, 'Peristaltismo geralmente mantido.'], perc: [0, 'Timpanismo e macicez hepática normais.'], palp: [1, 'Irritação do peritônio sobre a vesícula: defesa no hipocôndrio direito.'], visc: [3, 'Na inspiração o fígado desce e empurra a vesícula inflamada contra a mão.'], sinal: [5, 'A dor interrompe a inspiração profunda quando se comprime o ponto cístico.'] } },
+  pancreatite: { n: 'Pancreatite aguda grave', chave: 'Enzimas pancreáticas digerem o tecido e os vasos no retroperitônio; o sangue disseca até a pele.', v: {
+    insp: [4, 'Sangue retroperitoneal chega à pele do umbigo (Cullen) e dos flancos (Grey-Turner).'], ausc: [1, 'Íleo paralítico pela inflamação retroperitoneal.'], perc: [0, 'Pode haver distensão, mas sem achado típico.'], palp: [1, 'Dor e defesa no andar superior (epigástrio e hipocôndrio esquerdo).'], visc: [0, 'Sem visceromegalias.'], sinal: [7, 'Equimoses indicam a forma necro-hemorrágica (grave).'] } },
+  obstrucao: { n: 'Obstrução intestinal', chave: 'Algo bloqueia a luz: acima do bloqueio gás e líquido acumulam e o intestino luta para empurrar.', v: {
+    insp: [2, 'Alças distendidas que se contraem contra o obstáculo: ondas visíveis.'], ausc: [2, 'Ruídos de luta, com timbre metálico pelo gás sob pressão (depois podem abolir).'], perc: [2, 'Muito gás nas alças dilatadas.'], palp: [4, 'Dor em cólica que acompanha as ondas peristálticas; sem defesa no início.'], visc: [0, 'Sem visceromegalias.'], sinal: [0, 'O diagnóstico vem da tríade dor em cólica, vômitos e parada de eliminação.'] } },
+  perfuracao: { n: 'Perfuração de víscera oca', chave: 'Ar escapa da víscera para a cavidade e sobe para a parte mais alta: entre o fígado e o diafragma.', v: {
+    insp: [5, 'Peritonite química: o paciente fica imóvel.'], ausc: [1, 'Íleo paralítico.'], perc: [3, 'O ar livre se interpõe sobre o fígado: some a macicez hepática.'], palp: [2, 'Suco gástrico no peritônio: defesa generalizada.'], visc: [0, '—'], sinal: [6, 'Jobert: timpanismo onde deveria haver macicez hepática.'] } },
+  esplenomegalia: { n: 'Esplenomegalia', chave: 'O baço cresce para baixo e para a frente, saindo de trás das costelas e ocupando o espaço de Traube.', v: {
+    insp: [6, 'Se muito grande, abaula o hipocôndrio esquerdo.'], ausc: [0, 'Normal.'], perc: [4, 'O baço ocupa o espaço de Traube, que normalmente é timpânico (bolha gástrica).'], palp: [0, 'Indolor na maioria dos casos.'], visc: [2, 'Baço palpável (precisa dobrar de tamanho); posição de Schuster ajuda.'], sinal: [9, 'Na inspiração profunda o baço desce até o último EIC na linha axilar anterior: o som vira maciço.'] } },
+  pielonefrite: { n: 'Pielonefrite', chave: 'Infecção do rim, que é retroperitoneal: a dor aparece mais na loja renal que na parede anterior.', v: {
+    insp: [0, 'Sem alteração.'], ausc: [0, 'Normal.'], perc: [0, 'Abdome anterior normal.'], palp: [3, 'Dor à palpação profunda do flanco, sem irritação peritoneal.'], visc: [0, '—'], sinal: [8, 'A punho-percussão vibra o rim inflamado no ângulo costovertebral.'] } }
+};
+function abdData(proc, vol) {
+  if (proc !== 'ascite') return ABD[proc].v;
+  const p = vol === 'pequeno', g = vol === 'grande';
+  return {
+    insp: [p ? 0 : 1, p ? 'Pouco líquido não muda a forma do abdome.' : 'Líquido nos flancos em decúbito: abdome em batráquio' + (g ? '; cicatriz umbilical plana ou protrusa.' : '.')],
+    ausc: [0, 'O líquido não altera o peristaltismo.'],
+    perc: [p ? 0 : 1, p ? 'Abaixo de ~500 mL o exame físico costuma ser normal (só o ultrassom detecta).' : 'O líquido desce para os flancos (macicez) e as alças com gás sobem para o centro (timpanismo).'],
+    palp: [0, 'Ascite não inflama o peritônio.'],
+    visc: [0, 'Depende da causa (cirrose, IC, nefrótica).'],
+    sinal: [p ? 0 : g ? 2 : 1, p ? 'Nenhum sinal clínico confiável com pouco líquido.' : g ? 'Com muito líquido a onda atravessa o abdome: piparote positivo (macicez móvel e Skoda também).' : 'Médio volume: macicez móvel (o mais sensível) e semicírculo de Skoda; piparote ainda negativo.']
+  };
+}
+function abdSVG(proc, vol) {
+  const asc = proc === 'ascite' || proc === 'portal';
+  const v = proc === 'portal' ? 'grande' : vol;
+  const bulge = asc && v !== 'pequeno' ? (v === 'grande' ? 22 : 12) : (proc === 'obstrucao' ? 14 : 0);
+  const outline = `M70 30 Q180 6 290 30 Q${312 + bulge} 160 ${300 + bulge * .6} 300 Q180 ${340 + bulge * .5} ${60 - bulge * .6} 300 Q${48 - bulge} 160 70 30 Z`;
+  const liverSmall = proc === 'portal';
+  const liver = liverSmall ? 'M78 46 Q150 36 196 60 Q170 92 120 98 Q86 96 78 46 Z' : 'M74 44 Q160 30 210 58 Q190 104 128 112 Q84 110 74 44 Z';
+  const bigSpleen = proc === 'portal' || proc === 'esplenomegalia';
+  const spleen = bigSpleen ? (proc === 'esplenomegalia' ? 'M300 44 Q318 120 276 196 Q244 170 252 110 Q262 56 300 44 Z' : 'M298 46 Q312 104 280 150 Q254 130 258 92 Q266 56 298 46 Z') : 'M296 44 Q304 74 288 96 Q272 86 276 62 Q282 48 296 44 Z';
+  let loops = '';
+  const lr = proc === 'obstrucao' ? 20 : 12;
+  const pts = [[150, 170], [190, 160], [230, 175], [140, 210], [180, 205], [220, 215], [160, 245], [205, 250]];
+  pts.forEach(([x, y]) => { loops += `<circle cx="${x}" cy="${y - (asc && v !== 'pequeno' ? 10 : 0)}" r="${lr}" fill="var(--surface)" stroke="var(--muted)" stroke-width="${proc === 'obstrucao' ? 2.5 : 1.5}"/>`; if (proc === 'obstrucao') loops += `<line x1="${x - lr + 3}" y1="${y + 4}" x2="${x + lr - 3}" y2="${y + 4}" stroke="var(--liquid)" stroke-width="2"/>`; });
+  let over = '';
+  if (asc) {
+    const lvl = v === 'pequeno' ? 285 : v === 'medio' ? 220 : 150;
+    over += `<path d="M${52 - bulge * .6} ${lvl} Q90 ${lvl + 30} 120 ${lvl + 70} L120 300 L${60 - bulge * .6} 300 Z" fill="var(--liquid)" fill-opacity=".6"/><path d="M${308 + bulge * .6} ${lvl} Q270 ${lvl + 30} 240 ${lvl + 70} L240 300 L${300 + bulge * .6} 300 Z" fill="var(--liquid)" fill-opacity=".6"/><path d="M120 ${Math.max(lvl + 70, 280)} Q180 300 240 ${Math.max(lvl + 70, 280)} L240 305 Q180 320 120 305 Z" fill="var(--liquid)" fill-opacity=".6"/><text x="${86 - bulge * .3}" y="296" font-size="10" font-weight="700" fill="var(--ink)">líquido</text>`;
+    if (v !== 'pequeno') over += `<path d="M95 ${lvl + 8} Q180 ${lvl - 50} 265 ${lvl + 8}" fill="none" stroke="var(--trace)" stroke-width="2" stroke-dasharray="5 4"/><text x="180" y="${lvl - 30}" text-anchor="middle" font-size="10" fill="var(--trace)">limite (Skoda)</text>`;
+  }
+  if (proc === 'portal') { [[-1, -1], [1, -1], [-1, 1], [1, 1], [0, -1], [0, 1]].forEach(([dx, dy]) => { over += `<path d="M${180 + dx * 8} ${190 + dy * 8} q${dx * 18 + 6} ${dy * 14} ${dx * 30} ${dy * 40}" fill="none" stroke="var(--a3)" stroke-width="3" marker-end="url(#aw)"/>`; }); }
+  if (proc === 'peritonite') over += `<path d="${outline}" fill="var(--trace)" fill-opacity=".22"/><text x="180" y="130" text-anchor="middle" font-size="11" font-weight="700" fill="var(--trace)">peritônio inflamado</text>`;
+  if (proc === 'apendicite') over += `<circle cx="112" cy="252" r="22" fill="var(--trace)" fill-opacity=".45"/><text x="112" y="290" text-anchor="middle" font-size="10" font-weight="700" fill="var(--trace)">McBurney</text>`;
+  if (proc === 'colecistite') over += `<ellipse cx="150" cy="112" rx="18" ry="12" fill="var(--trace)" fill-opacity=".7"/><text x="150" y="140" text-anchor="middle" font-size="10" font-weight="700" fill="var(--trace)">vesícula</text>`;
+  if (proc === 'pancreatite') over += `<path d="M150 128 Q200 116 262 124 Q255 138 200 138 Q160 142 150 128 Z" fill="var(--trace)" fill-opacity=".6"/><text x="205" y="114" text-anchor="middle" font-size="10" font-weight="700" fill="var(--trace)">pâncreas</text><ellipse cx="180" cy="190" rx="20" ry="14" fill="#7B4A8E" fill-opacity=".55"/><ellipse cx="62" cy="200" rx="10" ry="30" fill="#7B4A8E" fill-opacity=".55"/><ellipse cx="298" cy="200" rx="10" ry="30" fill="#7B4A8E" fill-opacity=".55"/>`;
+  if (proc === 'perfuracao') over += `<path d="M80 40 Q160 22 212 50 Q160 40 80 48 Z" fill="var(--surface)" stroke="var(--teal)" stroke-width="2"/><text x="146" y="28" text-anchor="middle" font-size="10" font-weight="700" fill="var(--teal)">ar livre sobre o fígado</text>`;
+  if (proc === 'pielonefrite') over += `<ellipse cx="95" cy="175" rx="16" ry="28" fill="var(--trace)" fill-opacity=".35" stroke="var(--trace)" stroke-dasharray="4 3"/><text x="95" y="220" text-anchor="middle" font-size="10" font-weight="700" fill="var(--trace)">rim (posterior)</text>`;
+  if (proc === 'esplenomegalia') over += `<text x="276" y="214" text-anchor="middle" font-size="10" font-weight="700" fill="var(--trace)">Traube ocupado</text>`;
+  return `<svg class="lung-svg" viewBox="0 0 360 340" role="img" aria-label="Esquema do abdome: ${ABD[proc].n}">
+    <defs><marker id="aw" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--a3)"/></marker></defs>
+    <path d="${outline}" fill="var(--surface-2)" stroke="var(--line)" stroke-width="2"/>
+    <line x1="${60 - bulge * .6}" y1="120" x2="${300 + bulge * .6}" y2="120" stroke="var(--line)" stroke-dasharray="3 5"/><line x1="${56 - bulge * .6}" y1="235" x2="${304 + bulge * .6}" y2="235" stroke="var(--line)" stroke-dasharray="3 5"/>
+    <line x1="130" y1="30" x2="130" y2="320" stroke="var(--line)" stroke-dasharray="3 5"/><line x1="230" y1="30" x2="230" y2="320" stroke="var(--line)" stroke-dasharray="3 5"/>
+    <path d="${liver}" fill="#B5655B" fill-opacity="${liverSmall ? .75 : .55}" stroke="#8E4A42" stroke-width="${liverSmall ? 2 : 1}" ${liverSmall ? 'stroke-dasharray="3 2"' : ''}/><text x="${liverSmall ? 128 : 136}" y="${liverSmall ? 76 : 82}" text-anchor="middle" font-size="10" font-weight="700" fill="var(--ink)">fígado</text>
+    <path d="M210 70 Q262 56 270 96 Q250 118 214 104 Z" fill="var(--amber)" fill-opacity=".35"/><text x="240" y="92" text-anchor="middle" font-size="9" fill="var(--ink)">estômago</text>
+    <path d="${spleen}" fill="#7B4A8E" fill-opacity=".45"/><text x="${bigSpleen ? 280 : 300}" y="${bigSpleen ? 120 : 40}" text-anchor="middle" font-size="9" fill="var(--ink)">baço</text>
+    ${loops}<circle cx="180" cy="190" r="3" fill="var(--ink)"/>
+    ${over}
+    <text x="20" y="180" font-size="12" font-weight="700" fill="var(--muted)">D</text><text x="334" y="180" font-size="12" font-weight="700" fill="var(--muted)">E</text>
+  </svg>`;
+}
+
 /* ---------- view dos mecanismos ---------- */
-const MEC = { tab: 'pulmao', proc: 'consolidacao', lado: 'D', hip: false, prever: false, resp: {}, valv: 'aortica', les: 'estenose', edema: 'ic', desafio: null };
+const MEC = { tab: 'pulmao', proc: 'consolidacao', lado: 'D', hip: false, prever: false, resp: {}, valv: 'aortica', les: 'estenose', edema: 'ic', abd: 'ascite', vol: 'medio', desafio: null };
 function rowsHTML(rows, data, keyPrefix) {
   return rows.map(r => {
     const k = r[0], val = data[k]; if (!val) return '';
@@ -601,7 +686,7 @@ function scoreLine(rows, data, prefix) {
   return `<p class="mono">${ok}/${ks.length} previsões corretas</p>`;
 }
 function viewMecanismos(v) {
-  const tabs = [['pulmao', 'Pulmão: o que há no tórax?'], ['coracao', 'Coração: deduza o sopro'], ['edema', 'Edema: forças de Starling']];
+  const tabs = [['pulmao', 'Pulmão: o que há no tórax?'], ['coracao', 'Coração: deduza o sopro'], ['abdome', 'Abdome: o que há na cavidade?'], ['edema', 'Edema: forças de Starling']];
   let body = '';
   if (MEC.tab === 'pulmao') {
     const dz = MEC.desafio && MEC.desafio.t === 'pulmao' ? MEC.desafio : null;
@@ -644,6 +729,26 @@ function viewMecanismos(v) {
         ${dz.done ? `<div class="row"><button class="btn primary" type="button" data-novo>Outro desafio</button><button class="btn" type="button" data-sair>Sair do desafio</button></div>` : ''}`
         : rowsHTML(HROW, R, prefix) + scoreLine(HROW, R, prefix)}</div>
     </div>`;
+  } else if (MEC.tab === 'abdome') {
+    const dz = MEC.desafio && MEC.desafio.t === 'abdome' ? MEC.desafio : null;
+    const proc = dz ? dz.proc : MEC.abd, vol = dz ? 'medio' : MEC.vol, P = ABD[proc], data = abdData(proc, vol);
+    const prefix = 'a-' + proc + '-' + (proc === 'ascite' ? vol : '') + '-';
+    const volTxt = { pequeno: 'pequeno volume', medio: 'médio volume', grande: 'grande volume' };
+    body = `
+    ${dz ? `<div class="callout warn"><div class="callout-t">Desafio</div>Leia o exame do abdome e descubra o que está acontecendo. O desenho fica escondido até você responder.</div>` : `
+    <div class="stack" style="gap:10px;margin-bottom:14px">
+      <div><div class="qgroup-h">Processo</div><div class="seg">${Object.keys(ABD).map(k => `<button class="chip" type="button" data-abd="${k}" aria-pressed="${MEC.abd === k}">${ABD[k].n}</button>`).join('')}</div></div>
+      ${proc === 'ascite' ? `<div><div class="qgroup-h">Volume do líquido: veja quais sinais aparecem</div><div class="seg">${['pequeno', 'medio', 'grande'].map(k => `<button class="chip" type="button" data-vol="${k}" aria-pressed="${MEC.vol === k}">${volTxt[k]}</button>`).join('')}</div></div>` : ''}
+    </div>`}
+    <div class="lab-grid">
+      <div>${dz && !dz.done ? '<div class="empty" style="min-height:260px;display:grid;place-items:center">?</div>' : abdSVG(proc, vol)}
+        ${dz && !dz.done ? '' : `<div class="callout tip"><div class="callout-t">${P.n}${proc === 'ascite' ? ' · ' + volTxt[vol] : ''}</div>${P.chave}</div><p class="small muted">Sequência do exame: inspeção → ausculta → percussão → palpação. Lado D e E são os do paciente.</p>`}
+      </div>
+      <div>${dz ? AROW.map(r => `<div class="frow"><div class="frow-h">${r[1]}</div><div class="frow-v">${r[2][data[r[0]][0]]}</div>${dz.done ? `<div class="frow-why">${data[r[0]][1]}</div>` : ''}</div>`).join('')
+        + `<div class="qgroup-h" style="margin-top:12px">O que está acontecendo?</div>${dz.opts.map(k => { let c = ''; if (dz.done) { if (k === proc) c = 'right'; else if (k === dz.ans) c = 'wrong'; } return `<button class="opt ${c}" type="button" data-dz="${k}" ${dz.done ? 'disabled' : ''}>${ABD[k].n}</button>`; }).join('')}
+        ${dz.done ? `<div class="row"><button class="btn primary" type="button" data-novo>Outro desafio</button><button class="btn" type="button" data-sair>Sair do desafio</button></div>` : ''}`
+        : rowsHTML(AROW, data, prefix) + scoreLine(AROW, data, prefix)}</div>
+    </div>`;
   } else {
     const E = EDEMAS[MEC.edema]; const prefix = 'e-' + MEC.edema + '-';
     body = `<div style="margin-bottom:14px"><div class="qgroup-h">Causa</div><div class="seg">${Object.keys(EDEMAS).map(k => `<button class="chip" type="button" data-ed="${k}" aria-pressed="${MEC.edema === k}">${EDEMAS[k].n}</button>`).join('')}</div></div>
@@ -651,7 +756,7 @@ function viewMecanismos(v) {
       <p class="small muted">Equilíbrio de Starling: a pressão hidrostática empurra líquido para fora do capilar; a oncótica (albumina) segura dentro; a parede controla o vazamento; a linfa recolhe o excesso. O edema surge quando uma dessas forças falha.</p></div>
       <div>${rowsHTML(EROW, E.v, prefix) + scoreLine(EROW, E.v, prefix)}</div></div>`;
   }
-  v.innerHTML = `<div class="page-head"><div class="eyebrow">Aprender fazendo</div><h1>Laboratório de mecanismos</h1><p>Mude a causa e veja os achados mudarem, cada um com o porquê. Ligue "Prever antes de ver" para responder cada achado antes de ele aparecer, ou entre no desafio reverso.</p></div>
+  v.innerHTML = `<div class="page-head"><div class="eyebrow">Aprender fazendo</div><h1>Laboratório de mecanismos</h1><p>Mude a causa (no tórax, no coração, no abdome ou no capilar) e veja os achados mudarem, cada um com o porquê. Ligue "Prever antes de ver" para responder cada achado antes de ele aparecer, ou entre no desafio reverso.</p></div>
   <div class="tabs" role="tablist">${tabs.map(t => `<button class="tab" role="tab" type="button" data-mt="${t[0]}" aria-selected="${MEC.tab === t[0]}">${t[1]}</button>`).join('')}</div>
   <div class="row" style="margin-bottom:12px;justify-content:space-between">
     <label class="row small" style="gap:6px;font-weight:600"><input type="checkbox" id="prever" ${MEC.prever ? 'checked' : ''} style="width:18px;height:18px;accent-color:var(--teal)">Prever antes de ver</label>
@@ -665,6 +770,9 @@ function novoDesafio() {
     const ks = Object.keys(PROC); const proc = ks[Math.floor(Math.random() * ks.length)];
     const others = shuffle(ks.filter(k => k !== proc)).slice(0, 3);
     MEC.desafio = { t: 'pulmao', proc, lado: Math.random() < 0.5 ? 'D' : 'E', opts: shuffle(others.concat(proc)), done: false };
+  } else if (MEC.tab === 'abdome') {
+    const ks = Object.keys(ABD); const proc = ks[Math.floor(Math.random() * ks.length)];
+    MEC.desafio = { t: 'abdome', proc, opts: shuffle(shuffle(ks.filter(k => k !== proc)).slice(0, 3).concat(proc)), done: false };
   } else {
     const all = []; Object.keys(VALV).forEach(vv => ['estenose', 'insuficiencia'].forEach(l => all.push(vv + '|' + l)));
     const pick = all[Math.floor(Math.random() * all.length)]; const [valv, les] = pick.split('|');
@@ -680,6 +788,8 @@ function mecView(v) {
     if (g('[data-lado]')) { MEC.lado = g('[data-lado]').dataset.lado; return re(); }
     if (g('[data-valv]')) { MEC.valv = g('[data-valv]').dataset.valv; A().stopSound(); return re(); }
     if (g('[data-les]')) { MEC.les = g('[data-les]').dataset.les; A().stopSound(); return re(); }
+    if (g('[data-abd]')) { MEC.abd = g('[data-abd]').dataset.abd; return re(); }
+    if (g('[data-vol]')) { MEC.vol = g('[data-vol]').dataset.vol; return re(); }
     if (g('[data-ed]')) { MEC.edema = g('[data-ed]').dataset.ed; return re(); }
     if (g('[data-pr]')) { const [k, i] = g('[data-pr]').dataset.pr.split(':'); MEC.resp[k] = +i; return re(); }
     if (g('[data-limpa]')) { MEC.resp = {}; return re(); }

@@ -39,6 +39,7 @@ applyTheme();
 function teoProg(t) { const n = t.secoes.length; const d = t.secoes.filter(s => S.done[t.id + ':' + s.id]).length; return [d, n]; }
 const NAV = [
   { label: 'Começo', items: [['inicio', 'Painel', 'var(--teal)']] },
+  { label: 'Aprender fazendo', items: [['trilhas', 'Trilhas de raciocínio', 'var(--a3)'], ['mecanismos', 'Laboratório de mecanismos', 'var(--a3)']] },
   { label: 'Teoria', items: TEORIA.map(t => ['teoria-' + t.id, t.titulo, 'var(--' + t.cor + ')', t]) },
   { label: 'Prática OSCE', items: [['osce', 'Simulador de estações', 'var(--trace)'], ['roteiros', 'Roteiros de exame', 'var(--trace)'], ['ausculta', 'Laboratório de ausculta', 'var(--trace)'], ['decodificador', 'Decodificador e mapas', 'var(--trace)']] },
   { label: 'Fixação', items: [['quiz', 'Questões', 'var(--a6)'], ['flashcards', 'Flashcards', 'var(--a6)'], ['glossario', 'Glossário', 'var(--a6)'], ['ferramentas', 'Calculadoras', 'var(--a6)']] }
@@ -47,7 +48,7 @@ function renderNav(active) {
   $('#nav').innerHTML = NAV.map(g => '<div class="nav-label">' + g.label + '</div>' + g.items.map(it => {
     let prog = '';
     if (it[3]) { const p = teoProg(it[3]); prog = '<span class="nav-prog">' + p[0] + '/' + p[1] + '</span>'; }
-    const isActive = active === it[0] || (it[0] === 'osce' && active.indexOf('osce-') === 0);
+    const isActive = active === it[0] || ((it[0] === 'osce' || it[0] === 'trilhas') && active.indexOf(it[0] + '-') === 0);
     return '<a class="nav-link' + (isActive ? ' active' : '') + '" href="#' + it[0] + '"><span class="nav-dot" style="background:' + it[2] + '"></span>' + it[1] + prog + '</a>';
   }).join('')).join('');
 }
@@ -76,7 +77,7 @@ function route() {
   else if (h === 'flashcards') viewFlash(v);
   else if (h === 'glossario') viewGlossario(v);
   else if (h === 'ferramentas') viewFerramentas(v);
-  else viewHome(v);
+  else { const ext = (window.SEMIO_VIEWS || []).find(x => h === x.id || h.indexOf(x.id + '-') === 0); if (ext) ext.render(v, h); else viewHome(v); }
   window.scrollTo(0, 0);
 }
 window.addEventListener('hashchange', route);
@@ -103,7 +104,8 @@ function viewHome(v) {
     <h1 style="margin-top:8px">Treine como se já estivesse na estação.</h1>
     <p>Teoria completa dos seus materiais, simulador de casos no estilo OSCE com paciente virtual, roteiros para falar em voz alta, sons cardíacos e pulmonares, ${QUIZ.length} questões e flashcards.</p>
     <div class="row" style="margin-top:10px">
-      <a class="btn primary" href="#osce" id="goOsce">${ICON.dice}Sortear uma estação</a>
+      <a class="btn primary" href="#trilhas">Começar uma trilha de raciocínio</a>
+      <a class="btn" href="#osce" id="goOsce">${ICON.dice}Sortear uma estação</a>
       <a class="btn" href="#quiz">Fazer 10 questões</a>
       <a class="btn" href="#roteiros">Roteiros de exame</a>
     </div>
@@ -117,6 +119,7 @@ function viewHome(v) {
     <svg class="hero-ecg" viewBox="0 0 520 70" aria-hidden="true"><polyline class="ecg-path" style="stroke-dasharray:1200;stroke-dashoffset:1200" points="0,40 120,40 135,40 145,30 155,40 175,40 185,48 195,6 205,64 215,40 240,40 255,32 272,40 520,40"/></svg>
   </section>
 
+  ${window.SEMIO_HOME ? window.SEMIO_HOME() : ''}
   <h2 style="margin:28px 0 12px">Teoria</h2>
   <div class="grid-3">
     ${TEORIA.map(t => { const p = teoProg(t); return `<a class="module-card" href="#teoria-${t.id}"><h3><span class="swatch" style="background:var(--${t.cor})"></span>${t.titulo}</h3><span class="muted small">${t.resumo}</span><div class="bar"><i style="width:${p[1] ? p[0] / p[1] * 100 : 0}%;background:var(--${t.cor})"></i></div><span class="small mono">${p[0]}/${p[1]} seções</span></a>`; }).join('')}
@@ -1001,5 +1004,6 @@ function viewBusca(v, q) {
   onLeave(() => { v.onclick = null; });
 }
 
+window.SEMIO = { S, save, onLeave, toast, ring, playSound, stopSound, SONS, get player() { return player; } };
 route();
 })();

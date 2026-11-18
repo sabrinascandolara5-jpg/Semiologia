@@ -141,5 +141,32 @@ window.SEMIO_VIDEOS = [
     "Trilha: Remodelamento"
    ]
   ]
+ },
+ {
+  "id": "06-cardio-sopros",
+  "n": 6,
+  "titulo": "Sopros e valvopatias",
+  "url": "/_blob/dd1e6821fae52ca7f9c2b8ded9feac21",
+  "dur": 219,
+  "topicos": [
+   "Quando a valva abre? Ela não abre ou não fecha?",
+   "Os seis itens",
+   "Sopro de ejeção em diamante",
+   "Holossistólico em platô",
+   "Protodiastólico aspirativo",
+   "Estalido e ruflar diastólico",
+   "Rivero-Carvallo",
+   "Como diferenciar na prova"
+  ],
+  "depois": [
+   [
+    "trilhas-sopro-ea",
+    "Trilha: Deduzindo um sopro"
+   ],
+   [
+    "mecanismos",
+    "Laboratório: coração"
+   ]
+  ]
  }
 ];

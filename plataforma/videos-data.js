@@ -168,5 +168,83 @@ window.SEMIO_VIDEOS = [
     "Laboratório: coração"
    ]
   ]
+ },
+ {
+  "id": "07-abdome-exame",
+  "n": 7,
+  "titulo": "Abdome: semiotécnica",
+  "url": "/_blob/a5c1ee9dcf21441e23ca00be16f9b4ab",
+  "dur": 196,
+  "topicos": [
+   "No abdome, a ordem inverte",
+   "Nove regiões",
+   "Forma, cicatrizes, veias",
+   "Ruídos hidroaéreos e sopros",
+   "Timpanismo, fígado e Traube",
+   "Superficial e profunda",
+   "Palpando a borda hepática",
+   "Três sinais, três volumes"
+  ],
+  "depois": [
+   [
+    "roteiros",
+    "Roteiro do exame do abdome"
+   ],
+   [
+    "mecanismos",
+    "Laboratório: abdome"
+   ]
+  ]
+ },
+ {
+  "id": "08-abdome-agudo",
+  "n": 8,
+  "titulo": "Abdome agudo e sinais semiológicos",
+  "url": "/_blob/2bca5dc452b91f6d00953a3ae492f9db",
+  "dur": 169,
+  "topicos": [
+   "Visceral × parietal",
+   "Os cinco tipos",
+   "Fossa ilíaca direita",
+   "Murphy, Charcot e Courvoisier",
+   "Cullen, Grey-Turner e Giordano",
+   "Jobert × Chilaiditi",
+   "O intestino que luta"
+  ],
+  "depois": [
+   [
+    "trilhas-abdome-agudo-tipos",
+    "Trilha: Os 5 abdomes agudos"
+   ],
+   [
+    "trilhas-vias-biliares",
+    "Trilha: Vias biliares"
+   ]
+  ]
+ },
+ {
+  "id": "09-estacao-osce",
+  "n": 9,
+  "titulo": "Como fazer uma estação OSCE",
+  "url": "/_blob/b6dbe6cda61aea3c44550b78d641b0fe",
+  "dur": 119,
+  "topicos": [
+   "Leia a porta com atenção",
+   "Os pontos que todo checklist cobra",
+   "Verbalize tudo",
+   "Descreva antes de interpretar",
+   "Pistas → síndromes → hipótese",
+   "Termine bem"
+  ],
+  "depois": [
+   [
+    "osce",
+    "Simulador OSCE"
+   ],
+   [
+    "roteiros",
+    "Roteiros de exame"
+   ]
+  ]
  }
 ];

@@ -228,7 +228,219 @@ const TRILHAS = [
     add: { h: 'Apendicite aguda com irritação peritoneal localizada' } }
   ],
   licao: 'A dor abdominal se organiza por localização (projeção dos órgãos) e por evolução. Os sinais semiológicos confirmam: cada um tem um mecanismo que você pode explicar ao examinador.'
+},
+{
+  id: 'ectoscopia', titulo: 'Ectoscopia: o que se vê da porta', area: 'Exame geral', cor: 'var(--a2)',
+  resumo: 'Atitude, cianose, fácies, consciência, hidratação e febre: o exame geral também é raciocínio.',
+  passos: [
+  { type: 'texto', html: '<p class="eyebrow">Enfermaria · antes de encostar no paciente</p><div class="speech">Você entra no quarto. Um senhor de 70 anos está sentado na beira da cama, inclinado para frente, apoiado nos braços, respirando rápido. Os lábios estão arroxeados. Quando a enfermeira tenta deitá-lo, ele recusa: "deitado eu sufoco".</div><p>O exame físico geral começa aqui, só olhando.</p>' },
+  { type: 'escolha', q: 'Como se chama essa atitude e o que ela sugere?', o: ['Atitude passiva: coma', 'Atitude ortopneica: IC, asma, ascite volumosa', 'Genupeitoral: derrame pericárdico', 'Decúbito lateral: dor pleurítica'], a: 1,
+    why: 'Ortopneica é voluntária: sentado, o sangue se acumula nas pernas, chega menos ao pulmão congesto e o diafragma desce. Típica de insuficiência cardíaca, asma e ascite volumosa.', add: { p: ['Atitude ortopneica'] } },
+  { type: 'classificar', q: 'Separe as características da cianose.', buckets: ['Generalizada / central', 'Localizada / periférica'],
+    items: [['Lábios e língua azulados', 0], ['Doença pulmonar com dessaturação', 0], ['Shunt direita-esquerda (cardiopatia)', 0], ['Acompanha baqueteamento digital', 0], ['Só nos dedos de um pé frio', 1], ['Melhora ao aquecer a extremidade', 1], ['Obstrução da drenagem venosa de um membro', 1]],
+    why: 'Cianose aparece quando a Hb reduzida passa de 5 g/dL. Se o sangue já sai do pulmão/coração mal oxigenado, ela é <b>generalizada</b> (mucosas, língua). Se o sangue é bem oxigenado mas fica parado ou chega pouco a uma região, é <b>localizada</b> (extremidade fria).', add: { s: ['Cianose central (hipoxemia)'] } },
+  { type: 'escolha', q: 'Outro paciente: abre os olhos quando você chama, responde confuso e localiza a dor. Qual o Glasgow?', o: ['9', '11', '12', '14'], a: 2,
+    why: 'Abertura ao chamado = 3; verbal confuso = 4; localiza a dor = 5. Total 12: moderado (9–12).' },
+  { type: 'classificar', q: 'Associe cada traço de fácies à doença.', buckets: ['Hipotireoidismo', 'Hipertireoidismo', 'Hipercortisolismo', 'Doença renal'],
+    items: [['Face pálida, edemaciada e apática', 0], ['Perda da cauda das sobrancelhas', 0], ['Exoftalmia e olhar assustado', 1], ['Ansiedade com bócio', 1], ['Face em lua cheia, avermelhada, com acne', 2], ['Gordura dorsal (giba)', 2], ['Edema palpebral pior pela manhã', 3]],
+    why: 'Mixedematosa (hipotireoidismo), basedowiana (Graves), cushingoide (Cushing ou corticoide) e renal. Na OSCE, descreva o que vê antes de nomear a fácies.' },
+  { type: 'prever', q: 'Paciente com diarreia: mucosas muito secas, enoftalmia evidente, TEC de 4 s, PA 80 × 50 mmHg, anúria. Grau de desidratação?', o: ['Leve', 'Moderada', 'Grave'], a: 2,
+    reveal: 'Desidratação grave (+4/+4).', why: 'TEC ≥ 3 s, hipotensão, extremidades frias e anúria indicam que a perda já compromete a perfusão. Na moderada há taquicardia e hipotensão só ortostática.' },
+  { type: 'escolha', q: 'A curva térmica mostra febre todos os dias, com variação maior que 1 °C e sem períodos normais. Padrão?', o: ['Contínua', 'Remitente', 'Intermitente', 'Em lise'], a: 1,
+    why: 'Contínua: varia até 1 °C. Remitente: varia mais de 1 °C, sem apirexia. Intermitente: há períodos sem febre (cotidiana, terçã, quartã). Lise é um modo de término.' },
+  { type: 'montar', q: 'Monte a descrição do exame geral deste senhor (sobram blocos).',
+    chips: ['Paciente em regular estado geral,', 'consciente e orientado,', 'taquipneico,', 'cianótico +2/+4 (lábios),', 'anictérico,', 'afebril,', 'em atitude ortopneica.', 'provavelmente com insuficiência cardíaca,', 'pálido porque está anêmico,'],
+    correct: [0, 1, 2, 3, 4, 5, 6],
+    why: 'O exame descreve o que se vê, gradua (+/4+) e localiza. Hipóteses entram depois, na síntese, não na descrição.', add: { h: 'O exame geral já sugere uma síndrome: hipoxemia com dispneia de decúbito' } }
+  ],
+  licao: 'O exame geral não é uma lista para recitar: cada item (atitude, cor, consciência, hidratação, temperatura) carrega um mecanismo. Descreva, gradue e só depois interprete.'
+},
+{
+  id: 'dispneia', titulo: 'Falta de ar: coração ou pulmão?', area: 'Integrado', cor: 'var(--a3)',
+  resumo: 'Use a anamnese e o exame para separar dispneia cardíaca de dispneia pulmonar.',
+  passos: [
+  { type: 'texto', html: '<p class="eyebrow">Ambulatório · Dona Teresa, 72 anos</p><div class="speech">"Faz 3 meses que eu canso. Antes era só subindo morro; agora canso até tomando banho. Durmo com 3 travesseiros e às vezes acordo sufocada, tenho que sentar na beira da cama até passar. No fim do dia as pernas incham."</div><p>Infarto há 5 anos. Nunca fumou. Sem chiado no peito, nunca teve asma.</p>' },
+  { type: 'escolha', q: 'Como classificar a dispneia dela hoje?', o: ['Aos grandes esforços', 'Aos médios esforços', 'Aos pequenos esforços', 'Em repouso'], a: 2,
+    why: 'Tomar banho, vestir-se e pentear o cabelo são pequenos esforços. A HDA deve registrar a progressão (grandes → pequenos em 3 meses).', add: { p: ['Dispneia progressiva aos pequenos esforços'] } },
+  { type: 'medidor', q: 'Pese as pistas.', hip: ['Insuficiência cardíaca', 'DPOC', 'Asma'],
+    pistas: [
+      { t: 'Ortopneia com 3 travesseiros', e: [1, 0, 0], why: 'Deitada, o sangue das pernas volta para um pulmão já congesto: marcador de IC esquerda.' },
+      { t: 'Acorda sufocada e melhora sentando (DPN)', e: [1, 0, 0], why: 'A DPN é típica de IC: o líquido do interstício volta ao vaso durante o sono e encharca o pulmão.' },
+      { t: 'Nunca fumou', e: [0, -1, 0], why: 'Sem tabagismo (nem exposição ocupacional), DPOC fica muito improvável.' },
+      { t: 'Sem chiado e sem crises desde a infância', e: [0, 0, -1], why: 'Asma cursa com sibilância episódica e reversível.' },
+      { t: 'Edema vespertino de MMII', e: [1, 0, 0], why: 'Congestão sistêmica: o coração direito também está falhando.' },
+      { t: 'Infarto há 5 anos', e: [1, 0, 0], why: 'O miocárdio lesado é a causa mais comum de IC.' }
+    ],
+    add: { p: ['Ortopneia e DPN', 'Edema vespertino', 'IAM prévio', 'Não tabagista'] } },
+  { type: 'prever', q: 'Auscultando as bases pulmonares, o que você espera?', o: ['Sibilos expiratórios difusos', 'Estertores finos nas bases, bilaterais', 'MV abolido unilateral', 'Atrito pleural'], a: 1,
+    reveal: 'Estertores finos (crepitantes) nas bases, bilateralmente.', why: 'Congestão passiva: líquido nos alvéolos das partes mais baixas, dos dois lados. Na asma seriam sibilos difusos.', add: { s: ['Congestão pulmonar (IC esquerda)'] } },
+  { type: 'prever', q: 'Na ausculta cardíaca em decúbito lateral esquerdo, com a campânula, que som extra é provável?', o: ['B4', 'B3', 'Estalido de abertura', 'Clique mesossistólico'], a: 1,
+    reveal: 'Ritmo de galope com B3.', why: 'Ventrículo dilatado e com sobrecarga de volume vibra no enchimento rápido.' },
+  { type: 'classificar', q: 'Que achados apontam para cada lado?', buckets: ['Insuficiência cardíaca', 'Doença pulmonar obstrutiva'],
+    items: [['Estertores finos nas bases', 0], ['B3', 0], ['Turgência jugular a 45°', 0], ['Ictus desviado e difuso', 0], ['Sibilos expiratórios difusos', 1], ['Tórax em tonel', 1], ['Hipersonoridade bilateral', 1], ['Expiração prolongada com lábios semicerrados', 1]],
+    why: 'O coração dá sinais de congestão e de dilatação; a doença obstrutiva dá sinais de ar aprisionado e de via aérea estreita.', add: { s: ['IC direita (congestão sistêmica)'] } },
+  { type: 'escolha', q: 'Na anamnese, qual conjunto de perguntas mais ajuda a separar dispneia cardíaca de pulmonar?', o: ['Idade e sexo', 'Ortopneia, DPN, edema e antecedente cardíaco × tabagismo, chiado, tosse e expectoração', 'Só a intensidade da dispneia', 'Cor da pele e religião'], a: 1,
+    why: 'A intensidade diz a gravidade, não a causa. A relação com o decúbito, o edema e os antecedentes dizem a origem.', add: { h: 'Insuficiência cardíaca congestiva (provável cardiopatia isquêmica)' } }
+  ],
+  licao: 'Dispneia é um sintoma de dois sistemas. A anamnese já separa bastante (decúbito, edema, tabagismo, chiado) e o exame confirma: crepitantes nas bases e B3 falam de coração; sibilos e hipersonoridade falam de via aérea.'
+},
+{
+  id: 'dor-toracica', titulo: 'Dor no peito na emergência', area: 'Cardiovascular', cor: 'var(--a4)',
+  resumo: 'Cada característica da dor torácica aponta para uma causa: isquemia, aorta, pericárdio, pleura ou parede.',
+  passos: [
+  { type: 'texto', html: '<p class="eyebrow">Pronto-socorro · Sr. Mário, 58 anos</p><div class="speech">"É um aperto no meio do peito, como se tivesse um peso em cima, começou há 40 minutos quando subia a ladeira. Vai para o braço esquerdo e para o queixo. Estou suando frio."</div><p>Hipertenso, tabagista 30 maços-ano.</p>' },
+  { type: 'medidor', q: 'Pese as pistas.', hip: ['Síndrome coronariana aguda', 'Dissecção de aorta', 'Pericardite', 'Pneumotórax'],
+    pistas: [
+      { t: 'Aperto retroesternal com sudorese fria', e: [1, 0, 0, 0], why: 'Dor em aperto/peso com sintomas autonômicos é o padrão isquêmico.' },
+      { t: 'Irradia para o braço esquerdo e a mandíbula', e: [1, 0, 0, 0], why: 'Irradiação típica da isquemia miocárdica. A dissecção irradia para o dorso.' },
+      { t: '58 anos, hipertenso, tabagista', e: [1, 1, 0, 0], why: 'Fatores de risco para aterosclerose e também para dissecção (HAS).' },
+      { t: 'Não muda com a respiração nem com a posição', e: [1, 0, -1, -1], why: 'Pericardite muda com a posição; dor pleural/pneumotórax piora ao inspirar.' },
+      { t: 'PA igual nos dois braços, pulsos simétricos', e: [0, -1, 0, 0], why: 'Na dissecção é comum diferença de pressão ou de pulso entre os membros.' },
+      { t: 'MV presente e simétrico', e: [0, 0, 0, -1], why: 'Pneumotórax tiraria o murmúrio de um lado.' }
+    ],
+    add: { p: ['Dor em aperto com irradiação para MSE', 'Sudorese fria', 'Fatores de risco', 'Sem variação com respiração/posição'] } },
+  { type: 'classificar', q: 'Que causa cada descrição de dor sugere?', buckets: ['Isquêmica', 'Dissecção de aorta', 'Pericardite', 'Pleural / pneumotórax', 'Parede ou esôfago'],
+    items: [['Aperto que vem no esforço e passa no repouso', 0], ['Súbita, lancinante, "rasgando", para o dorso', 1], ['PA diferente entre os braços', 1], ['Melhora sentado, inclinado para frente', 2], ['Atrito pericárdico', 2], ['Pontada que piora ao inspirar', 3], ['Súbita, jovem longilíneo, MV abolido de um lado', 3], ['Queimação após refeição que piora deitado', 4], ['Piora ao comprimir o esterno/costela', 4]],
+    why: 'Qualidade, irradiação, relação com respiração, posição, esforço e alimentação: o OPQRST da dor torácica separa os grandes grupos antes de qualquer exame.' },
+  { type: 'prever', q: 'Se fosse pericardite, que atitude o paciente tenderia a adotar?', o: ['Decúbito dorsal imóvel', 'Sentado inclinado para frente / genupeitoral', 'Decúbito lateral sobre o lado da dor', 'Opistótono'], a: 1,
+    reveal: 'Sentado, inclinado para frente (ou genupeitoral).', why: 'Afasta o coração do pericárdio parietal posterior e alivia a dor; no derrame pericárdico facilita o enchimento.' },
+  { type: 'escolha', q: 'Você ouve um atrito. Como saber se é pericárdico ou pleural?', o: ['Pedindo para o paciente prender a respiração: se continuar, é pericárdico', 'Pela intensidade', 'Pelo foco aórtico', 'Não dá para diferenciar'], a: 0,
+    why: 'O atrito pleural depende do movimento respiratório e some em apneia; o pericárdico depende do batimento e persiste.' },
+  { type: 'escolha', q: 'Dor em queimação em faixa no hemitórax, seguindo um dermátomo, com vesículas surgindo dias depois:', o: ['Angina', 'Herpes-zóster', 'Costocondrite', 'TEP'], a: 1,
+    why: 'A dor do zóster acompanha o dermátomo e pode preceder as lesões (vesículas sobre base eritematosa).', add: { h: 'Síndrome coronariana aguda até prova em contrário' } }
+  ],
+  licao: 'Diante de dor torácica, pergunte primeiro o que pode matar (isquemia, dissecção, pneumotórax, TEP) e use a qualidade, a irradiação e a relação com respiração, posição e esforço para ordenar as hipóteses.'
+},
+{
+  id: 'estenose-mitral', titulo: 'A mulher que tosse sangue', area: 'Cardiovascular', cor: 'var(--a4)',
+  resumo: 'Deduza a ausculta e as complicações da estenose mitral reumática a partir do sangue represado no átrio.',
+  passos: [
+  { type: 'texto', html: '<p class="eyebrow">S.M.O., 34 anos</p><div class="speech">"Canso fazendo serviço de casa, durmo com 2 travesseiros. Esse mês o coração disparou e ficou batendo descompassado, e tossi sangue duas vezes. Minha voz está rouca."</div><p>Na infância teve "dor nas juntas que pulava de uma para outra" e febre reumática; parou a penicilina benzatina.</p>' },
+  { type: 'escolha', q: 'A valva mitral fica aberta em que fase? Então a estenose soa quando?', o: ['Aberta na sístole: sopro sistólico', 'Aberta na diástole: sopro diastólico', 'Aberta sempre: sopro contínuo'], a: 1,
+    why: 'As valvas AV abrem na diástole para encher os ventrículos. Estenose = não abre direito = sopro na diástole.', add: { p: ['Febre reumática na infância'] } },
+  { type: 'prever', q: 'Que forma e timbre esse sopro tem, e como ouvir melhor?', o: ['Holossistólico, diafragma, sentado', 'Ruflar mesodiastólico grave, campânula em decúbito lateral esquerdo', 'Protodiastólico aspirativo, inclinado para frente', 'Contínuo em maquinaria, infraclavicular'], a: 1,
+    reveal: 'Ruflar mesodiastólico no foco mitral, melhor com campânula em DLE (Pachon), sem irradiação.', why: 'Fluxo de baixa velocidade por orifício estreito gera som grave (campânula). DLE aproxima o ápice da parede. O exercício (FC maior) aumenta o gradiente e o sopro.' },
+  { type: 'prever', q: 'Como estará a B1?', o: ['Hipofonética', 'Hiperfonética', 'Ausente', 'Desdobrada fixa'], a: 1,
+    reveal: 'B1 hiperfonética ("em estalo").', why: 'Com pressão alta no AE, os folhetos espessados ficam abertos até o último instante e fecham com força.' },
+  { type: 'prever', q: 'Logo depois da B2 aparece um som seco e agudo. O que é?', o: ['B3', 'Estalido de abertura', 'Clique de ejeção', 'Atrito'], a: 1,
+    reveal: 'Estalido de abertura.', why: 'Os folhetos fundidos abrem bruscamente e param. Quanto mais perto da B2, maior a pressão no AE e mais grave a estenose.' },
+  { type: 'escolha', q: 'Como deve estar o ictus cordis?', o: ['Desviado para baixo e para a esquerda, difuso', 'Propulsivo e sustentado', 'Normal ou pouco palpável', 'Duplo'], a: 2,
+    why: 'O problema está antes do VE: ele recebe menos sangue e não sofre sobrecarga. Ictus normal ajuda a diferenciar de IM e IAo.' },
+  { type: 'ordenar', q: 'Monte a cadeia que explica os sintomas dela.', items: ['Febre reumática funde os folhetos mitrais', 'Valva mitral estreita', 'Sangue represa no átrio esquerdo', 'Átrio esquerdo dilata e a pressão sobe nas veias pulmonares', 'Congestão pulmonar: dispneia, ortopneia, hemoptise'],
+    why: 'Tudo na estenose mitral vem do sangue preso no AE: para trás (pulmão) e no próprio átrio (dilatação).', add: { s: ['Congestão pulmonar', 'Átrio esquerdo dilatado'] } },
+  { type: 'multi', q: 'Quais destas são consequências do átrio esquerdo dilatado?', o: ['Fibrilação atrial (pulso irregular)', 'Rouquidão (sinal de Ortner)', 'Desaparecimento do reforço pré-sistólico se houver FA', 'Pulso em martelo d’água', 'Ictus difuso e desviado', 'B4'], correct: [0, 1, 2],
+    why: 'AE grande desorganiza a condução (FA), comprime o laríngeo recorrente esquerdo (Ortner) e, sem contração atrial efetiva, some o reforço pré-sistólico. Corrigan é da IAo; ictus desviado é sobrecarga do VE.', add: { s: ['Fibrilação atrial'] } },
+  { type: 'montar', q: 'Descreva a ausculta para o examinador (sobram blocos).',
+    chips: ['Ritmo cardíaco irregular,', 'B1 hiperfonética,', 'estalido de abertura após B2,', 'sopro mesodiastólico em ruflar', 'no foco mitral,', 'sem irradiação,', 'melhor com campânula em decúbito lateral esquerdo.', 'holossistólico,', 'irradiando para axila,'],
+    correct: [0, 1, 2, 3, 4, 5, 6],
+    why: 'Ritmo, bulhas, sons extras e o sopro com momento, forma, foco, irradiação e manobra.', add: { h: 'Estenose mitral reumática com fibrilação atrial e congestão pulmonar' } }
+  ],
+  licao: 'Na estenose mitral, o sangue fica preso no átrio esquerdo. Daí vem tudo: ruflar diastólico, B1 forte, estalido, FA, Ortner, hemoptise e um VE poupado.'
+},
+{
+  id: 'insuf-aortica', titulo: 'Tudo pulsa', area: 'Cardiovascular', cor: 'var(--a4)',
+  resumo: 'Insuficiência aórtica: entenda por que a pressão diverge e o corpo inteiro pulsa.',
+  passos: [
+  { type: 'texto', html: '<p class="eyebrow">Rafael, 38 anos</p><div class="speech">"Sinto o coração bater forte no peito e no pescoço, principalmente deitado. Minha esposa diz que minha cabeça balança."</div><p>Endocardite há 2 anos, tratada.</p>' },
+  { type: 'escolha', q: 'A valva aórtica fica fechada em que fase? Então a insuficiência soa quando?', o: ['Fechada na diástole: sopro diastólico', 'Fechada na sístole: sopro sistólico'], a: 0,
+    why: 'A aórtica abre na sístole e fecha na diástole. Insuficiência = não fecha direito = refluxo na diástole.', add: { p: ['Endocardite prévia'] } },
+  { type: 'prever', q: 'Forma e timbre do sopro:', o: ['Ruflar mesodiastólico', 'Protodiastólico, aspirativo, em decrescendo', 'Mesossistólico em diamante', 'Holossistólico em platô'], a: 1,
+    reveal: 'Sopro protodiastólico aspirativo em decrescendo no foco aórtico acessório.', why: 'Logo após o fechamento o gradiente aorta→VE é máximo e vai caindo: começa forte e diminui. Jato de alta velocidade = som agudo (diafragma).' },
+  { type: 'prever', q: 'Posição para ouvir melhor:', o: ['Decúbito lateral esquerdo', 'Sentado, inclinado para frente, em expiração', 'Em pé após Valsalva', 'Deitado com as pernas elevadas'], a: 1,
+    reveal: 'Sentado, inclinado para frente, com a respiração presa após expirar.', why: 'Aproxima a base do coração da parede torácica.' },
+  { type: 'prever', q: 'Como fica a PA?', o: ['110 × 90 (convergente)', '160 × 40 (divergente)', '120 × 80', '90 × 60'], a: 1,
+    reveal: 'PA 160 × 40 mmHg: pressão de pulso de 120.', why: 'O VE dilatado ejeta um volume enorme (sistólica sobe) e na diástole a aorta se esvazia de volta para o ventrículo (diastólica cai).', add: { p: ['Pressão divergente'] } },
+  { type: 'classificar', q: '"Tudo pulsa": onde cada sinal aparece?', buckets: ['Cabeça e pescoço', 'Mãos', 'Membros inferiores', 'Vísceras'],
+    items: [['Musset (cabeça balança)', 0], ['Müller (úvula pulsa)', 0], ['Corrigan (carótidas pulsando)', 0], ['Quincke (leito ungueal)', 1], ['Traube ("tiro de pistola" na femoral)', 2], ['Duroziez (duplo sopro na femoral comprimida)', 2], ['Hill (PAS poplítea > braquial)', 2], ['Rosenbach (fígado pulsátil)', 3], ['Gerhard (baço pulsátil)', 3]],
+    why: 'Todos vêm da mesma física: grande volume ejetado + colapso diastólico = pulsação exagerada em cada território.', add: { s: ['Sinais periféricos de IAo'] } },
+  { type: 'prever', q: 'Ictus cordis:', o: ['Normal', 'Desviado para baixo e para a esquerda, difuso e hiperdinâmico', 'Propulsivo no lugar normal', 'Impalpável'], a: 1,
+    reveal: 'Ictus no 6º EIC na linha axilar anterior, 3 polpas, hiperdinâmico.', why: 'Sobrecarga de volume: o VE recebe de volta o que ejetou e dilata (hipertrofia excêntrica).' },
+  { type: 'escolha', q: 'No foco mitral há um ruflar diastólico discreto, sem estenose mitral. O que é?', o: ['Graham Steell', 'Austin-Flint', 'Gallavardin', 'Rivero-Carvallo'], a: 1,
+    why: 'O jato regurgitante bate no folheto anterior mitral e dificulta sua abertura: estenose mitral funcional.' },
+  { type: 'escolha', q: 'O que o handgrip faz com esse sopro?', o: ['Diminui', 'Aumenta', 'Não muda'], a: 1,
+    why: 'Handgrip aumenta a pós-carga: mais sangue volta da aorta para o VE. Aumenta IAo e IM, diminui EAo.', add: { h: 'Insuficiência aórtica crônica (sequela de endocardite)' } }
+  ],
+  licao: 'Insuficiência aórtica = muito volume ejetado e muito volume que volta. Isso explica o sopro diastólico em decrescendo, a pressão divergente, o pulso de Corrigan, o VE dilatado e todos os sinais periféricos.'
+},
+{
+  id: 'pulso-pa', titulo: 'Lendo pulso e pressão', area: 'Cardiovascular', cor: 'var(--a4)',
+  resumo: 'Korotkoff, pressão de pulso, tipos de pulso e pulso venoso: o que a hemodinâmica conta.',
+  passos: [
+  { type: 'escolha', q: 'Na medida da PA, em que fases de Korotkoff você lê a sistólica e a diastólica?', o: ['Fase II e fase IV', 'Fase I e fase V', 'Fase III e fase V', 'Fase I e fase III'], a: 1,
+    why: 'Fase I = aparecimento dos sons (PAS). Fase V = desaparecimento (PAD). A fase IV (abafamento) só é usada quando os sons vão até zero.' },
+  { type: 'ordenar', q: 'Coloque a técnica da medida na ordem.', items: ['Paciente em repouso 3–5 min, sentado, braço na altura do coração', 'Manguito 2–3 cm acima da fossa cubital', 'Palpar a radial e insuflar até sumir (estima a PAS)', 'Estetoscópio na braquial e insuflar 20–30 mmHg acima da PAS estimada', 'Desinsuflar 2–3 mmHg por segundo e ler fases I e V'],
+    why: 'Estimar a PAS pela palpação evita subestimar a pressão por causa do hiato auscultatório.' },
+  { type: 'classificar', q: 'Associe o pulso à condição.', buckets: ['Estenose aórtica', 'Insuficiência aórtica', 'Tamponamento / asma grave', 'IC esquerda grave', 'Choque / baixo débito'],
+    items: [['Parvus et tardus', 0], ['Pressão convergente', 0], ['Martelo d’água (Corrigan)', 1], ['Pressão divergente', 1], ['Paradoxal (cai > 10 mmHg na inspiração)', 2], ['Alternante', 3], ['Filiforme', 4], ['Dicrótico', 4]],
+    why: 'Amplitude reflete volume ejetado; velocidade de subida reflete a facilidade de ejeção; variação com a respiração reflete interação entre os ventrículos.', add: { p: ['Tipos de pulso'] } },
+  { type: 'escolha', q: 'PA 150 × 60 mmHg. A pressão de pulso é:', o: ['60 mmHg, normal', '90 mmHg, divergente', '30 mmHg, convergente', '210 mmHg'], a: 1,
+    why: 'Pressão de pulso = PAS − PAD = 90 (normal ~40). Pense em insuficiência aórtica, hipertireoidismo, anemia, rigidez arterial do idoso.' },
+  { type: 'prever', q: 'Paciente com FC de 120 bpm na ausculta e pulso radial de 96. O que está acontecendo?', o: ['Erro de contagem', 'Déficit de pulso: batimentos que não geram onda palpável (FA)', 'Pulso paradoxal', 'Bloqueio de ramo'], a: 1,
+    reveal: 'Ritmo irregularmente irregular com déficit de pulso.', why: 'Na fibrilação atrial alguns ciclos enchem pouco o ventrículo e não chegam à periferia. Por isso, na FA, a FC se conta na ausculta.', add: { s: ['Fibrilação atrial'] } },
+  { type: 'escolha', q: 'Para avaliar a turgência jugular, você posiciona o paciente:', o: ['Deitado a 0°, olhando para frente', 'A 45°, cabeça para a esquerda, olhando a jugular interna direita', 'Sentado a 90°', 'Em pé'], a: 1,
+    why: 'A jugular interna direita tem trajeto reto até o átrio direito pela veia cava superior.' },
+  { type: 'classificar', q: 'O que cada alteração do pulso venoso sugere?', buckets: ['Insuficiência tricúspide', 'BAVT', 'Restrição ao enchimento'],
+    items: [['Onda v gigante, junto com a B2', 0], ['Fígado pulsátil', 0], ['Onda a em canhão intermitente', 1], ['Descensos X e Y profundos (W ou M)', 2]],
+    why: 'O pulso venoso mostra o coração direito: refluxo pela tricúspide (v), átrio contraindo contra valva fechada (a em canhão), enchimento restrito (W/M).', add: { h: 'Pulso e PA contam o volume ejetado, a facilidade de ejeção e o coração direito' } }
+  ],
+  licao: 'Pulso e pressão são o primeiro exame do coração: amplitude e velocidade de subida falam da ejeção; a pressão de pulso fala de volume e de refluxo; o pulso venoso fala do lado direito.'
+},
+{
+  id: 'ictericia', titulo: 'Olhos amarelos', area: 'Abdome', cor: 'var(--a5)',
+  resumo: 'Do achado de icterícia à causa: colúria, acolia, vesícula de Courvoisier e o fígado à palpação.',
+  passos: [
+  { type: 'texto', html: '<p class="eyebrow">Sr. Antônio, 66 anos</p><div class="speech">"Faz um mês que fiquei amarelo, cada vez mais. A urina está cor de coca-cola e o cocô ficou esbranquiçado. Coça o corpo todo. Perdi 8 kg. Não sinto dor."</div>' },
+  { type: 'escolha', q: 'Onde a icterícia aparece primeiro e melhor?', o: ['Palmas das mãos', 'Esclera, mucosa conjuntival e freio lingual', 'Leito ungueal', 'Lóbulos das orelhas'], a: 1,
+    why: 'A bilirrubina tem afinidade pela elastina da esclera; avalie com luz natural e gradue de 1+ a 4+.' },
+  { type: 'escolha', q: 'Colúria + acolia fecal indicam:', o: ['Hemólise', 'A bilirrubina direta não chega ao intestino e sai pela urina (colestase/obstrução)', 'Desidratação', 'Sangramento digestivo'], a: 1,
+    why: 'Bilirrubina conjugada é hidrossolúvel: acumula no sangue e vai para a urina (colúria). Sem bile no intestino, as fezes perdem a cor (acolia). Na hemólise a bilirrubina é indireta e não dá colúria.', add: { p: ['Icterícia progressiva', 'Colúria e acolia', 'Prurido', 'Perda de 8 kg'] } },
+  { type: 'medidor', q: 'Pese as pistas.', hip: ['Neoplasia de cabeça de pâncreas', 'Coledocolitíase / colecistite', 'Hepatite aguda', 'Cirrose'],
+    pistas: [
+      { t: 'Icterícia progressiva, sem dor', e: [1, -1, 0, 0], why: 'Cálculo costuma dar cólica e icterícia flutuante; tumor obstrui de forma lenta e silenciosa.' },
+      { t: 'Perda de 8 kg em 1 mês', e: [1, 0, 0, 0], why: 'Emagrecimento importante sugere neoplasia.' },
+      { t: 'Vesícula palpável e indolor', e: [1, -1, 0, 0], why: 'Sinal de Courvoisier-Terrier: obstrução distal do colédoco por tumor.' },
+      { t: 'Sem febre, Murphy negativo', e: [0, -1, 0, 0], why: 'Sem sinais de inflamação da vesícula.' },
+      { t: 'Sem aranhas vasculares, ascite ou circulação colateral', e: [0, 0, 0, -1], why: 'Faltam estigmas de hepatopatia crônica e hipertensão portal.' },
+      { t: 'Fígado aumentado, liso, borda romba', e: [1, 0, -1, -1], why: 'Fígado de colestase extra-hepática; hepatite tem borda fina e dor; cirrose é nodular.' }
+    ],
+    add: { s: ['Síndrome colestática (icterícia obstrutiva)'] } },
+  { type: 'escolha', q: 'Por que no cálculo a vesícula geralmente NÃO fica palpável e indolor como no tumor?', o: ['Porque o cálculo dissolve', 'Porque a vesícula com cálculos já sofreu inflamações repetidas, ficou fibrosada e não distende', 'Porque o cálculo fica no fígado', 'Não há diferença'], a: 1,
+    why: 'A obstrução tumoral é lenta e a vesícula, sadia, distende até ficar palpável. A vesícula litiásica é fibrosada e pequena.', add: { s: ['Sinal de Courvoisier-Terrier'] } },
+  { type: 'classificar', q: 'Associe o fígado palpado à condição.', buckets: ['Congestão (ICC)', 'Cirrose', 'Hepatite', 'Esteatose'],
+    items: [['Liso, doloroso, borda romba, com turgência jugular', 0], ['Pulsátil se houver IT', 0], ['Nodular, indolor, borda romba', 1], ['Liso, doloroso, borda fina', 2], ['Liso, consistência diminuída, borda fina, indolor', 3]],
+    why: 'Superfície, borda, consistência e dor contam a doença: distensão aguda da cápsula dói; fibrose nodulariza; gordura amolece.', add: { h: 'Icterícia obstrutiva por provável neoplasia de cabeça de pâncreas' } }
+  ],
+  licao: 'Icterícia é um sinal: primeiro descubra se é colestática (colúria, acolia, prurido) e, se for, se a obstrução é inflamatória (dor, febre, Murphy) ou tumoral (silenciosa, emagrecimento, Courvoisier).'
+},
+{
+  id: 'obstrucao', titulo: 'Barriga distendida e vômitos', area: 'Abdome', cor: 'var(--a5)',
+  resumo: 'Obstrução intestinal × peritonite × íleo: o abdome muda conforme o intestino luta ou para.',
+  passos: [
+  { type: 'texto', html: '<p class="eyebrow">Dona Lurdes, 70 anos</p><div class="speech">"A barriga foi inchando desde ontem. Dá uma cólica que vem e vai, em ondas. Vomitei várias vezes, e não solto gases nem faço cocô há 2 dias."</div><p>Fez histerectomia há 10 anos.</p>' },
+  { type: 'escolha', q: 'Por que a cirurgia antiga importa?', o: ['Não importa', 'Cicatriz cirúrgica indica aderências, a principal causa de obstrução do delgado', 'Contraindica o exame', 'Indica hérnia sempre'], a: 1,
+    why: 'Na inspeção, cicatriz = cirurgia prévia = aderências = risco de obstrução.', add: { p: ['Cólica em ondas', 'Vômitos', 'Parada de eliminação de gases e fezes', 'Cirurgia prévia'] } },
+  { type: 'prever', q: 'Na inspeção, o que você espera?', o: ['Abdome escavado', 'Distendido, com ondas peristálticas visíveis', 'Circulação colateral periumbilical', 'Equimose nos flancos'], a: 1,
+    reveal: 'Abdome distendido, timpânico à vista, com peristaltismo visível.', why: 'As alças acima do bloqueio enchem de gás e líquido e contraem com força contra o obstáculo.' },
+  { type: 'prever', q: 'Na ausculta (feita antes de palpar):', o: ['RHA abolidos desde o início', 'RHA hiperativos, com timbre metálico', 'RHA normais', 'Sopro na aorta'], a: 1,
+    reveal: 'Ruídos de luta, hiperativos, de timbre metálico.', why: 'Gás sob pressão em alças dilatadas ressoa metálico. Com a evolução e o cansaço da alça, os ruídos podem sumir.' },
+  { type: 'prever', q: 'Na percussão:', o: ['Macicez difusa', 'Hipertimpanismo', 'Macicez nos flancos que se move', 'Som normal'], a: 1,
+    reveal: 'Hipertimpanismo difuso.', why: 'Excesso de gás nas alças.', add: { s: ['Síndrome obstrutiva intestinal'] } },
+  { type: 'medidor', q: 'Pese as pistas para o quadro completo.', hip: ['Obstrução intestinal', 'Peritonite', 'Pancreatite aguda', 'Íleo paralítico'],
+    pistas: [
+      { t: 'Dor em cólica, em ondas', e: [1, -1, 0, -1], why: 'Cólica é a luta da alça contra o obstáculo; na peritonite a dor é contínua e piora com qualquer movimento.' },
+      { t: 'Parada de eliminação de gases e fezes', e: [1, 0, 0, 1], why: 'Acontece na obstrução mecânica e no íleo paralítico.' },
+      { t: 'RHA metálicos de luta', e: [1, -1, -1, -1], why: 'Peritonite, pancreatite e íleo paralisam o intestino: ruídos hipoativos ou abolidos.' },
+      { t: 'Sem defesa e sem Blumberg', e: [1, -1, 0, 0], why: 'Sem irritação peritoneal (por enquanto).' },
+      { t: 'Cicatriz de cirurgia pélvica', e: [1, 0, 0, 0], why: 'Aderência é a causa mais comum de obstrução do delgado.' }
+    ] },
+  { type: 'escolha', q: 'Horas depois: RHA abolidos, defesa generalizada e Blumberg positivo. O que mudou?', o: ['Melhorou', 'Sofrimento da alça com perfuração ou necrose e peritonite', 'Virou pancreatite', 'É esperado e benigno'], a: 1,
+    why: 'Quando a alça isquemia, o intestino para e o peritônio inflama. É uma complicação cirúrgica.' },
+  { type: 'escolha', q: 'Se a macicez hepática desaparecesse e virasse timpanismo, o sinal seria:', o: ['Castell', 'Jobert: ar livre na cavidade (perfuração)', 'Skoda', 'Giordano'], a: 1,
+    why: 'Ar livre sobe e se interpõe entre o fígado e a parede.', add: { h: 'Obstrução intestinal mecânica por aderência (vigiar sinais de sofrimento)' } }
+  ],
+  licao: 'O intestino obstruído luta (cólica, ruídos metálicos, peristaltismo visível, hipertimpanismo); o intestino inflamado ou paralisado para (ruídos abolidos). A transição de um para o outro é sinal de alarme.'
 }
+
 ];
 
 /* ---------- motor das trilhas ---------- */

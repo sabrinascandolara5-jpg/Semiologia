@@ -709,7 +709,7 @@ function render(v) {
       <div class="door"><div class="eyebrow">Caso</div><p>${p.caso}</p></div>
       <div class="panel" style="margin-top:14px"><h3>Como funciona</h3><p>São 5 tarefas, uma de cada vez. Leia, execute ou responda em voz alta como faria para o examinador e só então clique em <b>Conferir</b>. Marque com honestidade apenas o que você realmente fez ou falou.</p>
       <div class="row" style="margin-top:10px"><label class="field" for="pLim">Tempo<select id="pLim"><option value="300">5 min</option><option value="420">7 min</option><option value="600" selected>10 min</option><option value="900">15 min</option></select></label>
-      <button class="btn primary" type="button" id="pStart" style="align-self:flex-end">Começar</button></div></div>`;
+      <button class="btn primary" type="button" id="pStart" style="align-self:flex-end">Começar</button></div><p class="small" style="margin-top:8px;color:var(--muted)">Ao terminar, você vê a nota e uma revisão completa do caso: fisiopatologia, mecanismo de cada sinal, manobras, diferenciais e pegadinhas.</p></div>`;
     return;
   }
   if (R.i >= p.tarefas.length) return fim(v);
@@ -752,7 +752,20 @@ function fim(v) {
       <div style="flex:1;min-width:220px">${p.tarefas.map((t, i) => `<div class="match"><span style="flex:1.6;min-width:0" class="small"><b>${i + 1}.</b> ${t.q.replace(/<[^>]+>/g, '').slice(0, 70)}${t.q.length > 70 ? '…' : ''}</span><div class="bar"><i style="width:${(R.sc[i] || 0) * 100}%"></i></div><span class="mono small">${((R.sc[i] || 0) * 2).toFixed(1)}/2</span></div>`).join('')}
       ${tempo > R.lim ? '<p class="small" style="color:var(--bad)">Passou do tempo.</p>' : ''}</div></div>
     <div class="panel" style="margin-top:14px"><h3>Revise os pontos que faltaram</h3>${p.tarefas.map((t, i) => { if (t.tipo === 'identificar') return R.ans[i] === t.a ? '' : `<div class="check"><span class="mark n">✗</span><div><b>${i + 1}.</b> Resposta: ${t.o[t.a]}</div></div>`; const ck = R.chk[i] || {}; const miss = t.pontos.filter((_, k) => !ck[k]); return miss.length ? `<div style="margin-bottom:8px"><b>${i + 1}. ${t.q.replace(/<[^>]+>/g, '')}</b>${miss.map(m => `<div class="check"><span class="mark n">✗</span><div class="small">${m}</div></div>`).join('')}</div>` : ''; }).join('') || '<p>Você marcou todos os pontos. Excelente!</p>'}</div>
+    ${revisao(p)}
     <div class="row" style="margin-top:14px"><button class="btn primary" type="button" id="pAgain">Refazer</button><a class="btn" href="#provas">Outra estação</a></div>`;
+}
+
+function revisao(p) {
+  const rv = (window.SEMIO_REVISOES || {})[p.id]; if (!rv) return '';
+  const tab = (rows, h1, h2) => `<div style="overflow-x:auto"><table class="tbl" style="width:100%;border-collapse:collapse"><thead><tr><th style="text-align:left;padding:6px 8px;border-bottom:1px solid var(--line)">${h1}</th><th style="text-align:left;padding:6px 8px;border-bottom:1px solid var(--line)">${h2}</th></tr></thead><tbody>${rows.map(r => `<tr><td style="padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top;font-weight:600;min-width:120px">${r[0]}</td><td style="padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top">${r[1]}</td></tr>`).join('')}</tbody></table></div>`;
+  const sec = (t, body) => `<details class="door" style="padding:10px 14px;margin-top:10px" open><summary style="cursor:pointer;font-weight:700">${t}</summary><div style="margin-top:8px">${body}</div></details>`;
+  return `<div class="panel" id="pRev" style="margin-top:14px"><div class="eyebrow">Revisão do caso</div><h3>Tudo o que esta estação envolve</h3>
+    ${sec('Fisiopatologia: o que está acontecendo', rv.fisio)}
+    ${rv.sinais ? sec('Sinais do caso e o porquê de cada um', tab(rv.sinais, 'Sinal', 'Mecanismo')) : ''}
+    ${rv.tecnica ? sec('Como fazer as manobras', '<ul>' + rv.tecnica.map(x => `<li>${x}</li>`).join('') + '</ul>') : ''}
+    ${rv.dif ? sec('Diagnósticos diferenciais', tab(rv.dif, 'Diagnóstico', 'O que separa')) : ''}
+    ${rv.pegadinha ? `<div class="explain bad" style="margin-top:12px"><b>Pegadinha / o que já caiu:</b> ${rv.pegadinha}</div>` : ''}</div>`;
 }
 
 function click(e, v) {

@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Quadros-resumo · Semiologia</title>
+<style>
+@page { size: A4 landscape; margin: 5mm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Inter, sans-serif; font-size: 5.7pt; line-height: 1.15; color: #111c20; }
+.page { height: 199mm; break-after: page; display: flex; flex-direction: column; overflow: hidden; }
+.cols { flex: 1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2.2mm; min-height: 0; }
+.col { min-width: 0; }
+.page:last-child { break-after: auto; }
+.box { break-inside: avoid; border: .5pt solid #b8c9c5; border-radius: 1.2mm; margin-bottom: 1.4mm; overflow: hidden; }
+.box h3 { font-size: 6.3pt; font-weight: 800; color: #fff; padding: .5mm 1.2mm; letter-spacing: .02em; }
+.box .c { padding: .7mm 1.1mm; }
+.an h3 { background: #0B6A63; } .ge h3 { background: #6B4FA0; } .re h3 { background: #1F6FB0; } .ca h3 { background: #C2335E; } .ab h3 { background: #9A6A12; } .os h3 { background: #12252A; }
+b { font-weight: 700; }
+.an b { color: #0B6A63; } .ge b { color: #5a3f8c; } .re b { color: #1a5f99; } .ca b { color: #a82a50; } .ab b { color: #7d550c; } .os b { color: #111; }
+table { width: 100%; border-collapse: collapse; font-size: 5.45pt; margin: .4mm 0; }
+th { background: #e6eeec; text-align: left; font-weight: 700; padding: .25mm .6mm; border: .3pt solid #c9d6d3; }
+td { padding: .25mm .6mm; border: .3pt solid #d6e0de; vertical-align: top; }
+td:first-child { font-weight: 600; }
+p, li { margin: .25mm 0; }
+ul { padding-left: 2.6mm; } li { margin: .15mm 0; }
+.t { font-weight: 800; font-size: 6.2pt; margin-top: .6mm; }
+.k { background: #fff3d6; padding: .2mm .7mm; border-radius: .6mm; }
+.hdr { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1pt solid #111c20; margin-bottom: 1.2mm; padding-bottom: .5mm; }
+.hdr h1 { font-size: 10pt; font-weight: 800; } .hdr span { font-size: 6pt; color: #556; }
+.m { font-family: "JetBrains Mono", monospace; font-size: 5.7pt; }
+</style></head><body>
+
+<!-- ========================= FRENTE ========================= -->
+<div class="page">
+<div class="hdr"><h1>Semiologia do Adulto I · Quadros-resumo (frente)</h1><span>Anamnese · Exame geral · Respiratório · OSCE</span></div>
+
+<div class="box os"><h3>ESTAÇÃO OSCE: CHECKLIST</h3><div class="c">
+<p><b>Abrir:</b> higienizar mãos → apresentar-se (nome/função) → confirmar nome → explicar + pedir permissão → privacidade/expor só o necessário → aquecer mãos e esteto → médico à <b>direita</b>.</p>
+<p><b>Durante:</b> verbalizar cada manobra · comparar lados · avisar antes de manobra dolorosa · graduar (+/4+) e localizar (lado, EIC, região).</p>
+<p><b>Síntese:</b> pistas → <b>síndromes</b> → hipótese + 1 diferencial ("o paciente apresenta…, que compõem…; minha hipótese é… porque…").</p>
+<p><b>Fechar:</b> cobrir, agradecer, orientar, higienizar mãos.</p>
+</div></div>
+
+<div class="box an"><h3>ANAMNESE</h3><div class="c">
+<p><b>7 componentes:</b> Identificação · QD · HDA · IDA · AP · AF · Hábitos.</p>
+<p><b>Identificação:</b> nome, idade, sexo, cor, estado civil, profissão (atual e anteriores → pneumoconiose, LER), naturalidade/procedência (endemias: Chagas, esquisto), religião, escolaridade, <b>fonte e confiabilidade</b>.</p>
+<p><b>QD:</b> palavras do paciente + tempo, <b>sem rótulo diagnóstico</b> ("dor de cabeça" há 2 dias). Várias queixas → a que mais incomoda.</p>
+<p><b>HDA:</b> sintoma-guia + início; cronológica; termos técnicos; começo-meio-fim; termina com <b>negativas</b>. Ordem: QP técnica + duração + desencadeantes + melhora + piora + evolução + nega.</p>
+<p><b>OPQRST:</b> Onset · Provocação/Paliação · Qualidade · Região/irRadiação · Severidade (0–10) · Tempo.</p>
+<p><b>Análise do sintoma:</b> início, características, melhora/piora, relação c/ outras queixas, evolução, situação atual.</p>
+<table><tr><th>Dispneia</th><th>Exemplo</th></tr>
+<tr><td>Grandes esforços</td><td>correr, vários lances de escada</td></tr>
+<tr><td>Médios</td><td>1 quarteirão, 1 lance, sacolas</td></tr>
+<tr><td>Pequenos</td><td>banho, vestir, pentear, telefone</td></tr>
+<tr><td>Repouso</td><td>parado/deitado</td></tr></table>
+<p>Ortopneia (deitar) · DPN (acorda sufocado → IC) · trepopneia (um decúbito lateral) · platipneia (piora sentado).</p>
+<p><b>IDA:</b> sistemático, avisar antes; registrar o que nega. Queixas sem relação com a HDA vão aqui.</p>
+<p><b>AP:</b> doenças, medicações (dose/tempo), cirurgias, internações, transfusões, alergias, vacinas, G/O. <b>AF:</b> pais, irmãos, filhos + causa e idade do óbito.</p>
+<p><b>Carga tabágica</b> = (cig/dia ÷ 20) × anos · 1 cigarro de palha = 5 industrializados.</p>
+<p><b>Técnicas:</b> apoio, facilitação, reflexão (repetir palavras), esclarecimento ("tontura" = ?), confrontação, interpretação, resposta empática, silêncio.</p>
+<p><b>Relação médico-paciente:</b> ativo/passivo (emergência) · direciona/colabora (hospital) · participação mútua (ambulatório).</p>
+</div></div>
+
+<div class="box an"><h3>TERMOS QUE CAEM</h3><div class="c">
+<table>
+<tr><td>Polaciúria</td><td>↑ nº micções, pouco volume</td></tr>
+<tr><td>Poliúria / oligúria / anúria</td><td>↑ volume / &lt;400 mL / &lt;100 mL por 24 h</td></tr>
+<tr><td>Disúria · estrangúria</td><td>micção dolorosa · lenta e dolorosa</td></tr>
+<tr><td>Colúria · acolia</td><td>urina "coca-cola" · fezes claras (sem bile)</td></tr>
+<tr><td>Hematêmese · melena</td><td>vômito de sangue · fezes negras (acima Treitz)</td></tr>
+<tr><td>Enterorragia · hematoquezia</td><td>sangue vivo puro · sangue misturado às fezes</td></tr>
+<tr><td>Hemoptise · hemoptoico</td><td>sangue vivo das vias aéreas · estrias no escarro</td></tr>
+<tr><td>Vômica</td><td>eliminação brusca de pus (abscesso)</td></tr>
+<tr><td>Pirose · dispepsia</td><td>azia/queimação · desconforto epigástrico pós-prandial</td></tr>
+<tr><td>Disfagia · odinofagia</td><td>dificuldade · dor para engolir</td></tr>
+<tr><td>Regurgitação</td><td>retorno sem náusea</td></tr>
+<tr><td>Tenesmo</td><td>dor retal + desejo de evacuar, elimina pouco</td></tr>
+<tr><td>Lipotímia · síncope</td><td>pré-síncope · perda de consciência e tônus</td></tr>
+<tr><td>Astenia</td><td>cansaço (≠ fraqueza, ≠ dispneia)</td></tr>
+<tr><td>Cornagem · estridor</td><td>dificuldade inspiratória alta (sintoma) · o ruído (sinal)</td></tr>
+</table></div></div>
+
+<div class="box ge"><h3>EXAME GERAL · CONSCIÊNCIA E SINAIS VITAIS</h3><div class="c">
+<p><b>Estado geral:</b> BEG/REG/MEG. <b>Consciência:</b> vigil → obnubilado → torporoso → coma.</p>
+<table><tr><th>Glasgow</th><th>Pontos</th></tr>
+<tr><td>Ocular 1–4</td><td>4 espont · 3 chamado · 2 dor · 1 nada</td></tr>
+<tr><td>Verbal 1–5</td><td>5 orientado · 4 confuso · 3 palavras · 2 sons · 1 nada</td></tr>
+<tr><td>Motor 1–6</td><td>6 obedece · 5 localiza · 4 retira · 3 flexão · 2 extensão · 1</td></tr></table>
+<p>Leve 13–15 · Moderado 9–12 · <b>Grave ≤ 8</b>.</p>
+<p><b>FC</b> 60–100 · <b>FR</b> 12–20 · <b>Tax</b> 36–37,4 °C · <b>TEC</b> ≤2 s (hidratação) / &lt;3 s (revisão OSCE).</p>
+<p><b>Febre:</b> slides 37,8–38,9; alta &gt;39 · apostila: febrícula ≤37,5; moderada 37,6–38,5; elevada &gt;38,6. Hipotermia leve 32–35, mod 28–32, grave &lt;28.</p>
+<p><b>Padrões:</b> contínua (varia ≤1 °C) · remitente (&gt;1 °C, sem apirexia) · intermitente (apirexia: cotidiana, terçã, quartã → malária) · irregular/séptica. Término em <b>crise</b> (súbito, sudorese) ou <b>lise</b> (gradual).</p>
+</div></div>
+
+<div class="box ge"><h3>HIDRATAÇÃO · COR · BIOTIPO</h3><div class="c">
+<table><tr><th>Grau</th><th>Achados</th></tr>
+<tr><td>Leve</td><td>sede, mucosas pouco secas, TEC 2–3 s</td></tr>
+<tr><td>Moderada</td><td>mucosas secas, enoftalmia leve, taquicardia, hipotensão ortostática</td></tr>
+<tr><td>Grave</td><td>muito secas, enoftalmia, TEC ≥3 s, turgor &gt;3 s, hipotensão, anúria, rebaixamento</td></tr></table>
+<p><b>Descorado</b> 1–4+ → anemia · <b>Eritrose</b> → inflamação/policitemia · <b>Icterícia</b> → esclera, freio lingual · <b>Cianose</b> Hb red &gt;5 g/dL: central/generalizada (pulmão, shunt) × periférica/localizada (estase, isquemia).</p>
+<p><b>Biotipo (Charpy):</b> longilíneo &lt;90° · mediolíneo 90° · brevilíneo &gt;90°.</p>
+<p><b>Unhas:</b> baqueteamento (ângulo &gt;160°, sem janela de Schamroth) → hipoxemia crônica · coiloníquia → ferropriva · onicólise · leuconíquia.</p>
+</div></div>
+
+<div class="box ge"><h3>FÁCIES E ATITUDES</h3><div class="c">
+<table>
+<tr><td>Renal</td><td>edema periorbitário matinal, palidez → nefrótica/GN</td></tr>
+<tr><td>Mixedematosa</td><td>inchada, pálida, apática, perde ⅓ lateral sobrancelha → hipotireoidismo</td></tr>
+<tr><td>Basedowiana</td><td>exoftalmia, olhar assustado, bócio → Graves</td></tr>
+<tr><td>Cushingoide</td><td>lua cheia, acne, giba → corticoide/Cushing</td></tr>
+<tr><td>Leonina</td><td>nódulos, sobrancelhas ralas → hanseníase virchowiana</td></tr>
+<tr><td>Hipocrática</td><td>olhos fundos, nariz afilado → doença grave</td></tr>
+<tr><td>Parkinsoniana · adenoidiana</td><td>máscara · boca aberta</td></tr>
+<tr><td>Acromegálica · mitral · Down</td><td>prognatismo · rubor malar (EM) · epicanto</td></tr></table>
+<p><b>Voluntárias:</b> ortopneica (IC, asma, ascite) · genupeitoral/prece maometana (pericardite, derrame pericárdico) · cócoras (Fallot) · decúbito sobre o lado da dor pleurítica · ventral (cólica). <b>Involuntárias:</b> passiva (coma) · opistótono (tétano, meningite) · mão pêndula (radial).</p>
+</div></div>
+
+<div class="box ge"><h3>EDEMA</h3><div class="c">
+<p>Descrever: local, simetria, intensidade (cacifo/Godet 1–4+), consistência, temperatura, dor, cor, horário.</p>
+<table><tr><th>Tipo</th><th>Características</th></tr>
+<tr><td>Cardíaco (hidrostático)</td><td>MMII simétrico, mole, cacifo, vespertino, frio</td></tr>
+<tr><td>Renal (oncótico)</td><td>face/periorbitário matinal → anasarca</td></tr>
+<tr><td>Cirrose (oncótico)</td><td>MMII + ascite, estigmas hepáticos</td></tr>
+<tr><td>Venoso</td><td>piora em pé, hiperpigmentação (ocre), úlcera</td></tr>
+<tr><td>TVP</td><td>unilateral (&gt;3 cm), empastado, Homans, Bancroft</td></tr>
+<tr><td>Inflamatório</td><td>quente, rubor, doloroso (erisipela: borda nítida)</td></tr>
+<tr><td>Linfedema / mixedema</td><td>duro, <b>sem cacifo</b></td></tr>
+<tr><td>Angioedema</td><td>súbito, face e lábios</td></tr></table>
+<p>Romaña: edema periorbitário unilateral → Chagas agudo.</p>
+</div></div>
+
+<div class="box ge"><h3>LINFONODOS</h3><div class="c">
+<p>8 itens: número, local, tamanho (1 polpa ≈ 1,5 cm), consistência, mobilidade, dor, coalescência, pele.</p>
+<p><b>Infecção:</b> doloroso, móvel, elástico, quente · <b>Neoplasia/TB:</b> duro/pétreo, fixo, indolor, coalescente; <b>fístula → TB</b>.</p>
+<p><b>Virchow-Troisier</b> (supraclavicular E) → câncer gástrico/abdominal. Generalizada simétrica → sistêmica (viral, HIV, linfoma).</p>
+</div></div>
+
+<div class="box ge"><h3>LESÕES ELEMENTARES</h3><div class="c">
+<p><b>Sem relevo:</b> manchas pigmentares (hipo/hiper) · vasculares (<b>somem</b> à vitropressão: eritema, telangiectasia) · hemorrágicas (não somem: petéquia &lt;2 mm, víbice linear, equimose placa, hematoma palpável).</p>
+<p><b>Sólidas:</b> pápula ≤0,5 cm · tubérculo &gt;0,5 (hanseníase) · nódulo (hipoderme) · urtica · queratose · liquenificação · esclerose · vegetação.</p>
+<p><b>Líquidas:</b> vesícula ≤0,5 · bolha &gt;0,5 · pústula (pus) · abscesso (profundo).</p>
+<p><b>Continuidade:</b> erosão (sem cicatriz) · úlcera (derme, cicatriza) · fissura · fístula. <b>Caducas:</b> escama, crosta, escara.</p>
+</div></div>
+
+<div class="box re"><h3>RESPIRATÓRIO · SEMIOTÉCNICA</h3><div class="c">
+<p>Sentado, tórax despido; <b>face posterior primeiro</b> (braços cruzados), depois laterais e anterior; sempre simétrico. Louis = 2ª costela (T4, carina) · C7 saliente · escápula ≈7º EIC.</p>
+<p><b>Inspeção estática:</b> tonel (enfisema) · excavatum/carinatum · em sino (ascite) · cifo/escoliose. <b>Dinâmica:</b> FR 12–20 (contar sem avisar), tipo, amplitude, tiragem, musc. acessória, asa do nariz, frenolabial.</p>
+<table><tr><th>Ritmo</th><th>Padrão → causa</th></tr>
+<tr><td>Cheyne-Stokes</td><td>cresce-decresce-apneia → IC grave, AVC, HIC</td></tr>
+<tr><td>Biot</td><td>irregular + apneias → lesão grave SNC</td></tr>
+<tr><td>Kussmaul</td><td>profunda e rápida → acidose metabólica</td></tr>
+<tr><td>Suspirosa</td><td>suspiros → ansiedade</td></tr></table>
+<p><b>Palpação:</b> expansibilidade — <b>Ruault</b> (ápices, polegares em C7) e <b>Lasègue</b> (bases, ~T10); o lado que expande menos é o doente. <b>FTV</b> ("33"): ↑ <b>só na condensação</b>; ↓ derrame, pneumotórax, atelectasia, enfisema.</p>
+<p><b>Percussão:</b> claro pulmonar (normal) · maciço/submaciço (líquido, consolidação, atelectasia) · timpânico (pneumotórax) · hipersonoro (enfisema, asma).</p>
+<table><tr><th>Ruído</th><th>Características → causa</th></tr>
+<tr><td>Estertor fino</td><td>fim da insp., "velcro", <b>não</b> muda c/ tosse → pneumonia, IC, fibrose</td></tr>
+<tr><td>Estertor grosso</td><td>início insp. + exp., muda c/ tosse → bronquite, bronquiectasia, DPOC</td></tr>
+<tr><td>Ronco</td><td>grave, contínuo, muda c/ tosse → secreção</td></tr>
+<tr><td>Sibilo</td><td>agudo, expiratório → asma, DPOC (localizado: obstrução)</td></tr>
+<tr><td>Estridor</td><td>inspiratório, alto → laringe/traqueia</td></tr>
+<tr><td>Atrito pleural</td><td>couro, 2 fases → pleurite (some c/ derrame)</td></tr>
+<tr><td>Sopro tubário / cavitário</td><td>consolidação / caverna</td></tr>
+<tr><td>Sopro anfórico</td><td>pneumotórax hipertensivo (Porto) / grandes cavidades (revisão)</td></tr></table>
+<p><b>Voz:</b> broncofonia/pectorilóquia → condensação · <b>egofonia</b> → limite sup. do derrame · abolida → derrame, PTX, atelectasia.</p>
+</div></div>
+
+<div class="box re"><h3>SÍNDROMES PLEUROPULMONARES</h3><div class="c">
+<table><tr><th></th><th>Expans.</th><th>FTV</th><th>Percussão</th><th>MV / ausculta</th><th>Traq.</th></tr>
+<tr><td>Consolidação</td><td>↓</td><td><b>↑</b></td><td>maciço</td><td>sopro tubário, crepit., pectorilóquia</td><td>central</td></tr>
+<tr><td>Derrame</td><td>↓</td><td>↓/abol</td><td>maciço</td><td>abolido; egofonia</td><td>oposto (volum.)</td></tr>
+<tr><td>Pneumotórax</td><td>↓</td><td>↓/abol</td><td><b>timpânico</b></td><td>abolido</td><td>oposto (hipert.)</td></tr>
+<tr><td>Atelectasia</td><td>↓, retração</td><td>↓/abol</td><td>maciço</td><td>abolido</td><td><b>mesmo lado</b></td></tr>
+<tr><td>Enfisema</td><td>↓ bilat</td><td>↓ simétr</td><td>hipersonoro</td><td>↓ difuso, exp. prolong.</td><td>central</td></tr>
+<tr><td>Asma (crise)</td><td>↓, tiragem</td><td>N/↓</td><td>hipersonoro</td><td>sibilos exp.; silêncio = grave</td><td>central</td></tr>
+<tr><td>Congestão (ICE)</td><td>N</td><td>N</td><td>claro/submac.</td><td>crepitantes nas bases</td><td>central</td></tr></table>
+<p class="k"><b>Pneumonia × derrame:</b> ambos maciços → FTV (↑ × ↓) + <b>Signorelli</b> (percutir processos espinhosos: macicez no ⅓ inferior = derrame) + macicez que muda com posição + <b>Lemos-Torres</b> (abaulamento intercostal expiratório = derrame). <b>Ramond</b> = contração paravertebral = pleurite.</p>
+</div></div>
+
+<div class="box re"><h3>DOENÇAS RESPIRATÓRIAS · PISTAS</h3><div class="c">
+<table>
+<tr><td>Pneumonia</td><td>febre alta súbita, catarro amarelo/ferruginoso, dor em pontada</td></tr>
+<tr><td>TB</td><td>tosse ≥3 sem, febre vespertina, sudorese noturna, emagrecimento, hemoptoico; ápices</td></tr>
+<tr><td>Pneumotórax</td><td>dor + dispneia súbitas, jovem longilíneo/fumante</td></tr>
+<tr><td>TEP</td><td>dispneia súbita pós-op/imobilizado (Virchow), hemoptise, sem febre, pulmão quase normal, P2↑</td></tr>
+<tr><td>Pink puffer</td><td>enfisema: magro, corado, tonel, hipersonoro, frenolabial</td></tr>
+<tr><td>Blue bloater</td><td>bronquite: obeso, cianótico, catarro, roncos, edema (cor pulmonale)</td></tr>
+<tr><td>Asma</td><td>episódica, atopia, noturna, escarro "clara de ovo"</td></tr>
+<tr><td>Fibrose</td><td>dispneia progressiva, tosse seca, baqueteamento, crepit. "velcro"</td></tr></table>
+<p><b>Anthonisen</b> (exacerbação DPOC, 2 de 3): ↑ dispneia · ↑ volume escarro · purulência. Escarro róseo espumoso → EAP. Hemoptise pós-op → TEP.</p>
+</div></div>
+
+<div class="box os"><h3>DESCRIÇÕES NORMAIS (FALAR)</h3><div class="c">
+<p><b>Geral:</b> BEG, consciente e orientado, corado, hidratado, afebril, acianótico, anictérico, eupneico; fácies atípica; atitude ativa; sem edemas; sem linfonodomegalias; TEC &lt;2 s.</p>
+<p><b>Resp:</b> tórax atípico, simétrico; eupneico, FR 16; expansibilidade e FTV preservados e simétricos; claro pulmonar; MV presente e simétrico, sem ruídos adventícios.</p>
+</div></div>
+</div>
+
+<!-- ========================= VERSO ========================= -->
+<div class="page">
+<div class="hdr"><h1>Semiologia do Adulto I · Quadros-resumo (verso)</h1><span>Cardiovascular · Abdome</span></div>
+
+<div class="box ca"><h3>CARDIO · SEQUÊNCIA, PA, PULSOS</h3><div class="c">
+<p><b>Ordem:</b> 45° → PA → pulsos → jugular → inspeção/palpação precórdio (ictus, frêmitos) → percussão (pouco valor) → ausculta → manobras → perfusão → TVP.</p>
+<p><b>PA:</b> repouso 5 min, braço no nível do coração, manguito 2–3 cm acima da fossa cubital; palpar radial (estima PAS, evita hiato) → inflar +20–30 → desinflar 2 mmHg/s. <b>Fase I</b> = PAS · <b>fase V</b> = PAD. Manguito pequeno → PA falsamente alta. Medir 2 braços.</p>
+<table><tr><th>PA (mmHg)</th><th>PAS</th><th>PAD</th></tr>
+<tr><td>Ótima / normal</td><td>&lt;120 / 120–129</td><td>&lt;80 / 80–84</td></tr>
+<tr><td>Pré-hipertensão</td><td>130–139</td><td>85–89</td></tr>
+<tr><td>HAS 1 / 2 / 3</td><td>140–159 / 160–179 / ≥180</td><td>90–99 / 100–109 / ≥110</td></tr></table>
+<p><b>Pulso:</b> 2º–3º dedos (nunca polegar), 1 min; nunca 2 carótidas juntas; 7 parâmetros: frequência, ritmo, amplitude, tensão, formato, simetria, sincronismo. FA → contar na ausculta (déficit de pulso).</p>
+<table><tr><th>Pulso</th><th>Causa</th></tr>
+<tr><td>Parvus et tardus</td><td>estenose aórtica (PA convergente)</td></tr>
+<tr><td>Martelo d’água / Corrigan</td><td>insuf. aórtica (PA divergente)</td></tr>
+<tr><td>Bisferiens</td><td>IAo+EAo, CMH</td></tr>
+<tr><td>Paradoxal (↓ &gt;10 insp.)</td><td>tamponamento, asma/DPOC grave</td></tr>
+<tr><td>Alternante</td><td>IC grave</td></tr>
+<tr><td>Filiforme · dicrótico</td><td>choque · baixo débito/sepse</td></tr></table>
+</div></div>
+
+<div class="box ca"><h3>JUGULAR · ICTUS · FOCOS</h3><div class="c">
+<p><b>Jugular</b> (só inspeção): 45°, interna D, cabeça p/ E. <b>PVC (Lewis)</b> = altura acima do Louis + 5 cm; &gt;3 cm acima do Louis = estase. <b>Refluxo hepatojugular:</b> comprimir HCD 10–30 s, sobe ≥3 cm e mantém = PVC↑ (IC D). <b>Kussmaul jugular:</b> sobe na inspiração (constritiva, IC, IAM de VD). Onda <b>v</b> gigante → IT · onda <b>a</b> em canhão → BAVT · a proeminente → ET/EP.</p>
+<p><b>Ictus:</b> 5º EIC E LHC, 1–2 polpas (&lt;2 cm), desloca 1–2 cm em DLE. Propulsivo = hipertrofia (pressão) · difuso ≥3 polpas, desviado = dilatação (volume/lesão). Fixo = pericardite constritiva. Impulsão paraesternal E = VD. <b>Frêmito = sopro ≥4+.</b></p>
+<table><tr><th>Foco</th><th>Local</th></tr>
+<tr><td>Aórtico</td><td>2º EIC D paraesternal</td></tr>
+<tr><td>Pulmonar</td><td>2º EIC E paraesternal</td></tr>
+<tr><td>Aórtico acessório</td><td>3º(–4º) EIC E</td></tr>
+<tr><td>Tricúspide</td><td>base do xifoide / 4º EIC E borda esternal</td></tr>
+<tr><td>Mitral</td><td>ictus (5º EIC E LHC)</td></tr></table>
+<p>Diafragma = agudos · <b>campânula = graves</b> (B3, B4, ruflar).</p>
+</div></div>
+
+<div class="box ca"><h3>BULHAS E REMODELAMENTO</h3><div class="c">
+<table><tr><th>Bulha</th><th>Origem → significado</th></tr>
+<tr><td>B1 (TUM)</td><td>fecham mitral+tricúspide; início sístole; = pulso carotídeo. ↑ EM · ↓ IM</td></tr>
+<tr><td>B2 (TÁ)</td><td>fecham aórtica+pulmonar; início diástole. P2↑ = hipertensão pulmonar</td></tr>
+<tr><td>B3</td><td>logo após B2, enchimento rápido → <b>ventrículo dilatado/volume</b> (IC, IM); normal em jovens, atletas, gestantes</td></tr>
+<tr><td>B4</td><td>logo antes de B1, contração atrial → <b>VE rígido</b> (HAS, EAo, CMH, isquemia). <b>Nunca na FA</b></td></tr></table>
+<p><b>Desdobramento B2:</b> fisiológico na inspiração · fixo = CIA · paradoxal (na expiração) = BRE, EAo. B1 desdobrada patológica = BRD.</p>
+<table><tr><th>Sobrecarga</th><th>Ex.</th><th>Ictus</th><th>Bulha</th></tr>
+<tr><td>Pressão</td><td>HAS, EAo, CMH</td><td>propulsivo, no lugar</td><td>B4</td></tr>
+<tr><td>Volume</td><td>IM, IAo</td><td>globoso, desviado</td><td>B3</td></tr>
+<tr><td>Lesão miocárdio</td><td>Chagas, pós-IAM</td><td>globoso &gt;3 polpas, fraco</td><td>B3</td></tr>
+<tr><td>VD</td><td>EM, DPOC, TEP</td><td>impulsão paraesternal</td><td>B3/B4 VD</td></tr></table>
+</div></div>
+
+<div class="box ca"><h3>SOPROS: COMO DEDUZIR</h3><div class="c">
+<p>Semilunares (Ao, P) abrem na <b>sístole</b>; AV (M, T) abrem na <b>diástole</b>. <b>Estenose</b> soa quando deveria estar aberta; <b>insuficiência</b> quando deveria estar fechada. → <span class="k"><b>"EAIM na sístole, IAEM na diástole"</b></span></p>
+<p><b>Descrever (6):</b> momento · foco · irradiação (segue o jato) · intensidade 1–6 (3 sem frêmito, <b>4 com frêmito</b>, 6 sem encostar) · timbre/forma · manobras.</p>
+<p><b>Manobras:</b> inspiração ↑ lado D (<b>Rivero-Carvallo</b>) · <b>handgrip</b> ↑ IM, IAo / ↓ EAo, CMH · DLE (Pachon) → mitrais, B3, B4 · sentado inclinado em expiração → IAo, atrito · Valsalva/ortostase ↓ maioria · exercício ↑ estenoses.</p>
+<p>Contínuo "em maquinaria" → PCA, fístula AV. Clique mesossistólico → prolapso mitral. Estalido de abertura → EM/ET. <b>Febre + sopro novo = endocardite.</b></p>
+</div></div>
+
+<div class="box ca"><h3>VALVOPATIAS</h3><div class="c">
+<table><tr><th></th><th>Sopro</th><th>Irrad.</th><th>Pulso/PA · ictus</th><th>Extra</th></tr>
+<tr><td>EAo</td><td>mesossistólico rude, <b>diamante</b>, FAo</td><td>carótidas</td><td>parvus tardus, <b>convergente</b> · propulsivo</td><td>B4, Gallavardin, SAD (síncope, angina, dispneia)</td></tr>
+<tr><td>IAo</td><td>protodiastólico aspirativo decrescendo, Ao acess.</td><td>ápice</td><td>Corrigan, <b>divergente</b> · desviado/difuso</td><td>Austin-Flint, "tudo pulsa"</td></tr>
+<tr><td>EM</td><td>ruflar mesodiastólico + reforço pré-sistólico, FM</td><td>não</td><td>baixa amplitude, FA · ictus normal</td><td>B1↑, estalido abertura, Ortner, hemoptise, fácies mitral</td></tr>
+<tr><td>IM</td><td><b>holossistólico</b> platô, encobre B1, FM</td><td><b>axila</b></td><td>normal · desviado</td><td>B3; aguda pós-IAM → EAP</td></tr>
+<tr><td>IT</td><td>holossistólico, FT, ↑ inspiração</td><td>—</td><td>onda v, fígado pulsátil</td><td>funcional (HP); droga IV → endocardite</td></tr>
+<tr><td>ET</td><td>ruflar FT, ↑ inspiração</td><td>—</td><td>onda a</td><td>reumática c/ EM</td></tr>
+<tr><td>EP</td><td>mesossistólico diamante, FP</td><td>dorso/ombro E</td><td>onda a</td><td>congênita; estalido ejeção ↓ insp.</td></tr>
+<tr><td>IP</td><td>protodiastólico FP (<b>Graham Steell</b>)</td><td>—</td><td>—</td><td>hipertensão pulmonar, P2↑</td></tr></table>
+<p><b>IAo "tudo pulsa":</b> Musset (cabeça) · Müller (úvula) · Quincke (unhas) · Traube (tiro de pistola femoral) · Duroziez (duplo sopro femoral) · Hill (PAS poplítea &gt; braquial) · Rosenbach (fígado) · Gerhard (baço).</p>
+</div></div>
+
+<div class="box ca"><h3>DOENÇAS CV · PISTAS</h3><div class="c">
+<table>
+<tr><td>IAM/angina</td><td>aperto retroesternal → MSE/mandíbula, sudorese; IAM &gt;20 min repouso; B4</td></tr>
+<tr><td>IC esquerda</td><td>ortopneia, DPN, crepit. bases, B3, ictus desviado</td></tr>
+<tr><td>IC direita</td><td>turgência, refluxo HJ, hepatomegalia dolorosa, edema, ascite</td></tr>
+<tr><td>Cor pulmonale</td><td>IC D por DPOC/TEP; impulsão paraesternal, P2↑, IT</td></tr>
+<tr><td>Chagas</td><td>área endêmica; ictus globoso, arritmia, B3, megas</td></tr>
+<tr><td>Pericardite</td><td>dor piora deitado/inspiração, alivia inclinado; atrito (persiste em apneia)</td></tr>
+<tr><td>Tamponamento</td><td><b>Beck:</b> hipotensão + turgência + bulhas abafadas; pulso paradoxal</td></tr>
+<tr><td>Dissecção</td><td>dor súbita rasgante → dorso; PA/pulsos assimétricos</td></tr>
+<tr><td>Choque</td><td>pulso fino, TEC&gt;3 s; jugular vazia (hipovolêmico) × cheia (cardiogênico/obstrutivo); quente no séptico inicial</td></tr>
+<tr><td>TVP</td><td>edema assimétrico &gt;3 cm, Homans, Bancroft, bandeira</td></tr></table>
+<p><b>Normal (falar):</b> sem turgência a 45°; ictus 5º EIC E LHC, 1–2 polpas; pulsos simétricos; RCR 2T, BNF, sem sopros.</p>
+</div></div>
+
+<div class="box ab"><h3>ABDOME · SEQUÊNCIA E TOPOGRAFIA</h3><div class="c">
+<p><b>Inspeção → AUSCULTA → percussão → palpação</b> (palpar antes altera RHA). Decúbito dorsal 0°, braços estendidos, travesseiro baixo, xifoide ao púbis, à direita, mãos quentes, área dolorosa por último.</p>
+<table><tr><td>HD</td><td>fígado, vesícula</td><td>Epigástrio</td><td>estômago, lobo E fígado, pâncreas</td></tr>
+<tr><td>HE</td><td>baço, fundo gástrico</td><td>Mesogástrio</td><td>delgado, transverso</td></tr>
+<tr><td>Flancos</td><td>cólons asc./desc.</td><td>Hipogástrio</td><td>bexiga, útero</td></tr>
+<tr><td>FID</td><td>ceco, apêndice</td><td>FIE</td><td>sigmoide</td></tr></table>
+</div></div>
+
+<div class="box ab"><h3>INSPEÇÃO · AUSCULTA · PERCUSSÃO</h3><div class="c">
+<p><b>Formas:</b> plano · globoso · <b>batráquio</b> (forma; ascite = conteúdo) · avental · escavado (caquexia) · piriforme. Cicatriz → aderência → obstrução. Hérnia/diástase: Valsalva, tossir, levantar a cabeça.</p>
+<p><b>Colateral tipo porta:</b> periumbilical, fluxo centrífugo (↑ acima e ↓ abaixo do umbigo) → hipertensão portal. <b>Tipo cava inf.:</b> flancos, sempre ascendente (e trombose de porta). Peristaltismo visível + cólica → obstrução. Massa pulsátil expansível → aneurisma.</p>
+<p><b>RHA:</b> centro dos quadrantes ~15 s; normal <b>5–34/min</b>; abolidos = nada em 3–5 min (íleo, peritonite); hiperativos; <b>metálicos = obstrução</b>. Todo sopro é patológico: aorta (epigástrio), renais (2–3 cm acima e lateral ao umbigo), ilíacas, femorais.</p>
+<p><b>Percussão:</b> 3 pontos/quadrante, horário a partir do QSD; timpanismo + macicez hepática. <b>Hepatimetria</b> LHC D 6–12 cm (lobo E 4–8). <b>Traube</b> (6ª costela E, rebordo, LAA, lobo E do fígado): timpânico; maciço = esplenomegalia. <b>Castell:</b> último EIC LAA E, maciço na inspiração = esplenomegalia. <b>Jobert:</b> timpanismo hepático = pneumoperitônio (≠ <b>Chilaiditi</b>).</p>
+</div></div>
+
+<div class="box ab"><h3>PALPAÇÃO · FÍGADO · BAÇO · ASCITE</h3><div class="c">
+<p><b>Superficial:</b> dor, defesa (voluntária cede na expiração; involuntária = peritonite; generalizada = tábua), hérnias. <b>Profunda deslizante:</b> 45°, expiração; massas (local, tamanho, forma, consistência, dor, pulsação, mobilidade); ceco e sigmoide palpáveis.</p>
+<p><b>Fígado:</b> Lemos-Torres (mão E na loja renal) ou Mathieu (em garra); inspiração profunda.</p>
+<table><tr><th>Fígado</th><th>Superf.</th><th>Consist.</th><th>Dor</th><th>Borda</th></tr>
+<tr><td>Congestão (ICC)</td><td>lisa</td><td>↑</td><td>dolorosa</td><td>romba</td></tr>
+<tr><td>Cirrose</td><td>nodular</td><td>↑</td><td>indolor</td><td>romba</td></tr>
+<tr><td>Hepatite</td><td>lisa</td><td>N</td><td>dolorosa</td><td>fina</td></tr>
+<tr><td>Esteatose</td><td>lisa</td><td>↓</td><td>indolor</td><td>fina</td></tr>
+<tr><td>Colestase benigna</td><td>lisa</td><td>↑</td><td>indolor</td><td>romba</td></tr>
+<tr><td>Neoplasia/metástase</td><td>nodular</td><td>pétrea</td><td>dolorosa</td><td>romba</td></tr>
+<tr><td>Esquistossomose</td><td>irregular</td><td>↑ (lobo E)</td><td>indolor</td><td>romba</td></tr></table>
+<p><b>Baço:</b> normal não palpável; palpável se ≥2×; <b>Schuster</b> (entre dorsal e lateral D, perna E fletida).</p>
+<p><b>Ascite:</b> <b>macicez móvel</b> (mais sensível) e <b>Skoda</b> (concavidade p/ cima; percutir a partir do <b>epigástrio</b>) → 1–3 L · <b>piparote</b> → &gt;3–4 L. Aumento indolor do abdome = ascite; com dor = distensão de cápsula.</p>
+</div></div>
+
+<div class="box ab"><h3>SINAIS SEMIOLÓGICOS</h3><div class="c">
+<table>
+<tr><td>McBurney</td><td>⅓ EIAS D → umbigo; ponto da apendicite</td></tr>
+<tr><td>Blumberg</td><td>dor à descompressão brusca → irritação peritoneal</td></tr>
+<tr><td>Rovsing</td><td>palpar FIE dói na FID (gases ao ceco) → apendicite</td></tr>
+<tr><td>Psoas · Obturador</td><td>extensão quadril D · rotação interna c/ flexão → apêndice retrocecal · pélvico</td></tr>
+<tr><td>Lenander</td><td>T retal &gt; axilar +1 °C → apendicite</td></tr>
+<tr><td>Murphy</td><td>parada da inspiração no ponto cístico (rebordo × LHC) → colecistite</td></tr>
+<tr><td>Courvoisier-Terrier</td><td>vesícula palpável <b>indolor</b> + icterícia → neo cabeça de pâncreas</td></tr>
+<tr><td>Cullen · Grey-Turner</td><td>equimose periumbilical · flancos → pancreatite grave</td></tr>
+<tr><td>Giordano</td><td>punho-percussão lombar dolorosa → pielonefrite, litíase</td></tr>
+<tr><td>Jobert · Chilaiditi</td><td>pneumoperitônio · alça entre fígado e diafragma (não perfuração)</td></tr>
+<tr><td>Gersuny</td><td>massa moldável no sigmoide que "descola" → fecaloma</td></tr>
+<tr><td>Castell</td><td>esplenomegalia</td></tr>
+<tr><td>Charcot · Reynolds</td><td>febre+icterícia+dor (colangite) · + choque + confusão (grave)</td></tr></table>
+</div></div>
+
+<div class="box ab"><h3>ABDOME AGUDO</h3><div class="c">
+<p>Dor <b>visceral</b> (surda, mal localizada, linha média) → <b>parietal</b> (aguda, localizada, peritônio).</p>
+<table><tr><th>Tipo</th><th>Pista</th><th>Exemplos</th></tr>
+<tr><td>Inflamatório</td><td>dor localizada + febre</td><td>apendicite (FID), diverticulite (FIE, idoso), colecistite, pancreatite, pielonefrite</td></tr>
+<tr><td>Perfurativo</td><td>súbito "facada", tábua, Jobert</td><td>úlcera (AINE, dispepsia)</td></tr>
+<tr><td>Obstrutivo</td><td>cólica + vômitos + peristaltismo visível, parada de gases</td><td>bridas, hérnia, tumor, volvo, fecaloma</td></tr>
+<tr><td>Hemorrágico</td><td>dor + choque</td><td>ectópica rota, AAA, trauma</td></tr>
+<tr><td>Isquêmico</td><td>dor desproporcional ao exame</td><td>idoso c/ FA (mesentérica)</td></tr></table>
+<p>Obstrução <b>alta</b>: vômitos precoces · <b>baixa</b>: distensão, vômito fecaloide tardio. Febre separa pielonefrite × cólica renal e colangite × colecistite.</p>
+</div></div>
+
+<div class="box ab"><h3>HEPATOPATIAS E DIGESTIVO</h3><div class="c">
+<p><b>Cirrose</b> = hipertensão portal (ascite, colateral porta, esplenomegalia, varizes → HDA) + insuficiência hepática (icterícia, coagulopatia, hipoalbuminemia, encefalopatia/flapping) + <b>hiperestrogenismo</b> (aranhas, eritema palmar, ginecomastia, rarefação de pelos). <b>Esquistossomose:</b> área endêmica, baço enorme, lobo E duro, função preservada. <b>Trombose de porta:</b> sem icterícia/hipoalbuminemia, colateral tipo cava. <b>IC D:</b> jugular cheia + refluxo HJ.</p>
+<p><b>Icterícia colestática</b> (colúria, acolia, prurido): dolorosa + febre → cálculo/colangite · indolor + emagrecimento + Courvoisier → tumor.</p>
+<p><b>Diarreia</b> delgado: grande volume, poucos episódios, esteatorreia · cólon: pequeno volume, muitos episódios, muco/sangue, tenesmo (disenteria). <b>HDA</b> (acima Treitz): hematêmese, melena · <b>HDB</b>: enterorragia, hematoquezia. Hábito normal: 8–48 h (até 72 h).</p>
+<p><b>Normal (falar):</b> plano, sem cicatrizes/colaterais; RHA normoativos, sem sopros; timpânico, hepatimetria 10 cm, Traube livre; flácido, indolor, sem massas ou visceromegalias; Murphy, Blumberg e Giordano negativos.</p>
+</div></div>
+</div>
+
+<script>
+// Distribui as caixas em 4 colunas mantendo a ordem e equilibrando as alturas
+(function () {
+  document.querySelectorAll('.page').forEach(function (pg, pi) {
+    var boxes = Array.prototype.slice.call(pg.querySelectorAll(':scope > .box'));
+    boxes.forEach(function (b) { b.remove(); });
+    var cols = document.createElement('div'); cols.className = 'cols';
+    var c = []; for (var i = 0; i < 4; i++) { var d = document.createElement('div'); d.className = 'col'; cols.appendChild(d); c.push(d); }
+    pg.appendChild(cols);
+    var H = cols.getBoundingClientRect().height;
+    var hs = boxes.map(function (b) { c[0].appendChild(b); var r = b.getBoundingClientRect().height + parseFloat(getComputedStyle(b).marginBottom); b.remove(); return r; });
+    var n = hs.length, K = 4, pre = [0]; hs.forEach(function (x) { pre.push(pre[pre.length - 1] + x); });
+    var best = [], cut = [];
+    for (var k = 0; k <= K; k++) { best.push([]); cut.push([]); for (var j = 0; j <= n; j++) { best[k].push(Infinity); cut[k].push(0); } }
+    best[0][0] = 0;
+    for (k = 1; k <= K; k++) for (j = 0; j <= n; j++) for (var i2 = 0; i2 <= j; i2++) {
+      var v = Math.max(best[k - 1][i2], pre[j] - pre[i2]); if (v < best[k][j]) { best[k][j] = v; cut[k][j] = i2; } }
+    var ends = [], j2 = n; for (k = K; k >= 1; k--) { ends.unshift([cut[k][j2], j2]); j2 = cut[k][j2]; }
+    ends.forEach(function (r, ci) { for (var t = r[0]; t < r[1]; t++) c[ci].appendChild(boxes[t]); });
+    document.body.setAttribute('data-p' + pi, 'H=' + Math.round(H) + ' max=' + Math.round(best[K][n]));
+  });
+})();
+</script>
+</body></html>

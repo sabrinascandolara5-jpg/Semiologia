@@ -15,7 +15,7 @@ const DEPOIS = {
   '08-abdome-agudo': [['trilhas-abdome-agudo-tipos', 'Trilha: Os 5 abdomes agudos'], ['trilhas-vias-biliares', 'Trilha: Vias biliares']],
   '09-estacao-osce': [['osce', 'Simulador OSCE'], ['roteiros', 'Roteiros de exame']]
 };
-const out = c.AULAS.map(A => {
+const out = c.AULAS.filter(A => fs.readdirSync(DIR).some(f => f.startsWith('Aula ' + A.id.slice(0, 2)) && urls[f])).map(A => {
   const file = fs.readdirSync(DIR).find(f => f.startsWith('Aula ' + A.id.slice(0, 2)));
   const dur = parseFloat(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', path.join(DIR, file)]).toString());
   return { id: A.id, n: A.n, titulo: A.titulo, url: urls[file], dur: Math.round(dur), topicos: A.slides.filter(s => !s.cover).map(s => s.h), depois: DEPOIS[A.id] };

@@ -402,6 +402,16 @@ mark { background: var(--amber-soft); color: inherit; border-radius: 3px; paddin
 .frow-v { font-weight: 700; }
 .frow-why { font-size: .9rem; color: var(--muted); margin-top: 2px; }
 .frow.good .frow-v { color: var(--ok); } .frow.bad .frow-v { color: var(--bad); }
+
+/* ------- videoaulas */
+.va-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 18px; align-items: start; }
+@media (max-width: 900px) { .va-layout { grid-template-columns: minmax(0, 1fr); } }
+.va-video { width: 100%; aspect-ratio: 16 / 9; max-width: 100%; background: #000; border-radius: 12px; display: block; }
+.va-list { display: flex; flex-direction: column; gap: 8px; }
+.va-item { display: flex; gap: 12px; align-items: flex-start; text-align: left; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); cursor: pointer; }
+.va-item b { display: block; font-family: var(--f-display); font-size: .95rem; }
+.va-item.on { border-color: var(--trace); background: var(--trace-soft); }
+.va-n { color: var(--trace); font-weight: 700; }
 </style>
 
 <div class="app">
@@ -432,4 +442,6 @@ mark { background: var(--amber-soft); color: inherit; border-radius: 3px; paddin
 <script src="data-casos.js"></script>
 <script src="data-quiz.js"></script>
 <script src="raciocinio.js"></script>
+<script src="videos-data.js"></script>
+<script src="videoaulas.js"></script>
 <script src="app.js"></script>

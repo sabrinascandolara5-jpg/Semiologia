@@ -39,7 +39,7 @@ applyTheme();
 function teoProg(t) { const n = t.secoes.length; const d = t.secoes.filter(s => S.done[t.id + ':' + s.id]).length; return [d, n]; }
 const NAV = [
   { label: 'Começo', items: [['inicio', 'Painel', 'var(--teal)']] },
-  { label: 'Aprender fazendo', items: [['trilhas', 'Trilhas de raciocínio', 'var(--a3)'], ['mecanismos', 'Laboratório de mecanismos', 'var(--a3)']] },
+  { label: 'Aprender fazendo', items: [['trilhas', 'Trilhas de raciocínio', 'var(--a3)'], ['mecanismos', 'Laboratório de mecanismos', 'var(--a3)'], ['videoaulas', 'Videoaulas', 'var(--a3)']] },
   { label: 'Teoria', items: TEORIA.map(t => ['teoria-' + t.id, t.titulo, 'var(--' + t.cor + ')', t]) },
   { label: 'Prática OSCE', items: [['osce', 'Simulador de estações', 'var(--trace)'], ['roteiros', 'Roteiros de exame', 'var(--trace)'], ['ausculta', 'Laboratório de ausculta', 'var(--trace)'], ['decodificador', 'Decodificador e mapas', 'var(--trace)']] },
   { label: 'Fixação', items: [['quiz', 'Questões', 'var(--a6)'], ['flashcards', 'Flashcards', 'var(--a6)'], ['glossario', 'Glossário', 'var(--a6)'], ['ferramentas', 'Calculadoras', 'var(--a6)']] }
@@ -105,6 +105,7 @@ function viewHome(v) {
     <p>Teoria completa dos seus materiais, simulador de casos no estilo OSCE com paciente virtual, roteiros para falar em voz alta, sons cardíacos e pulmonares, ${QUIZ.length} questões e flashcards.</p>
     <div class="row" style="margin-top:10px">
       <a class="btn primary" href="#trilhas">Começar uma trilha de raciocínio</a>
+      <a class="btn" href="#videoaulas">Assistir às videoaulas</a>
       <a class="btn" href="#osce" id="goOsce">${ICON.dice}Sortear uma estação</a>
       <a class="btn" href="#quiz">Fazer 10 questões</a>
       <a class="btn" href="#roteiros">Roteiros de exame</a>

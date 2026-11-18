@@ -1230,4 +1230,5 @@ window.SEMIO_HOME = function () {
   <div class="row" style="margin-top:10px"><a class="btn small" href="#trilhas">Ver as ${TRILHAS.length} trilhas</a></div>`;
 };
 window.SEMIO_TRILHAS = TRILHAS;
+window.SEMIO_DRAW = { lungSVG: lungSVG, heartSVG: heartSVG, abdSVG: abdSVG, edemaSVG: edemaSVG, PROC: PROC, ABD: ABD, EDEMAS: EDEMAS };
 })();

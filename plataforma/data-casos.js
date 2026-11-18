@@ -813,6 +813,473 @@ var CASOS = [
   opcoes: ['Diverticulite aguda do sigmoide', 'Apendicite aguda', 'Obstrução intestinal por fecaloma', 'Pielonefrite esquerda'],
   correta: 0,
   discussao: '<p>Idoso constipado com divertículos, dor e irritação peritoneal <b>localizada na FIE</b>, febre: diverticulite, a "apendicite do lado esquerdo". É abdome agudo inflamatório; se a dor se difundir com tábua e Jobert, pense em perfuração. Se houvesse massa moldável no sigmoide que "descola" ao soltar (Gersuny), pensaríamos em fecaloma.</p>'
+},
+{
+  id: 'iam', titulo: 'Aperto no peito subindo a ladeira', area: ['cardio', 'geral'], nivel: 2,
+  porta: 'Homem de 58 anos chega ao pronto-socorro com dor no peito há 40 minutos. Faça a anamnese dirigida da dor e o exame cardiovascular.',
+  anamnese: {
+    ident: 'Mário, 58 anos, motorista de ônibus.',
+    qd: '"Aperto no peito" há 40 minutos.',
+    inicio: 'Começou subindo uma ladeira; não passou ao parar.',
+    carac: '<b>Aperto/peso retroesternal</b>, 9/10, <b>irradia para o braço esquerdo e a mandíbula</b>.',
+    fatores: 'Nada melhora. Não muda com a respiração nem com a posição.',
+    evol: 'Contínua há 40 minutos (já teve dores parecidas aos esforços no último mês, que passavam em 5 minutos de repouso).',
+    assoc: '<b>Sudorese fria</b>, náusea, falta de ar.',
+    ida_cv: 'Angina de esforço no último mês. Nega síncope e palpitações.',
+    ap: '<b>HAS e dislipidemia</b>, tratamento irregular.',
+    meds: 'Losartana às vezes.', af: 'Pai morreu de infarto aos 55 anos.',
+    tab: '<b>30 maços-ano</b>, fuma até hoje.', vida: 'Sedentário, dieta gordurosa.'
+  },
+  exame: {
+    g_estado: 'REG, ansioso, <b>sudoreico, pálido</b>.',
+    g_sinais: 'PA 150 × 95 mmHg (igual nos dois braços), FC 104 bpm, FR 22 irpm, SpO₂ 95%.',
+    g_tec: 'Extremidades frias e úmidas, TEC 2 s.',
+    c_pulsos: 'Pulsos simétricos nos 4 membros.',
+    c_ausc: 'Ritmo regular, <b>B4</b>, sem sopros, sem atrito.',
+    r_ausc: 'MV presente, sem estertores.'
+  },
+  keyQ: ['qd', 'inicio', 'carac', 'fatores', 'evol', 'assoc', 'ap', 'af', 'tab'],
+  keyEx: ['g_sinais', 'g_estado', 'c_pulsos', 'c_ausc', 'r_ausc'],
+  pergunta: 'Hipótese principal?',
+  opcoes: ['Síndrome coronariana aguda (IAM)', 'Dissecção de aorta', 'Pericardite aguda', 'Pneumotórax espontâneo'],
+  correta: 0,
+  discussao: '<p>Dor <b>opressiva retroesternal</b> com irradiação para MSE e mandíbula, <b>> 20 minutos em repouso</b>, sudorese fria e náusea, num homem com HAS, dislipidemia, tabagismo e pai com IAM precoce: síndrome coronariana aguda. A angina de esforço do último mês que agora ficou contínua mostra a evolução. B4 = miocárdio isquêmico rígido.</p><p>Por que não os outros: <b>PA igual nos dois braços e pulsos simétricos</b> afastam dissecção; a dor não muda com respiração ou posição (contra pericardite e pleura); MV presente (contra pneumotórax). Se evoluir com estertores finos e B3, está complicando com IC.</p>'
+},
+{
+  id: 'pericardite', titulo: 'Dor no peito que melhora inclinado', area: ['cardio'], nivel: 1,
+  porta: 'Homem de 26 anos com dor torácica há 2 dias. Avalie.',
+  anamnese: {
+    ident: 'Diego, 26 anos, estudante.',
+    qd: '"Dor no peito" há 2 dias.',
+    inicio: 'Aos poucos, uma semana depois de um resfriado.',
+    carac: 'Dor em pontada no centro do peito, irradia para os ombros (trapézio).',
+    fatores: '<b>Piora deitado e ao respirar fundo; melhora sentado, inclinado para frente.</b>',
+    evol: 'Constante.',
+    assoc: 'Febre baixa.',
+    ida_geral: 'Febre de 37,8 °C, mal-estar.',
+    ida_resp: '<b>Resfriado há 10 dias</b> (coriza, tosse). Sem dispneia importante.',
+    ap: 'Hígido.', meds: 'Nenhuma.', tab: 'Nega.'
+  },
+  exame: {
+    g_sinais: 'Tax 37,8 °C, FC 100 bpm, PA 120 × 80 mmHg (sem queda > 10 mmHg na inspiração).',
+    g_facies: '<b>Prefere ficar sentado, inclinado para frente.</b>',
+    c_jug: 'Sem turgência jugular.',
+    c_ausc: 'Ritmo regular, bulhas normofonéticas. <b>Atrito pericárdico</b> na borda esternal esquerda baixa: ruído áspero, de "couro", que <b>persiste em apneia</b> e muda de intensidade.',
+    c_manobras: 'Atrito mais audível sentado, inclinado para frente.'
+  },
+  keyQ: ['qd', 'inicio', 'carac', 'fatores', 'ida_resp'],
+  keyEx: ['g_sinais', 'g_facies', 'c_jug', 'c_ausc', 'c_manobras'],
+  pergunta: 'Hipótese principal?',
+  opcoes: ['Pericardite aguda viral', 'Infarto agudo do miocárdio', 'Pleurite', 'Tamponamento cardíaco'],
+  correta: 0,
+  discussao: '<p>Jovem pós-virose com dor que <b>piora deitado e na inspiração e melhora inclinado para frente</b> (posição de prece maometana/genupeitoral) + <b>atrito pericárdico</b> = pericardite aguda. O atrito <b>persiste em apneia</b> porque depende do batimento, não da respiração: isso o diferencia do atrito pleural. Sem turgência jugular, sem bulhas abafadas e sem pulso paradoxal: não há tamponamento (tríade de Beck ausente).</p>'
+},
+{
+  id: 'endocardite', titulo: 'Febre que não passa e um sopro novo', area: ['cardio', 'geral'], nivel: 3,
+  porta: 'Homem de 34 anos com febre há 3 semanas. Faça a anamnese e o exame físico e apresente a hipótese.',
+  anamnese: {
+    ident: 'Thiago, 34 anos, desempregado.',
+    qd: '"Febre" há 3 semanas.',
+    inicio: 'Aos poucos.',
+    carac: 'Febre diária com calafrios, até 38,8 °C.',
+    evol: 'Emagreceu 5 kg, muito cansado. Há 1 semana falta de ar aos médios esforços.',
+    assoc: 'Manchinhas vermelhas nas pernas e dor na ponta de um dedo.',
+    ida_geral: 'Febre prolongada, sudorese, perda de 5 kg, astenia.',
+    ida_cv: 'Dispneia aos médios esforços recente. Nega dor torácica.',
+    ap: 'Nega cardiopatia conhecida.',
+    meds: 'Nenhuma.',
+    etil: '<b>Usa drogas injetáveis</b> há 2 anos.',
+    vida: 'Mora em situação de rua parte do tempo.'
+  },
+  exame: {
+    g_estado: 'REG, emagrecido.',
+    g_sinais: '<b>Tax 38,6 °C</b>, FC 112 bpm, PA 110 × 70 mmHg.',
+    g_mucosas: 'Hipocorado +2/+4.',
+    g_pele: '<b>Petéquias</b> em membros inferiores e conjuntiva; marcas de punção nos braços.',
+    g_maos: '<b>Lesão dolorosa e avermelhada na polpa de um dedo</b>; hemorragias em estilha sob as unhas.',
+    c_jug: '<b>Turgência jugular com onda v gigante.</b>',
+    c_ausc: '<b>Sopro holossistólico +3/+6 no foco tricúspide</b>, que aumenta na inspiração.',
+    c_manobras: '<b>Rivero-Carvallo positivo.</b>',
+    a_figado: 'Fígado palpável 3 cm do RCD, <b>pulsátil</b>, doloroso.',
+    a_baco: 'Baço palpável (Castell positivo).'
+  },
+  keyQ: ['qd', 'carac', 'evol', 'assoc', 'ida_geral', 'ap', 'etil'],
+  keyEx: ['g_sinais', 'g_pele', 'g_maos', 'c_jug', 'c_ausc', 'c_manobras'],
+  pergunta: 'Hipótese principal?',
+  opcoes: ['Endocardite infecciosa de valva tricúspide com insuficiência tricúspide', 'Tuberculose miliar', 'Febre reumática com estenose mitral', 'Linfoma'],
+  correta: 0,
+  discussao: '<p>"<b>Febre + sopro (novo) = pensar em endocardite</b>". Usuário de droga injetável: as bactérias entram pela veia e chegam primeiro ao coração direito, atacando a <b>tricúspide</b>. A valva destruída não fecha: sopro holossistólico no foco tricúspide que <b>aumenta na inspiração (Rivero-Carvallo)</b>, onda v gigante na jugular e fígado pulsátil (refluxo do VD para o AD e as veias).</p><p>Petéquias, lesões dolorosas nas polpas e hemorragias subungueais são fenômenos vasculares e imunológicos da endocardite. Esplenomegalia e anemia acompanham a infecção prolongada.</p>'
+},
+{
+  id: 'cor-pulmonale', titulo: 'Fumante com pernas inchadas', area: ['cardio', 'resp', 'geral'], nivel: 3,
+  porta: 'Homem de 67 anos com DPOC conhecida, com inchaço progressivo nas pernas. Avalie e explique a relação entre os achados.',
+  anamnese: {
+    ident: 'Aldo, 67 anos, aposentado.',
+    qd: '"Pernas inchadas" há 1 mês.',
+    inicio: 'Aos poucos.',
+    carac: 'Inchaço nos dois pés e pernas, sem dor.',
+    evol: 'A barriga também aumentou um pouco; dói do lado direito em cima.',
+    assoc: 'Falta de ar crônica, pior este mês. Tosse com catarro todo dia.',
+    ida_resp: 'Tosse produtiva matinal há anos, dispneia aos pequenos esforços.',
+    ida_cv: 'Nega dor torácica. Nega ortopneia importante.',
+    ap: '<b>DPOC há 10 anos.</b> Nunca teve infarto.',
+    meds: 'Bombinha de broncodilatador.', tab: '<b>50 maços-ano</b>, parou há 2 anos.'
+  },
+  exame: {
+    g_estado: 'REG, obeso.',
+    g_sinais: 'FR 24 irpm, FC 98 bpm, PA 130 × 80 mmHg, SpO₂ 86%.',
+    g_pele: '<b>Cianose central</b> (lábios).',
+    g_maos: '<b>Baqueteamento digital.</b>',
+    g_edema: 'Edema simétrico de MMII +3/+4, mole, com cacifo, frio, indolor.',
+    r_insp_est: 'Tórax em tonel.',
+    r_perc: 'Hipersonoridade bilateral.',
+    r_ausc: 'MV diminuído difusamente, <b>roncos e estertores grossos</b> que mudam com a tosse.',
+    c_jug: '<b>Turgência jugular a 45°, refluxo hepatojugular positivo.</b>',
+    c_ictus: 'Ictus não palpável. <b>Impulsão paraesternal esquerda.</b>',
+    c_ausc: '<b>P2 hiperfonética</b>, sopro holossistólico +2/+6 no foco tricúspide que aumenta na inspiração.',
+    a_figado: 'Hepatomegalia dolorosa, lisa, borda romba.'
+  },
+  keyQ: ['qd', 'carac', 'evol', 'ida_resp', 'ap', 'tab'],
+  keyEx: ['g_pele', 'g_maos', 'g_edema', 'r_perc', 'r_ausc', 'c_jug', 'c_ictus', 'c_ausc'],
+  pergunta: 'Qual a síntese?',
+  opcoes: ['Cor pulmonale: IC direita secundária à DPOC (hipertensão pulmonar)', 'IC esquerda por cardiopatia isquêmica', 'Cirrose com ascite', 'Síndrome nefrótica'],
+  correta: 0,
+  discussao: '<p><b>Cor pulmonale</b> = insuficiência cardíaca <b>direita</b> de causa <b>pulmonar</b>. A hipoxemia crônica da DPOC contrai as artérias pulmonares, a pressão pulmonar sobe e o VD hipertrofia e depois falha. Sinais de VD: impulsão paraesternal esquerda, P2 hiperfonética (hipertensão pulmonar), insuficiência tricúspide funcional (Rivero-Carvallo +). Congestão sistêmica: turgência jugular, refluxo, hepatomegalia dolorosa, edema.</p><p>É o fenótipo <b>blue bloater</b>: obeso, cianótico, com muito catarro (roncos e estertores grossos que mudam com a tosse). Não há ortopneia nem estertores finos de congestão pulmonar: o lado esquerdo está preservado.</p>'
+},
+{
+  id: 'derrame-parapneumonico', titulo: 'Pneumonia que não melhora', fonte: 'Resumo do Sistema Respiratório (Porto)', area: ['resp'], nivel: 2,
+  porta: 'Mulher de 35 anos em tratamento de pneumonia à esquerda há 1 semana, sem melhora. Faça o exame respiratório completo e explique o que mudou.',
+  anamnese: {
+    ident: 'Priscila, 35 anos, bancária.',
+    qd: '"Febre e dor do lado esquerdo que não passam" há 1 semana.',
+    inicio: 'Começou com pneumonia à esquerda; está tomando antibiótico pela boca há 7 dias.',
+    carac: 'Dor em pontada na base esquerda, que piora ao respirar fundo.',
+    fatores: 'Deita sobre o lado esquerdo para aliviar.',
+    evol: '<b>Febre persistente</b>, a dor e a falta de ar pioraram.',
+    ida_geral: 'Febre de 38,8 °C.',
+    ida_resp: 'Tosse com pouco catarro, dispneia aos médios esforços.',
+    meds: 'Amoxicilina há 7 dias; ibuprofeno para dor.', ap: 'Hígida.'
+  },
+  exame: {
+    g_sinais: '<b>Tax 38,8 °C</b>, FC 106 bpm, FR 24 irpm, SpO₂ 92%.',
+    r_insp_din: 'Taquipneica, <b>expansibilidade reduzida à esquerda</b>.',
+    r_expans: 'Reduzida na base esquerda (Lasègue).',
+    r_ftv: '<b>FTV abolido na base esquerda.</b>',
+    r_perc: '<b>Macicez na base esquerda; macicez no terço inferior da coluna (Signorelli positivo).</b>',
+    r_ausc: '<b>MV abolido na base esquerda</b>; acima da macicez, estertores finos.',
+    r_voz: 'Voz abolida na base; <b>egofonia no limite superior</b> do derrame.'
+  },
+  keyQ: ['qd', 'inicio', 'evol', 'ida_geral', 'meds'],
+  keyEx: ['g_sinais', 'r_expans', 'r_ftv', 'r_perc', 'r_ausc', 'r_voz'],
+  pergunta: 'O que aconteceu?',
+  opcoes: ['Derrame pleural parapneumônico (complicação da pneumonia)', 'Cura da pneumonia', 'Pneumotórax', 'Atelectasia por tampão mucoso'],
+  correta: 0,
+  discussao: '<p>Pneumonia <b>sem resposta</b> ao antibiótico com febre persistente sugere complicação. A consolidação teria <b>FTV aumentado</b>; agora o FTV está <b>abolido</b>, há macicez, MV e voz abolidos, egofonia no limite superior e <b>Signorelli positivo</b>: há líquido entre o pulmão e a parede. É um <b>exsudato</b> (rico em proteínas), que pode virar empiema e precisar de drenagem. O AINE pode mascarar a febre: pergunte sempre.</p>'
+},
+{
+  id: 'atelectasia', titulo: 'Falta de ar no pós-operatório de abdome', area: ['resp'], nivel: 2,
+  porta: 'Homem de 64 anos no 2º dia de pós-operatório de cirurgia abdominal, com piora da respiração. Examine o tórax.',
+  anamnese: {
+    ident: 'Joaquim, 64 anos.',
+    qd: '"Falta de ar" desde ontem.',
+    inicio: 'Aos poucos, no pós-operatório.',
+    carac: 'Respira curto porque a cicatriz dói.',
+    fatores: 'Piora ao tentar respirar fundo e tossir (dor na incisão).',
+    evol: 'Tem secreção mas não consegue tossir.',
+    ida_geral: 'Febre baixa (37,9 °C).',
+    ida_resp: 'Tosse fraca, secreção espessa.',
+    ap: 'Colectomia há 2 dias.', tab: '40 maços-ano, fumante.'
+  },
+  exame: {
+    g_sinais: 'Tax 37,9 °C, FC 100 bpm, FR 26 irpm, SpO₂ 90%.',
+    r_insp_est: '<b>Retração</b> do terço inferior do hemitórax direito.',
+    r_insp_din: 'Respiração superficial, <b>tiragem</b> à direita.',
+    r_expans: '<b>Reduzida na base direita.</b>',
+    r_ftv: '<b>FTV diminuído na base direita.</b>',
+    r_perc: '<b>Macicez na base direita</b>, coluna clara.',
+    r_ausc: '<b>MV abolido na base direita.</b>',
+    r_voz: 'Ressonância vocal diminuída na base direita.',
+    c_jug: 'Sem turgência. <b>Traqueia desviada para a direita.</b>'
+  },
+  keyQ: ['qd', 'inicio', 'fatores', 'evol', 'ap', 'tab'],
+  keyEx: ['r_insp_est', 'r_insp_din', 'r_ftv', 'r_perc', 'r_ausc', 'c_jug'],
+  pergunta: 'Qual a síndrome?',
+  opcoes: ['Atelectasia do lobo inferior direito', 'Derrame pleural volumoso à direita', 'Pneumotórax à direita', 'Consolidação pneumônica'],
+  correta: 0,
+  discussao: '<p>Pós-operatório abdominal: dor impede respirar fundo e tossir, a secreção tampa o brônquio e o lobo <b>colapsa</b>. Macicez + FTV e MV diminuídos parecem derrame, mas a <b>traqueia vai para o mesmo lado</b> (o pulmão murcho "puxa"), há <b>retração e tiragem</b> e o Signorelli é negativo. Derrame volumoso empurraria a traqueia para o lado oposto.</p>'
+},
+{
+  id: 'fibrose', titulo: 'Tosse seca e cansaço progressivo', area: ['resp', 'geral'], nivel: 2,
+  porta: 'Homem de 66 anos, ex-trabalhador de pedreira, com dispneia progressiva há 2 anos. Avalie.',
+  anamnese: {
+    ident: 'Valdir, 66 anos, trabalhou 25 anos em pedreira.',
+    qd: '"Canseira e tosse seca" há 2 anos.',
+    inicio: 'Aos poucos.',
+    carac: 'Falta de ar que hoje vem ao andar 1 quarteirão; tosse seca, sem catarro.',
+    evol: 'Progressiva.',
+    ida_resp: 'Tosse seca; nega chiado e hemoptise.',
+    ida_cv: 'Nega ortopneia e DPN.',
+    ap: 'Nega cardiopatia.', tab: 'Nunca fumou.',
+    vida: '<b>Exposição a poeira de sílica</b> por 25 anos sem proteção.'
+  },
+  exame: {
+    g_sinais: 'FR 26 irpm, FC 92 bpm, SpO₂ 90%.',
+    g_maos: '<b>Baqueteamento digital.</b>',
+    g_pele: 'Cianose discreta de lábios.',
+    r_insp_din: 'Respiração <b>rápida e superficial</b>.',
+    r_expans: '<b>Reduzida bilateralmente.</b>',
+    r_ftv: 'Normal.',
+    r_perc: 'Claro pulmonar.',
+    r_ausc: '<b>Estertores finos "em velcro"</b> nas bases, bilaterais, que não mudam com a tosse.',
+    c_ausc: 'RCR 2T, BNF, sem B3.'
+  },
+  keyQ: ['ident', 'qd', 'carac', 'evol', 'ida_cv', 'tab', 'vida'],
+  keyEx: ['g_maos', 'r_insp_din', 'r_expans', 'r_ausc', 'c_ausc'],
+  pergunta: 'Hipótese principal?',
+  opcoes: ['Doença intersticial / fibrose pulmonar (pneumoconiose)', 'Insuficiência cardíaca esquerda', 'DPOC', 'Asma'],
+  correta: 0,
+  discussao: '<p>A identificação já dá a pista: <b>profissão</b> com exposição à sílica (pneumoconiose). Dispneia progressiva, tosse seca, baqueteamento, expansibilidade reduzida bilateralmente e <b>estertores finos em velcro</b> nas bases = fibrose. Por que não IC: sem ortopneia, DPN, turgência jugular ou B3. Por que não DPOC: nunca fumou, percussão clara (sem hipersonoridade), sem sibilos.</p>'
+},
+{
+  id: 'obstrucao', titulo: 'Cólica, vômitos e barriga distendida', fonte: 'Guia Clínico e Casos de Semiologia Abdominal', area: ['abdome'], nivel: 1,
+  porta: 'Mulher de 62 anos com dor abdominal e vômitos há 1 dia. Examine o abdome na sequência correta.',
+  anamnese: {
+    ident: 'Neusa, 62 anos.',
+    qd: '"Dor e barriga inchada" há 1 dia.',
+    inicio: 'Cólica forte que vem em ondas.',
+    carac: 'Dor em cólica difusa, intensa, que vem e vai.',
+    evol: '<b>Distensão progressiva.</b>',
+    assoc: '<b>Vômitos amarelados</b> várias vezes.',
+    ida_gi: '<b>Não elimina gases nem fezes</b> há 1 dia.',
+    ap: '<b>Cirurgia abdominal prévia</b> (histerectomia).', meds: 'Nenhuma.'
+  },
+  exame: {
+    g_sinais: 'FC 104 bpm, PA 120 × 80 mmHg, afebril.',
+    g_mucosas: 'Desidratada +2/+4.',
+    a_insp: '<b>Distendido, cicatriz de Pfannenstiel, ondas peristálticas visíveis</b> (peristaltismo de luta).',
+    a_ausc: '<b>RHA aumentados, timbre metálico</b> no andar superior.',
+    a_perc: '<b>Hipertimpanismo difuso.</b>',
+    a_palp_sup: 'Tenso, sem defesa.',
+    a_palp_prof: 'Dor difusa em cólica, sem massas.',
+    a_blumberg: 'Negativo.'
+  },
+  keyQ: ['qd', 'carac', 'evol', 'assoc', 'ida_gi', 'ap'],
+  keyEx: ['a_insp', 'a_ausc', 'a_perc', 'a_palp_sup', 'a_blumberg'],
+  pergunta: 'Qual a síndrome?',
+  opcoes: ['Abdome agudo obstrutivo (provável brida/aderência)', 'Abdome agudo perfurativo', 'Pancreatite aguda', 'Apendicite'],
+  correta: 0,
+  discussao: '<p>Tríade da obstrução: <b>dor em cólica + vômitos + peristaltismo visível</b>, com distensão e parada de gases e fezes. A cicatriz cirúrgica sugere aderência (brida). Antes do bloqueio os RHA são hiperativos e <b>metálicos</b>; depois dele, raros ou abolidos. Hipertimpanismo pelo gás represado. Blumberg negativo: ainda sem peritonite. Se surgirem defesa, Blumberg e RHA abolidos, suspeite de sofrimento de alça.</p>'
+},
+{
+  id: 'ulcera-perfurada', titulo: 'Dor súbita "em facada" na barriga', fonte: 'Guia Clínico e Casos de Semiologia Abdominal', area: ['abdome'], nivel: 2,
+  porta: 'Homem de 35 anos com dor abdominal súbita e intensa há 2 horas. Faça o exame do abdome.',
+  anamnese: {
+    ident: 'Rodrigo, 35 anos.',
+    qd: '"Dor de barriga muito forte" há 2 horas.',
+    inicio: '<b>De repente</b>, como uma facada no epigástrio.',
+    carac: 'Começou no epigástrio e se espalhou para a barriga toda, 10/10.',
+    fatores: 'Qualquer movimento piora; fica parado.',
+    evol: 'Cada vez pior.',
+    ida_gi: '<b>Azia e queimação no estômago há meses</b>, sem tratamento.',
+    meds: '<b>Usa anti-inflamatório</b> quase todo dia por dor nas costas.', etil: 'Bebe nos fins de semana.', tab: 'Fuma 1 maço/dia.'
+  },
+  exame: {
+    g_estado: 'MEG, <b>imóvel</b>, sudoreico.',
+    g_sinais: 'FC 120 bpm, PA 100 × 60 mmHg, FR 26 irpm (superficial), Tax 37,8 °C.',
+    a_insp: 'Abdome plano, <b>imóvel</b>, respiração só torácica.',
+    a_ausc: '<b>RHA abolidos.</b>',
+    a_perc: '<b>Timpanismo na área hepática (LHC direita, 5º–6º EIC).</b>',
+    a_palp_sup: '<b>Abdome em tábua</b> (rigidez difusa involuntária).',
+    a_blumberg: '<b>Blumberg positivo difuso.</b>'
+  },
+  keyQ: ['qd', 'inicio', 'carac', 'fatores', 'ida_gi', 'meds'],
+  keyEx: ['g_sinais', 'a_insp', 'a_ausc', 'a_perc', 'a_palp_sup', 'a_blumberg'],
+  pergunta: 'Hipótese e sinal-chave?',
+  opcoes: ['Úlcera péptica perfurada com pneumoperitônio (sinal de Jobert)', 'Pancreatite aguda (sinal de Cullen)', 'Colecistite (sinal de Murphy)', 'Obstrução intestinal'],
+  correta: 0,
+  discussao: '<p>Dispepsia antiga + uso de AINE + dor <b>súbita "em apunhalada"</b> que se difunde = úlcera perfurada. O ar escapa e sobe: <b>Jobert</b> (timpanismo onde deveria haver macicez hepática). O conteúdo gástrico causa peritonite química: <b>abdome em tábua</b>, Blumberg difuso, RHA abolidos e paciente imóvel. Diferencial benigno do timpanismo hepático: <b>Chilaiditi</b> (alça entre fígado e diafragma, sem peritonite).</p>'
+},
+{
+  id: 'neo-pancreas', titulo: 'Amarelo, emagrecido e sem dor', fonte: 'Guia Clínico e Casos de Semiologia Abdominal', area: ['abdome', 'geral'], nivel: 2,
+  porta: 'Homem de 68 anos com icterícia há 40 dias. Faça a anamnese e o exame do abdome.',
+  anamnese: {
+    ident: 'Osvaldo, 68 anos.',
+    qd: '"Amarelão" há 40 dias.',
+    inicio: 'Aos poucos, sem dor.',
+    carac: 'Pele e olhos cada vez mais amarelos; <b>coceira</b> no corpo todo.',
+    evol: '<b>Progressiva, sem melhora.</b>',
+    assoc: 'Perdeu <b>8 kg</b>, sem apetite.',
+    ida_geral: 'Emagrecimento, anorexia. Nega febre.',
+    ida_gi: '<b>Urina escura (colúria) e fezes claras (acolia).</b> Nega dor.',
+    ap: 'Diabetes há 6 meses.', tab: '40 maços-ano.', etil: 'Nega.'
+  },
+  exame: {
+    g_estado: 'Emagrecido.',
+    g_pele: '<b>Icterícia +3/+4, escoriações de coçadura.</b>',
+    g_linfo: 'Sem linfonodomegalias (Virchow negativo).',
+    a_insp: 'Plano, sem circulação colateral.',
+    a_figado: 'Fígado aumentado, liso, borda romba, indolor.',
+    a_palp_prof: '<b>Massa lisa e arredondada no HD, compatível com vesícula distendida, totalmente indolor.</b>',
+    a_murphy: 'Negativo.'
+  },
+  keyQ: ['qd', 'inicio', 'carac', 'evol', 'assoc', 'ida_gi', 'tab'],
+  keyEx: ['g_pele', 'g_linfo', 'a_figado', 'a_palp_prof', 'a_murphy'],
+  pergunta: 'Hipótese e sinal?',
+  opcoes: ['Neoplasia de cabeça de pâncreas, sinal de Courvoisier-Terrier', 'Colecistite aguda, sinal de Murphy', 'Hepatite viral', 'Cirrose'],
+  correta: 0,
+  discussao: '<p>Icterícia <b>colestática</b> (colúria, acolia, prurido), <b>progressiva e indolor</b>, com emagrecimento, em idoso tabagista com diabetes recente: tumor obstruindo o colédoco terminal. A vesícula se distende lentamente e fica <b>palpável e indolor</b> (Courvoisier-Terrier). No cálculo, a vesícula costuma estar fibrosada por inflamações repetidas e não distende. Procure sempre o linfonodo de Virchow (supraclavicular esquerdo).</p>'
+},
+{
+  id: 'esquistossomose', titulo: 'Vômito de sangue e baço enorme', area: ['abdome'], nivel: 3,
+  porta: 'Homem de 45 anos, natural do interior de Minas Gerais, teve vômito com sangue. Examine o abdome.',
+  anamnese: {
+    ident: 'Benedito, 45 anos, lavrador, <b>natural do Vale do Jequitinhonha</b>.',
+    qd: '"Vômito de sangue" ontem.',
+    inicio: 'De repente, grande quantidade.',
+    evol: 'Hoje evacuou fezes pretas.',
+    assoc: 'Sente peso no lado esquerdo da barriga há anos.',
+    ida_gi: 'Hematêmese e melena. Nega icterícia.',
+    ap: 'Nega hepatite e etilismo.',
+    vida: '<b>Tomava banho e pescava em rio e lagoa</b> desde criança.', etil: 'Nega.'
+  },
+  exame: {
+    g_sinais: 'FC 108 bpm, PA 100 × 60 mmHg.',
+    g_mucosas: 'Hipocorado +3/+4.',
+    g_pele: '<b>Anictérico, sem aranhas vasculares nem eritema palmar.</b>',
+    a_insp: 'Abaulamento no hipocôndrio esquerdo; circulação colateral discreta.',
+    a_perc: '<b>Traube maciço.</b>',
+    a_figado: '<b>Lobo esquerdo aumentado, duro, indolor.</b>',
+    a_baco: '<b>Baço muito aumentado</b>, palpável até a cicatriz umbilical; Castell positivo.',
+    a_ascite: 'Sem ascite.'
+  },
+  keyQ: ['ident', 'qd', 'evol', 'ap', 'vida', 'etil'],
+  keyEx: ['g_pele', 'a_perc', 'a_figado', 'a_baco', 'a_ascite'],
+  pergunta: 'Hipótese principal?',
+  opcoes: ['Esquistossomose hepatoesplênica com hipertensão portal e varizes', 'Cirrose alcoólica', 'Úlcera gástrica sem hepatopatia', 'Leucemia'],
+  correta: 0,
+  discussao: '<p>Naturalidade e hábitos são decisivos: <b>área endêmica + banho de rio</b>. Os ovos do Schistosoma causam fibrose em volta da veia porta: <b>hipertensão portal com função hepática preservada</b>. Por isso há esplenomegalia volumosa, lobo esquerdo duro e varizes que sangram, mas <b>sem icterícia nem estigmas de insuficiência hepática</b> (aranhas, eritema palmar) e geralmente sem ascite. Na cirrose haveria os estigmas.</p>'
+},
+{
+  id: 'hepatite', titulo: 'Olhos amarelos e dor do lado direito', area: ['abdome', 'geral'], nivel: 1,
+  porta: 'Jovem de 22 anos com icterícia há 5 dias. Faça a anamnese e o exame do fígado.',
+  anamnese: {
+    ident: 'Bruna, 22 anos, estudante.',
+    qd: '"Olhos amarelos" há 5 dias.',
+    inicio: 'Uma semana antes teve mal-estar, febre baixa, enjoo e falta de apetite.',
+    carac: 'Dor leve, em peso, no lado direito de cima da barriga.',
+    evol: 'Quando os olhos amarelaram, a febre passou.',
+    assoc: 'Urina escura.',
+    ida_geral: 'Mal-estar, astenia, febre baixa prévia.',
+    ida_gi: 'Náuseas, aversão à comida, colúria. Fezes um pouco mais claras.',
+    ap: 'Hígida.', meds: 'Nenhuma.', etil: 'Social.',
+    vida: 'Comeu em barraquinha durante viagem há 1 mês.'
+  },
+  exame: {
+    g_sinais: 'Afebril, FC 80 bpm.',
+    g_pele: '<b>Icterícia +2/+4.</b> Sem aranhas vasculares.',
+    a_figado: '<b>Hepatimetria aumentada; fígado palpável 3 cm do RCD, liso, de consistência normal, doloroso, borda fina.</b>',
+    a_baco: 'Baço não palpável.',
+    a_murphy: 'Negativo.',
+    a_ascite: 'Sem ascite.'
+  },
+  keyQ: ['qd', 'inicio', 'evol', 'ida_gi', 'meds', 'etil', 'vida'],
+  keyEx: ['g_pele', 'a_figado', 'a_murphy', 'a_ascite'],
+  pergunta: 'Hipótese principal?',
+  opcoes: ['Hepatite viral aguda', 'Cirrose', 'Neoplasia de pâncreas', 'Colecistite aguda'],
+  correta: 0,
+  discussao: '<p>Pródromo (mal-estar, febre baixa, náusea, anorexia) seguido de icterícia e colúria, em jovem com exposição alimentar em viagem: hepatite viral aguda (pensar em hepatite A). O fígado da hepatite é <b>aumentado, liso, doloroso, de borda fina</b>. Compare: cirrose = nodular, romba e indolor; congestão = lisa, romba e dolorosa; esteatose = lisa, mole e indolor. Murphy negativo afasta colecistite.</p>'
+},
+{
+  id: 'desidratacao', titulo: 'Idosa com diarreia e sonolência', area: ['geral'], nivel: 1,
+  porta: 'Senhora de 79 anos trazida pela filha por diarreia há 3 dias e sonolência. Faça o exame físico geral e classifique a desidratação.',
+  anamnese: {
+    ident: 'Dona Cida, 79 anos. <b>Informante: filha</b>.',
+    qd: '"Diarreia e muito mole" há 3 dias.',
+    inicio: 'Depois de comer em uma festa.',
+    carac: 'Fezes líquidas, 8 vezes por dia, sem sangue.',
+    evol: 'Hoje está sonolenta e quase não urinou.',
+    assoc: 'Vômitos no primeiro dia. Bebe pouca água.',
+    ida_gi: 'Diarreia aquosa de grande volume, sem muco ou sangue.',
+    ida_gu: '<b>Urinou muito pouco hoje.</b>',
+    ap: 'HAS.', meds: '<b>Diurético (hidroclorotiazida)</b> e losartana.'
+  },
+  exame: {
+    g_estado: 'MEG, <b>sonolenta, desperta ao chamado, confusa</b>. Glasgow 13 (O3 V4 M6).',
+    g_sinais: '<b>PA 85 × 50 mmHg, FC 118 bpm</b>, FR 22 irpm, Tax 36,4 °C.',
+    g_mucosas: '<b>Mucosas muito secas, com fissuras na língua.</b> Desidratada +4/+4.',
+    g_facies: '<b>Enoftalmia</b> (olhos encovados).',
+    g_tec: '<b>Extremidades frias, TEC 4 s; turgor diminuído (> 3 s).</b>',
+    a_ausc: 'RHA hiperativos.',
+    a_palp_sup: 'Flácido, levemente doloroso difusamente, sem defesa.'
+  },
+  keyQ: ['ident', 'qd', 'carac', 'evol', 'ida_gu', 'meds'],
+  keyEx: ['g_estado', 'g_sinais', 'g_mucosas', 'g_facies', 'g_tec'],
+  pergunta: 'Como classificar?',
+  opcoes: ['Desidratação grave com hipoperfusão (diarreia aguda + diurético)', 'Desidratação leve', 'Normal para a idade', 'Desidratação moderada sem repercussão'],
+  correta: 0,
+  discussao: '<p>Mucosas muito secas com fissuras, enoftalmia evidente, <b>TEC ≥ 3 s, turgor > 3 s, hipotensão, taquicardia, extremidades frias, oligúria e rebaixamento do nível de consciência</b> = desidratação <b>grave</b>. O diurético piora a perda. No idoso o turgor é pouco confiável: apoie-se em mucosas, TEC, PA, diurese e consciência. Diarreia aquosa de grande volume sugere origem no intestino delgado. Registre a informante (filha) por causa da confusão.</p>'
+},
+{
+  id: 'hipotireoidismo', titulo: 'Cansaço, frio e inchaço no rosto', area: ['geral'], nivel: 2,
+  porta: 'Mulher de 52 anos com cansaço há meses. Esta estação é de exame físico geral: descreva o que observa e proponha a hipótese.',
+  anamnese: {
+    ident: 'Lúcia Helena, 52 anos, professora.',
+    qd: '"Cansaço" há 6 meses.',
+    inicio: 'Aos poucos.',
+    carac: 'Cansaço o dia todo, sonolência, desânimo.',
+    evol: 'Ganhou 7 kg sem comer mais.',
+    assoc: 'Sente muito frio, pele seca, intestino preso, cabelo caindo.',
+    ida_geral: 'Ganho de peso, <b>intolerância ao frio</b>, sonolência.',
+    ida_outros: 'Pele seca, queda de cabelo, rouquidão leve, cãibras.',
+    ida_gi: 'Constipação.',
+    ap: 'Nega doenças.', af: 'Mãe com "problema de tireoide".'
+  },
+  exame: {
+    g_estado: 'BEG, lentificada, fala arrastada.',
+    g_sinais: 'PA 140 × 90 mmHg, <b>FC 56 bpm</b>, Tax 35,9 °C.',
+    g_facies: '<b>Fácies mixedematosa</b>: face arredondada, pálida, pálpebras infiltradas, expressão apática; <b>perda do terço lateral das sobrancelhas</b>.',
+    g_pele: 'Pele <b>seca, fria e áspera</b>; cabelos finos e quebradiços.',
+    g_edema: '<b>Edema pré-tibial duro, sem cacifo.</b>',
+    g_mucosas: 'Hipocorada +1/+4.'
+  },
+  keyQ: ['qd', 'carac', 'evol', 'assoc', 'ida_geral', 'af'],
+  keyEx: ['g_sinais', 'g_facies', 'g_pele', 'g_edema'],
+  pergunta: 'Hipótese principal?',
+  opcoes: ['Hipotireoidismo (fácies mixedematosa, mixedema)', 'Síndrome nefrótica', 'Insuficiência cardíaca', 'Depressão sem doença orgânica'],
+  correta: 0,
+  discussao: '<p>Metabolismo lento em tudo: cansaço, sonolência, ganho de peso, intolerância ao frio, constipação, bradicardia, hipotermia leve. <b>Fácies mixedematosa</b> com perda do terço lateral das sobrancelhas, pele seca e fria e <b>edema duro sem cacifo</b> (mixedema: depósito de mucopolissacarídeos, e não água livre). A falta de cacifo é o que separa do edema renal ou cardíaco.</p>'
+},
+{
+  id: 'anamnese-carlos', titulo: 'Estação de anamnese: dor de barriga', fonte: 'Aula de Anamnese – Caso 2', area: ['anamnese'], nivel: 1,
+  porta: 'Sr. Carlos, 50 anos, procura atendimento por dor abdominal. Esta estação é <b>só de anamnese</b>: colete a história completa, caracterize o sintoma-guia e acolha o paciente.',
+  anamnese: {
+    ident: 'Carlos, 50 anos, comerciante, casado, natural e procedente de Ribeirão Preto.',
+    qd: '"Dor de barriga muito forte, torcendo o intestino por dentro" há 1 ano.',
+    inicio: 'Começou há cerca de 1 ano, pouco depois que a irmã faleceu.',
+    carac: 'Dor em cólica ("torcendo"), <b>"pega a barriga toda"</b>, 8/10 nas crises.',
+    fatores: '<b>"Só melhora com Buscopan®"</b>. Piora em dias de nervoso.',
+    evol: 'Crises algumas vezes por semana, desde então.',
+    assoc: 'Barriga estufada. Nega febre, perda de peso e sangue nas fezes.',
+    ida_gi: 'Alterna intestino preso e solto. Nega sangue, melena e vômitos.',
+    ida_geral: 'Nega febre e emagrecimento. Dorme mal.',
+    ap: '<b>Colesterol alto.</b>', meds: 'Sinvastatina; Buscopan nas crises.',
+    af: '<b>Irmã faleceu de câncer de pâncreas há 1 ano.</b>',
+    tab: 'Nega.', etil: 'Cerveja nos fins de semana.',
+    vida: '<b>"Depois disso não tive mais sossego"</b>, preocupado em ter a mesma doença.'
+  },
+  exame: {},
+  keyQ: ['ident', 'qd', 'inicio', 'carac', 'fatores', 'evol', 'assoc', 'ida_gi', 'ida_geral', 'ap', 'meds', 'af', 'vida'],
+  keyEx: [],
+  pergunta: 'Como organizar essa história?',
+  opcoes: [
+    'Sintoma-guia: dor abdominal difusa em cólica há 1 ano, com alívio por antiespasmódico; dislipidemia vai para AP; câncer da irmã para AF; o luto e o medo devem ser acolhidos',
+    'Registrar a QD como "câncer de pâncreas", porque é o que ele teme',
+    'O sintoma-guia é o colesterol alto',
+    'Ignorar a irmã: antecedentes familiares não importam aqui'
+  ],
+  correta: 0,
+  discussao: '<p>A QD usa as palavras dele e o tempo, sem rótulo diagnóstico. Caracterize a dor com OPQRST: início (há 1 ano, após o luto), cólica, difusa, alívio com antiespasmódico, piora com estresse. Pesquise <b>sinais de alarme</b> (emagrecimento, sangue nas fezes, febre, icterícia), que ele nega. Dislipidemia vai para antecedentes pessoais; o câncer da irmã para antecedentes familiares (com a idade do óbito). O componente emocional é parte da história: use <b>resposta empática</b> ("imagino como tem sido difícil desde a perda da sua irmã") e não prometa diagnósticos.</p>'
 }
+
 
 ];

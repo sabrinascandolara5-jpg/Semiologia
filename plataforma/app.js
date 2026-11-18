@@ -41,14 +41,14 @@ const NAV = [
   { label: 'Começo', items: [['inicio', 'Painel', 'var(--teal)']] },
   { label: 'Aprender fazendo', items: [['trilhas', 'Trilhas de raciocínio', 'var(--a3)'], ['mecanismos', 'Laboratório de mecanismos', 'var(--a3)'], ['videoaulas', 'Videoaulas', 'var(--a3)']] },
   { label: 'Teoria', items: TEORIA.map(t => ['teoria-' + t.id, t.titulo, 'var(--' + t.cor + ')', t]) },
-  { label: 'Prática OSCE', items: [['osce', 'Simulador de estações', 'var(--trace)'], ['roteiros', 'Roteiros de exame', 'var(--trace)'], ['ausculta', 'Laboratório de ausculta', 'var(--trace)'], ['decodificador', 'Decodificador e mapas', 'var(--trace)']] },
+  { label: 'Prática OSCE', items: [['provas', 'Estações estilo prova', 'var(--trace)'], ['osce', 'Simulador de estações', 'var(--trace)'], ['roteiros', 'Roteiros de exame', 'var(--trace)'], ['ausculta', 'Laboratório de ausculta', 'var(--trace)'], ['decodificador', 'Decodificador e mapas', 'var(--trace)']] },
   { label: 'Fixação', items: [['quiz', 'Questões', 'var(--a6)'], ['flashcards', 'Flashcards', 'var(--a6)'], ['glossario', 'Glossário', 'var(--a6)'], ['ferramentas', 'Calculadoras', 'var(--a6)']] }
 ];
 function renderNav(active) {
   $('#nav').innerHTML = NAV.map(g => '<div class="nav-label">' + g.label + '</div>' + g.items.map(it => {
     let prog = '';
     if (it[3]) { const p = teoProg(it[3]); prog = '<span class="nav-prog">' + p[0] + '/' + p[1] + '</span>'; }
-    const isActive = active === it[0] || ((it[0] === 'osce' || it[0] === 'trilhas') && active.indexOf(it[0] + '-') === 0);
+    const isActive = active === it[0] || ((it[0] === 'osce' || it[0] === 'trilhas' || it[0] === 'provas') && active.indexOf(it[0] + '-') === 0);
     return '<a class="nav-link' + (isActive ? ' active' : '') + '" href="#' + it[0] + '"><span class="nav-dot" style="background:' + it[2] + '"></span>' + it[1] + prog + '</a>';
   }).join('')).join('');
 }
@@ -104,7 +104,8 @@ function viewHome(v) {
     <h1 style="margin-top:8px">Treine como se já estivesse na estação.</h1>
     <p>Teoria completa dos seus materiais, simulador de casos no estilo OSCE com paciente virtual, roteiros para falar em voz alta, sons cardíacos e pulmonares, ${QUIZ.length} questões e flashcards.</p>
     <div class="row" style="margin-top:10px">
-      <a class="btn primary" href="#trilhas">Começar uma trilha de raciocínio</a>
+      <a class="btn primary" href="#provas">Estações estilo prova</a>
+      <a class="btn" href="#trilhas">Trilhas de raciocínio</a>
       <a class="btn" href="#videoaulas">Assistir às videoaulas</a>
       <a class="btn" href="#osce" id="goOsce">${ICON.dice}Sortear uma estação</a>
       <a class="btn" href="#quiz">Fazer 10 questões</a>

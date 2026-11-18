@@ -428,6 +428,48 @@ var TEORIA = [
       ['<b>Congestão passiva</b>', 'Esforço respiratório', 'Normal ou ↑', 'Claro ou submacicez', 'Presente', '<b>Estertores finos nas bases</b>, sibilos ocasionais', 'IC esquerda']
     ], 'compact') +
     co('tip', 'Atalho', 'Macicez + FTV ↑ = <b>consolidação</b>. Macicez + FTV ↓ = <b>derrame</b> (ou atelectasia). Timpanismo + FTV ↓ = <b>pneumotórax</b>. Hipersonoridade bilateral = <b>enfisema</b>. Treine no Decodificador.') },
+  { id: 'manobras-extras', h: 'Manobras e sinais extras (Porto e revisão OSCE)',
+    html: '<p><b>Sequência na estação</b>: procedimentos padrão (apresentar, higienizar, explicar, permissão, aquecer mãos e estetoscópio) → sentado, tórax despido (privacidade na mulher) → inspeção estática e dinâmica → palpação → percussão → ausculta. Comece pela <b>face posterior</b> (braços cruzados), depois laterais e anterior, sempre comparando pontos simétricos. Termine com hipótese e diferencial.</p>' +
+    tb(['Manobra / sinal', 'Como fazer', 'Significado'], [
+      ['<b>Ruault</b> (expansibilidade dos ápices)', 'Atrás do paciente; mãos nas fossas supraclaviculares, polegares juntos sobre C7', 'O lado que expande menos é o doente (TB apical, fibrose)'],
+      ['<b>Lasègue</b> (expansibilidade das bases)', 'Polegares paralelos à coluna (~T10) com uma prega de pele, dedos nos últimos arcos', 'Processos de base (derrame, pneumonia)'],
+      ['<b>Signorelli</b>', 'Percutir os processos espinhosos de T1 a T12', 'Macicez no terço inferior da coluna = derrame pleural (na condensação a coluna é clara)'],
+      ['Macicez que muda com a posição', 'Paciente inclina para frente ou em decúbito ventral', 'Derrame livre: a macicez da coluna some; condensação: permanece'],
+      ['<b>Lemos-Torres</b> (inspeção)', 'Observar 9º–11º EIC na expiração', 'Abaulamento expiratório dos espaços intercostais = derrame pleural'],
+      ['<b>Ramond</b>', 'Inspeção/palpação do dorso', 'Contração involuntária dos paravertebrais do mesmo lado = pleurite'],
+      ['Asa do nariz, frenolabial, tiragem', 'Inspeção dinâmica', 'Sinais de gravidade respiratória (pneumonia grave, DPOC, asma)'],
+      ['Assincronia toracoabdominal', 'Inspeção dinâmica', 'Fadiga diafragmática'],
+      ['Respiração paradoxal do gradil', 'Retração costal na inspiração', 'Trauma torácico (tórax instável)'],
+      ['Silêncio auscultatório na asma', 'Ausculta', 'Broncoespasmo gravíssimo: alarme']
+    ]) +
+    '<p><b>Referências</b>: ângulo de Louis = 2ª costela; C7 é a vértebra mais saliente; ângulo inferior da escápula ≈ 7º EIC; o lobo médio só aparece na face anterior direita. A percussão capta estruturas até ~5 cm de profundidade. O FTV é normalmente mais acentuado à direita e nas bases. Na inspiração profunda, o fígado desce cerca de 5 cm.</p>' +
+    tb(['Alteração', 'O que sugere'], [
+      ['Tosse seca', 'Enfisema, fase inicial de infecção, IC (tosse noturna)'],
+      ['Tosse produtiva, muito catarro pela manhã', 'Bronquite crônica, bronquiectasias'],
+      ['Escarro "clara de ovo", viscoso, no fim da crise', 'Asma (rico em eosinófilos)'],
+      ['Escarro róseo e espumoso', 'Edema agudo de pulmão (IC esquerda, estenose mitral)'],
+      ['Hemoptise em recém-operado', 'TEP'],
+      ['Hemoptise em jovem', 'Tuberculose, estenose mitral'],
+      ['Sibilo localizado e fixo', 'Obstrução local (neoplasia, corpo estranho)'],
+      ['Chiado de origem cardíaca', '"Asma cardíaca" (IC esquerda)']
+    ]) + co('warn', 'Divergências entre as fontes', 'Sopro anfórico: pneumotórax hipertensivo (Porto, slides) × grandes cavidades (revisão de casos). Ângulo de Charpy: brevilíneo/enfisema é obtuso (> 90°), longilíneo é agudo (< 90°).') },
+  { id: 'doencas-resp', h: 'Doença → achados (revisão OSCE)',
+    html: tb(['Doença', 'Clínica típica', 'Exame', 'Pista de prova'], [
+      ['Pneumonia (condensação)', 'Febre alta súbita, calafrios, catarro amarelado/ferruginoso, dor em pontada', 'Expansibilidade ↓, FTV ↑, macicez, estertores finos, sopro tubário, broncofonia', 'Signorelli negativo; "tudo aumenta"'],
+      ['Derrame pleural', 'Dor pleurítica na base, trepopneia (deita do lado são), dispneia', 'FTV abolido, macicez, MV e voz abolidos, egofonia no limite', 'Signorelli +, Lemos-Torres; traqueia contralateral se volumoso'],
+      ['Pneumotórax', 'Dor súbita em pontada + dispneia súbita; jovem longilíneo, trauma', 'Timpanismo, MV e FTV abolidos', 'Hipertensivo: traqueia contralateral, turgência jugular, hipotensão'],
+      ['Atelectasia', 'Dispneia em acamado, pós-operatório, tumor, corpo estranho', 'Retração, tiragem, macicez, MV abolido', 'Traqueia puxada para o mesmo lado'],
+      ['Enfisema (pink puffer)', 'Tabagista, dispneia progressiva, magro', 'Tonel, Charpy obtuso, hipersonoro, MV ↓, expiração prolongada', 'Frenolabial'],
+      ['Bronquite crônica (blue bloater)', 'Tabagista, catarro matinal abundante; obeso, cianótico', 'Roncos, estertores grossos que mudam com a tosse', 'Cor pulmonale (edema)'],
+      ['Asma em crise', 'Chiado e dispneia episódicos, à noite, com alérgenos; atopia', 'Tiragem, musculatura acessória, hipersonoro, sibilos expiratórios', 'Silêncio = grave'],
+      ['Congestão (IC esquerda)', 'Ortopneia, DPN; após IAM ou HAS', 'Estertores finos nas bases que mudam com o decúbito', 'IAM → estertor fino'],
+      ['Fibrose intersticial', 'Dispneia progressiva, tosse seca', 'Baqueteamento, estertores finos "em velcro" nas bases', 'Expansibilidade ↓ bilateral'],
+      ['Tuberculose', 'Tosse ≥ 3 semanas, febre vespertina, sudorese noturna, emagrecimento', 'Ruault ↓ nos ápices, FTV ↑, estertores apicais, sopro cavitário', 'Fibrose puxa a traqueia'],
+      ['Pleurite seca', 'Dor pleurítica, sem derrame', 'Atrito pleural, Ramond', 'O atrito some quando surge o derrame'],
+      ['TEP', 'Dispneia súbita pós-operatória/imobilização, dor pleurítica, hemoptise', 'Pulmão quase normal; taquicardia, P2 ↑, sinais de TVP', '"Grande simulador"']
+    ], 'compact') +
+    '<h4>DPOC: exacerbação (critérios de Anthonisen)</h4><p>Piora da dispneia basal + aumento do volume de escarro + escarro purulento. Dois de três caracterizam exacerbação. Comorbidades: cor pulmonale, osteoporose, caquexia, depressão.</p>' +
+    '<h4>TEP: tríade de Virchow</h4><p>Estase (imobilização), hipercoagulabilidade, lesão endotelial. Início súbito sem pródromo, hemoptise de pequeno volume (infarto pulmonar), ausência de febre. Graves: cor pulmonale agudo (P2 hiperfonética, turgência jugular, hepatomegalia dolorosa). Escore de Wells > 4 = TEP provável.</p>' },
   { id: 'normal-resp', h: 'Modelo de exame respiratório normal',
     html: '<div class="model">Tórax atípico, simétrico, sem abaulamentos, retrações ou cicatrizes. Eupneico, FR 16 irpm, ritmo regular, padrão toracoabdominal, sem uso de musculatura acessória ou tiragem. Expansibilidade preservada e simétrica. Frêmito toracovocal presente e simétrico. Som claro pulmonar à percussão bilateralmente. Murmúrio vesicular presente e simétrico, sem ruídos adventícios. Ressonância vocal normal.</div>' }
   ]
@@ -601,6 +643,42 @@ var TEORIA = [
       ['Atrito pericárdico', 'Não coincide com fase do ciclo (sístole e diástole)', '"Fricção de couro", áspero, intensidade variável; ponta e BEE 4º EIC', 'Pericardite fibrinosa'],
       ['Rumor venoso', 'Contínuo', 'Grave, base do pescoço, sentado; junção jugular-tronco braquiocefálico', 'Fisiológico (crianças)']
     ]) },
+  { id: 'osce-cv', h: 'Revisão OSCE: sequência, remodelamento e doenças',
+    html: '<p><b>Sequência</b>: apresentar-se → identificar → higienizar → explicar → permissão → aquecer mãos e estetoscópio → decúbito dorsal (jugular a 45°) → PA → pulso radial → inspeção e palpação do precórdio → percussão (valor limitado) → ausculta → manobras → pulsos e perfusão (TEC) → jugular → TVP.</p>' +
+    tb(['Item', 'Detalhe'], [
+      ['Pulso: 7 parâmetros', 'Frequência, ritmo, amplitude, tensão, formato da onda, simetria e sincronismo. Polpas do 2º e 3º dedos, nunca o polegar, 1 min'],
+      ['Pulsos centrais e periféricos', 'Centrais: carotídeo (nunca os dois juntos) e aorta abdominal. Periféricos: temporal, subclávio, axilar, braquial, radial, ulnar, femoral, poplíteo, tibial posterior (atrás do maléolo medial), pedioso'],
+      ['PA', 'Manguito pequeno dá PA falsamente alta. Medir nos 2 braços na 1ª consulta (e na suspeita de dissecção). Desinflar 2 mmHg/s'],
+      ['Ordem da ausculta', 'Ritmo → FC → B1/B2 → ruídos extras → sopros → atrito'],
+      ['Frêmito', 'Palma (metacarpofalângicas) nos focos e fúrcula = sopro ≥ IV/VI'],
+      ['PVC (Lewis)', 'Altura do pulso venoso acima do ângulo de Louis + 5 cm; > 3 cm acima do Louis = estase'],
+      ['Refluxo hepatojugular', 'Comprimir o HCD 10–30 s; a jugular sobe ≥ 3 cm e se mantém = PVC elevada'],
+      ['Sinal de Kussmaul (jugular)', 'Jugular sobe na inspiração: pericardite constritiva, IC, infarto de VD'],
+      ['TVP', 'Edema assimétrico (> 3 cm), Homans, Bancroft, bandeira (empastamento); edema bilateral sugere causa sistêmica']
+    ]) +
+    '<h4>Remodelamento → ictus → bulha extra</h4>' + tb(['Mecanismo', 'Exemplos', 'Ictus', 'Bulha'], [
+      ['Sobrecarga de pressão (hipertrofia concêntrica)', 'HAS, EAo, CMH', 'Cupuliforme, no lugar, propulsivo', 'B4'],
+      ['Sobrecarga de volume (hipertrofia excêntrica)', 'IM, IAo', 'Globoso, desviado, amplo', 'B3'],
+      ['Lesão do miocárdio (dilatação, parede fina)', 'Chagas, pós-IAM, alcoólica', 'Globoso, > 3 polpas, fraco', 'B3'],
+      ['Isquemia aguda', 'IAM, angina', 'Normal', 'B4 (B3 se IC)'],
+      ['Sobrecarga do VD', 'EM, DPOC, TEP', 'Impulsão paraesternal E', 'B3/B4 de VD (Rivero-Carvallo +)'],
+      ['Sem contração atrial', 'Fibrilação atrial', '—', 'Nunca B4']
+    ]) +
+    '<h4>Doença → achados</h4>' + tb(['Doença', 'Clínica', 'Exame', 'Pista'], [
+      ['IAM / angina', 'Dor retroesternal opressiva → MSE e mandíbula; IAM > 20 min em repouso', 'Sudorese fria, palidez; B4; sopro de IM se complicar', 'Pode evoluir com IC (estertor fino)'],
+      ['IC esquerda', 'Ortopneia, DPN, dispneia; IAM/HAS prévios', 'Ictus desviado e globoso, B3, estertores finos nas bases; pulso alternante se grave', 'Cheyne-Stokes se grave'],
+      ['IC direita', 'Edema de MMII, aumento do abdome, dor no HCD', 'Turgência jugular, hepatomegalia dolorosa, refluxo hepatojugular, ascite', 'Causa mais comum: IC esquerda'],
+      ['Cor pulmonale', 'DPOC ou TEP + edema e dispneia', 'Impulsão paraesternal E, P2 hiperfonética, sopro de IT, B3 de VD', 'IC direita de causa pulmonar'],
+      ['Chagas', 'Área endêmica, barbeiro; dispneia, palpitação, síncope; disfagia e constipação (megas)', 'Ictus globoso > 3 polpas, pulso irregular, B3, sopros funcionais, BRD', 'Miocardiopatia dilatada'],
+      ['HAS', 'Assintomática; cefaleia; lesão de órgão-alvo', 'Ictus cupuliforme propulsivo, B4, A2 hiperfonética', 'Hipertrofia concêntrica'],
+      ['Endocardite', 'Febre prolongada + sopro novo; droga IV, prótese, valvopatia', 'Petéquias, lesões em dedos, sopro regurgitativo novo', 'Febre + sopro = endocardite'],
+      ['Pericardite aguda', 'Dor que piora deitado e na inspiração, alivia inclinado para frente; pós-virose', 'Atrito pericárdico (couro)', 'Prece maometana/genupeitoral'],
+      ['Tamponamento', 'Dispneia, hipotensão; trauma ou derrame', 'Turgência jugular, pulso paradoxal, bulhas abafadas', 'Tríade de Beck'],
+      ['Dissecção de aorta', 'Dor súbita, rasgante → dorso; hipertenso', 'Assimetria de pulsos e PA; sopro de IAo possível', 'Medir PA nos 2 braços'],
+      ['Choque', 'Hipotensão, taquicardia, confusão', 'Pulso fino, TEC > 3 s; frio no cardiogênico, quente no séptico inicial; jugular cheia no cardiogênico/obstrutivo, vazia no hipovolêmico', 'Hipovolêmico · séptico · cardiogênico · obstrutivo']
+    ], 'compact') +
+    co('tip', 'Macetes da revisão', '"EAIM na sístole, IAEM na diástole" (EAo e IM sistólicos; IAo e EM diastólicos). Parede grossa → B4; cavidade grande → B3. Irradiação: mitral → axila; aórtico → carótidas. EAo é sopro <b>ejetivo</b>, não regurgitativo. Ictus fixo = pericardite constritiva.') +
+    co('warn', 'Divergências entre as fontes', 'Foco tricúspide: base do xifoide (slides) × 4º EIC esquerdo na borda esternal (revisão OSCE). TEC normal: ≤ 2 s (hidratação) × < 3 s (revisão OSCE). Na prova prática a ausculta não é cobrada ao vivo: é preciso classificar e associar.') },
   { id: 'normal-cv', h: 'Modelo de exame cardiovascular normal',
     html: '<div class="model">Sem turgência jugular patológica a 45°. Ictus cordis visível e palpável no 5º EIC esquerdo na linha hemiclavicular, com extensão de 1 a 2 polpas digitais, não propulsivo. Pulsos periféricos palpáveis, simétricos, com amplitude normal. Extremidades aquecidas, TEC < 2 s. Ritmo cardíaco regular em 2 tempos, bulhas normofonéticas, sem sopros, cliques ou atritos. FC 78 bpm, PA 120 × 80 mmHg.</div>' +
     co('tip', 'Forma curta (prontuário)', '"RCR em 2T, BNF, sem sopros. FC 78 bpm. PA 120 × 80 mmHg."') }
@@ -724,6 +802,39 @@ var TEORIA = [
       ['<b>Obstrução intestinal</b>', 'Distensão, <b>peristaltismo visível</b>', 'Hiperativos, <b>timbre metálico</b> (depois abolidos)', '<b>Hipertimpanismo</b>', 'Alças dilatadas eventualmente palpáveis'],
       ['<b>Hipertensão portal</b>', 'Ascite, <b>circulação colateral tipo porta</b>, batráquio', 'Normais', 'Macicez móvel, Skoda; macicez no HCE (baço)', 'Piparote (grande volume), fígado alterado, <b>baço palpável</b>']
     ], 'compact') },
+  { id: 'abdome-agudo', h: 'Abdome agudo: os 5 tipos',
+    html: '<p>Dor abdominal de início recente que pode exigir intervenção urgente. <b>Dor visceral</b>: surda, mal localizada, na linha média, por distensão. <b>Dor parietal</b>: aguda, bem localizada, por irritação do peritônio parietal. A dor inflamatória começa visceral e fica parietal quando o peritônio é atingido.</p>' +
+    tb(['Tipo', 'Mecanismo', 'Pista clínica', 'Exemplos'], [
+      ['<b>Inflamatório</b>', 'Inflamação de víscera ou peritônio', 'Dor localizada, febre, anorexia', 'Apendicite, colecistite, diverticulite, pancreatite, pielonefrite'],
+      ['<b>Perfurativo</b>', 'Víscera oca rompe e extravasa conteúdo', 'Dor súbita "em apunhalada", imobilidade, tábua, Jobert', 'Úlcera péptica perfurada, diverticulite perfurada, trauma'],
+      ['<b>Obstrutivo</b>', 'Bloqueio do trânsito', 'Cólica, distensão, vômitos, parada de gases e fezes, peristaltismo de luta', 'Aderências (bridas), hérnia encarcerada, tumor, volvo, fecaloma'],
+      ['<b>Hemorrágico</b>', 'Sangramento intra-abdominal', 'Dor + palidez, sudorese fria, taquicardia, hipotensão', 'Gravidez ectópica rota, AAA roto, trauma esplênico/hepático'],
+      ['<b>Isquêmico</b>', 'Fluxo mesentérico interrompido', 'Dor desproporcional ao exame no início', 'Embolia (FA), trombose mesentérica']
+    ]) +
+    tb(['Obstrução', 'Alta (antes do Treitz)', 'Baixa (depois do Treitz)'], [
+      ['Sintoma principal', 'Vômitos precoces, alimentares ou biliosos', 'Distensão, parada de gases e fezes'],
+      ['Vômito', 'Precoce', 'Tardio, pode ser fecaloide'],
+      ['Ausculta', '—', 'Antes do bloqueio: hiperativos, metálicos; depois: raros ou abolidos']
+    ]) +
+    tb(['Inflamatório', 'Perfil', 'Local', 'Sinal'], [
+      ['Apendicite', 'Homem jovem', 'Periumbilical → FID (cronologia de Murphy, 12–24 h)', 'McBurney, Blumberg, Rovsing, Psoas, Obturador, Lenander; plastrão se supurado'],
+      ['Diverticulite', 'Idoso com constipação', 'FIE ("apendicite do lado esquerdo")', 'Blumberg na FIE; pode perfurar'],
+      ['Colecistite', 'Mulher, sobrepeso, multípara', 'HD → escápula D, após gordura', 'Murphy; raramente icterícia'],
+      ['Colangite', 'Litíase conhecida', 'HD', 'Charcot (febre + icterícia + dor); Reynolds (+ choque + confusão)'],
+      ['Pancreatite', 'Etilista, litíase, hipertrigliceridemia', 'Epigástrio em faixa → dorso', 'Cullen, Grey-Turner (graves)'],
+      ['Pielonefrite', 'Mulher jovem, ITU', 'Flanco/lombar, irradia para virilha', 'Giordano; febre alta e calafrios']
+    ]) +
+    co('tip', 'Pares que confundem', 'Febre separa pielonefrite (febre) de cólica renal (sem febre, paciente inquieto). Febre alta separa colangite de colecistite. Jobert (ar livre, perfuração) × <b>Chilaiditi</b> (alça do cólon entre fígado e diafragma, sem perfuração). <b>Gersuny</b>: fecaloma (massa moldável no sigmoide que "descola" ao soltar).') },
+  { id: 'vias-biliares', h: 'Vias biliares e fígado (complementos)',
+    html: tb(['Quadro', 'Definição'], [
+      ['Colelitíase', 'Cálculos na vesícula; pode ser assintomática ou dar cólica biliar'],
+      ['Colecistite', 'Inflamação da vesícula por obstrução do cístico; Murphy positivo'],
+      ['Coledocolitíase', 'Cálculo no colédoco: icterícia obstrutiva, colúria, acolia'],
+      ['Colangite', 'Infecção da via biliar obstruída: tríade de Charcot; grave: pêntade de Reynolds'],
+      ['Hidrocolecisto', 'Vesícula distendida por conteúdo mucoso estéril (obstrução prolongada do cístico)'],
+      ['Piocolecisto', 'Vesícula com pus: risco de perfuração e sepse']
+    ]) +
+    ul(['Hepatimetria: lobo direito 6–12 cm; lobo esquerdo 4–8 cm; transição maciço-timpânico ~2 cm.', 'Cirrose: o fígado pode estar aumentado no início e diminuído e nodular na fase avançada (não necessariamente passa pelas duas). Exame isolado não confirma nem exclui.', '<b>Hiperestrogenismo</b> da cirrose (fígado não degrada estradiol + mais aromatização periférica): ginecomastia, aranhas vasculares, eritema palmar, rarefação de pelos, atrofia testicular.', '<b>Trombose de veia porta</b>: hipertensão portal sem insuficiência hepática (sem icterícia, sem hipoalbuminemia); circulação colateral mais comum tipo cava.', '<b>Esquistossomose hepatoesplênica</b>: área endêmica, banho de rio; lobo esquerdo aumentado e duro, esplenomegalia volumosa, Traube maciço, função hepática preservada.', 'Aumento do abdome <b>indolor</b> = ascite; com dor = distensão de cápsula (fígado, rim).', '<b>Abdome batráquio</b> descreve a forma (flancos abaulados); <b>ascítico</b> afirma o conteúdo.', 'Skoda: percutir a partir do epigástrio (abaixo do xifoide), não do umbigo. Macicez móvel e Skoda: 1–3 L; piparote: > 3–4 L.', 'Defesa voluntária cede na expiração; involuntária (peritonite) não. Percussão: 3 pontos por quadrante, sentido horário, começando no QSD.', 'Diarreia do delgado: grande volume, poucos episódios; do cólon: pequeno volume, muitos episódios, muco e sangue (disenteria).']) },
   { id: 'normal-abd', h: 'Modelo de exame do abdome normal',
     html: '<div class="model">Abdome plano, simétrico, sem cicatrizes, abaulamentos, circulação colateral ou peristaltismo visível. Ruídos hidroaéreos presentes e normoativos, sem sopros. Timpânico à percussão, com macicez restrita à projeção hepática; espaço de Traube livre. Flácido, indolor à palpação superficial e profunda, sem massas ou visceromegalias. Fígado com hepatimetria de 10 cm na LHC direita, borda não palpável (ou fina, lisa, indolor no RCD). Baço não palpável. Sinais de Murphy, Blumberg e Giordano negativos. Sem sinais de ascite.</div>' }
   ]

@@ -718,5 +718,101 @@ var CASOS = [
   ],
   correta: 0,
   discussao: '<p>A QD usa as palavras da paciente e o tempo, <b>sem rótulo diagnóstico</b>. O sintoma-guia é a <b>dor torácica</b>: caracterize com OPQRST (início súbito, pontada, 8/10, irradia para dorso, piora com inspiração, alívio com dipirona, dispneia associada). O ganho de peso e a disúria são queixas <b>sem relação</b> → registradas no IDA. A preocupação com o infarto da vizinha deve ser acolhida (resposta empática), mas não vira dado clínico da paciente.</p>'
+},
+{
+  id: 'tep', titulo: 'Falta de ar súbita no pós-operatório', fonte: 'Resumo do Sistema Respiratório (Porto)', area: ['resp', 'cardio', 'geral'], nivel: 2,
+  porta: 'Mulher de 42 anos, 8º dia de pós-operatório de cirurgia ortopédica, chamada à enfermaria por falta de ar. Avalie e apresente a hipótese.',
+  anamnese: {
+    ident: 'Cláudia, 42 anos, professora, internada na ortopedia.',
+    qd: '"Falta de ar de repente" há 1 hora.',
+    inicio: '<b>Súbita</b>, em repouso, sem nada antes.',
+    carac: 'Pontada no lado direito do peito ao respirar fundo.',
+    fatores: 'Piora ao inspirar.',
+    evol: 'Tossiu um pouco de <b>sangue vivo</b>.',
+    assoc: 'Coração acelerado. Panturrilha esquerda doendo há 2 dias.',
+    ida_geral: 'Nega febre.',
+    ida_resp: 'Dispneia súbita, dor pleurítica, <b>hemoptise discreta</b>. Nega catarro.',
+    ap: 'Fratura de fêmur operada há 8 dias; acamada desde então.',
+    meds: 'Anticoncepcional oral. Analgésicos. Não está usando anticoagulante.',
+    tab: 'Nega.'
+  },
+  exame: {
+    g_sinais: '<b>FC 118 bpm, FR 26 irpm, SpO₂ 88%</b>, PA 110 × 70 mmHg, afebril.',
+    g_estado: 'REG, ansiosa.',
+    g_edema: '<b>Panturrilha esquerda edemaciada (3,5 cm maior), empastada, Homans e Bancroft positivos.</b> Direita sem alterações.',
+    r_insp_din: 'Taquipneica, sem musculatura acessória.',
+    r_ausc: 'MV presente e simétrico; discreto atrito pleural na base direita.',
+    c_jug: 'Turgência jugular discreta a 45°.',
+    c_ausc: 'Taquicardia regular, <b>P2 hiperfonética</b>, sem sopros.'
+  },
+  keyQ: ['qd', 'inicio', 'carac', 'evol', 'ida_geral', 'ap', 'meds'],
+  keyEx: ['g_sinais', 'g_edema', 'r_ausc', 'r_perc', 'c_ausc', 'c_jug'],
+  pergunta: 'Hipótese principal?',
+  opcoes: ['Tromboembolismo pulmonar com TVP de MIE', 'Pneumonia hospitalar', 'Pneumotórax espontâneo', 'Crise de ansiedade'],
+  correta: 0,
+  discussao: '<p>Tríade de Virchow completa: <b>estase</b> (acamada), <b>hipercoagulabilidade</b> (pós-operatório, anticoncepcional), <b>lesão endotelial</b> (trauma ortopédico). Dispneia <b>súbita</b>, dor pleurítica, hemoptise (infarto pulmonar), sem febre. O pulmão quase normal com taquicardia e hipoxemia é a marca do "grande simulador". P2 hiperfonética e turgência jugular sugerem sobrecarga do VD. A fonte está na perna: edema assimétrico, empastamento, Homans e Bancroft.</p>'
+},
+{
+  id: 'colangite', titulo: 'Febre, icterícia e dor no lado direito', fonte: 'Resumo de Semiologia Abdominal', area: ['abdome', 'geral'], nivel: 2,
+  porta: 'Mulher de 55 anos com febre alta e olhos amarelos. Faça a anamnese e o exame do abdome.',
+  anamnese: {
+    ident: 'Rosa, 55 anos, do lar.',
+    qd: '"Febre e olhos amarelos" há 2 dias.',
+    inicio: 'Começou com dor em cólica no lado direito de cima da barriga.',
+    carac: 'Dor no hipocôndrio direito, em cólica, forte, irradiando para as costas.',
+    evol: 'Depois veio febre alta com calafrios e os olhos amarelaram.',
+    assoc: 'Urina escura e fezes claras.',
+    ida_geral: '<b>Febre de 39,5 °C com calafrios.</b>',
+    ida_gi: 'Náuseas. <b>Colúria e acolia.</b> Prurido leve.',
+    ap: '<b>Cálculos na vesícula</b> diagnosticados há 3 anos; cólicas biliares prévias.',
+    meds: 'Nenhuma.', etil: 'Nega.'
+  },
+  exame: {
+    g_sinais: '<b>Tax 39,4 °C, FC 112 bpm</b>, PA 110 × 70 mmHg.',
+    g_pele: '<b>Icterícia +2/+4</b> (escleras e freio lingual).',
+    a_palp_sup: 'Dor no hipocôndrio direito, defesa discreta.',
+    a_palp_prof: 'Dor à palpação profunda do hipocôndrio direito.',
+    a_murphy: 'Murphy duvidoso (dor difusa no HD).',
+    a_figado: 'Fígado palpável 2 cm do RCD, liso, doloroso.',
+    a_blumberg: 'Negativo.', a_giordano: 'Negativo.'
+  },
+  keyQ: ['qd', 'inicio', 'carac', 'evol', 'assoc', 'ida_geral', 'ap'],
+  keyEx: ['g_sinais', 'g_pele', 'a_palp_prof', 'a_murphy', 'a_figado'],
+  pergunta: 'Hipótese principal?',
+  opcoes: ['Colangite aguda (tríade de Charcot) por coledocolitíase', 'Colecistite aguda não complicada', 'Neoplasia de cabeça de pâncreas', 'Hepatite viral aguda'],
+  correta: 0,
+  discussao: '<p><b>Tríade de Charcot</b>: febre alta + icterícia + dor no HD = colangite. Colúria e acolia mostram que o colédoco está obstruído (cálculo que migrou da vesícula). A febre alta separa colangite de colecistite, que raramente dá icterícia franca. Se aparecessem hipotensão e confusão, seria a <b>pêntade de Reynolds</b> (colangite grave). Tumor de pâncreas dá icterícia progressiva <b>indolor</b> com vesícula palpável (Courvoisier).</p>'
+},
+{
+  id: 'diverticulite', titulo: 'Dor do lado esquerdo em idoso', fonte: 'Resumo de Semiologia Abdominal', area: ['abdome'], nivel: 1,
+  porta: 'Homem de 72 anos, constipado crônico, com dor abdominal e febre. Faça anamnese e exame do abdome.',
+  anamnese: {
+    ident: 'Sebastião, 72 anos, aposentado.',
+    qd: '"Dor na barriga do lado esquerdo" há 3 dias.',
+    inicio: 'Aos poucos, no lado esquerdo de baixo.',
+    carac: 'Dor contínua na fossa ilíaca esquerda, 7/10.',
+    fatores: 'Piora ao andar e ao tossir.',
+    evol: 'Febre baixa desde ontem.',
+    ida_geral: 'Febre de 38 °C, inapetência.',
+    ida_gi: '<b>Constipação crônica</b>; há 3 dias alternando com fezes amolecidas. Sem sangue.',
+    ida_gu: 'Nega disúria.',
+    ap: 'HAS. "Divertículos" vistos em colonoscopia.', meds: 'Losartana.'
+  },
+  exame: {
+    g_sinais: 'Tax 38,1 °C, FC 98 bpm, PA 140 × 85 mmHg.',
+    a_ausc: 'RHA hipoativos.',
+    a_palp_sup: '<b>Defesa localizada na FIE.</b>',
+    a_palp_prof: '<b>Dor intensa na FIE</b>, sem massa pulsátil.',
+    a_blumberg: '<b>Blumberg positivo na FIE.</b>',
+    a_apendice: 'Rovsing, Psoas e Obturador negativos.',
+    a_giordano: 'Negativo.'
+  },
+  keyQ: ['qd', 'carac', 'fatores', 'ida_geral', 'ida_gi', 'ap'],
+  keyEx: ['g_sinais', 'a_ausc', 'a_palp_sup', 'a_palp_prof', 'a_blumberg'],
+  pergunta: 'Hipótese principal?',
+  opcoes: ['Diverticulite aguda do sigmoide', 'Apendicite aguda', 'Obstrução intestinal por fecaloma', 'Pielonefrite esquerda'],
+  correta: 0,
+  discussao: '<p>Idoso constipado com divertículos, dor e irritação peritoneal <b>localizada na FIE</b>, febre: diverticulite, a "apendicite do lado esquerdo". É abdome agudo inflamatório; se a dor se difundir com tábua e Jobert, pense em perfuração. Se houvesse massa moldável no sigmoide que "descola" ao soltar (Gersuny), pensaríamos em fecaloma.</p>'
 }
+
 ];

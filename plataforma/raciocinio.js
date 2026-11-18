@@ -439,8 +439,207 @@ const TRILHAS = [
     why: 'Ar livre sobe e se interpõe entre o fígado e a parede.', add: { h: 'Obstrução intestinal mecânica por aderência (vigiar sinais de sofrimento)' } }
   ],
   licao: 'O intestino obstruído luta (cólica, ruídos metálicos, peristaltismo visível, hipertimpanismo); o intestino inflamado ou paralisado para (ruídos abolidos). A transição de um para o outro é sinal de alarme.'
+},
+{
+  id: 'abdome-agudo-tipos', titulo: 'Os 5 abdomes agudos', area: 'Abdome', cor: 'var(--a5)',
+  resumo: 'Inflamatório, perfurativo, obstrutivo, hemorrágico e isquêmico: reconheça cada um pela história e pelo exame.',
+  passos: [
+  { type: 'texto', html: '<h3>Dor visceral × dor parietal</h3><div class="mini-cards"><div class="mini-card"><div class="mini-card-h">Visceral</div><div class="mini-card-b">Surda, mal localizada, na linha média, por distensão da víscera. É como a dor começa.</div></div><div class="mini-card"><div class="mini-card-h">Parietal</div><div class="mini-card-b">Aguda, bem localizada, por irritação do peritônio parietal. Aparece quando a inflamação chega à parede.</div></div></div><p>Abdome agudo é dor abdominal de início recente que pode exigir intervenção urgente. Classificar pelo <b>mecanismo</b> organiza o raciocínio.</p>' },
+  { type: 'classificar', q: 'Que tipo de abdome agudo cada pista sugere?', buckets: ['Inflamatório', 'Perfurativo', 'Obstrutivo', 'Hemorrágico', 'Isquêmico'],
+    items: [['Dor localizada + febre', 0], ['Blumberg na FID', 0], ['Dor súbita "em apunhalada", abdome em tábua', 1], ['Jobert positivo', 1], ['Cólica, distensão, parada de gases e fezes', 2], ['Cicatriz cirúrgica + peristaltismo de luta', 2], ['Dor + palidez, taquicardia, hipotensão', 3], ['Atraso menstrual + choque (ectópica rota)', 3], ['Idoso com FA, dor intensa desproporcional ao exame', 4]],
+    why: 'Inflamatório: dor localizada e sinais sistêmicos. Perfurativo: súbito, tábua, ar livre. Obstrutivo: cólica, distensão, parada de eliminação. Hemorrágico: choque. Isquêmico: dor muito maior que o exame sugere (o intestino ainda não irritou o peritônio).', add: { s: ['Classificação do abdome agudo'] } },
+  { type: 'escolha', q: 'Homem de 35 anos com pirose antiga sem tratamento sente dor súbita "em apunhalada". Na LHC direita, 5º–6º EIC, onde deveria haver macicez, há timpanismo. Esse é o sinal de:', o: ['Castell', 'Jobert', 'Giordano', 'Skoda'], a: 1,
+    why: 'Úlcera perfurada: ar sai da víscera e sobe, interpondo-se entre fígado e parede. Timpanismo na área hepática = Jobert = pneumoperitônio.', add: { p: ['Jobert positivo'] } },
+  { type: 'escolha', q: 'Qual o diferencial benigno que também dá timpanismo na área hepática, sem perfuração?', o: ['Sinal de Chilaiditi: alça do cólon entre o fígado e o diafragma', 'Hepatomegalia', 'Ascite', 'Esplenomegalia'], a: 0,
+    why: 'No Chilaiditi uma alça intestinal (com haustrações na imagem) fica entre fígado e diafragma. Não é perfuração: o paciente não tem quadro de peritonite.' },
+  { type: 'prever', q: 'No abdome perfurado, a palpação mostra:', o: ['Flácido e indolor', 'Abdome em tábua, Blumberg difuso', 'Massa pulsátil', 'Vesícula palpável indolor'], a: 1,
+    reveal: 'Rigidez involuntária difusa, Blumberg em todo o abdome, RHA abolidos, respiração só torácica.', why: 'Suco gástrico e conteúdo intestinal causam peritonite química e depois bacteriana: defesa generalizada e íleo paralítico.', add: { s: ['Peritonite difusa'] } },
+  { type: 'escolha', q: 'Na obstrução, vômitos fecaloides sugerem:', o: ['Obstrução alta (antes do Treitz)', 'Obstrução baixa e avançada', 'Pancreatite', 'Gastrite'], a: 1,
+    why: 'Obstrução alta: vômitos precoces, alimentares ou biliosos. Obstrução baixa: distensão, parada de gases e fezes, vômito fecaloide tardio.' },
+  { type: 'escolha', q: 'Idoso com fibrilação atrial e dor abdominal intensíssima, mas o abdome está flácido e pouco doloroso à palpação. Pense em:', o: ['Ansiedade', 'Isquemia mesentérica aguda', 'Constipação', 'Gastrite'], a: 1,
+    why: 'Êmbolo da FA ocluindo a artéria mesentérica. No início o intestino sofre sem irritar o peritônio: dor desproporcional ao exame. Mais tarde vêm peritonite e choque.', add: { h: 'Classifique pelo mecanismo; a dor desproporcional e o choque são alarmes' } }
+  ],
+  licao: 'Antes de pensar na doença, pergunte qual é o mecanismo: inflamação, perfuração, obstrução, sangramento ou isquemia. Cada um tem uma assinatura no exame.'
+},
+{
+  id: 'vias-biliares', titulo: 'Febre, icterícia e dor no hipocôndrio direito', area: 'Abdome', cor: 'var(--a5)',
+  resumo: 'Colelitíase, colecistite, coledocolitíase, colangite e Courvoisier: onde está o cálculo muda o quadro.',
+  passos: [
+  { type: 'ordenar', q: 'Ordene do quadro mais simples ao mais grave.', items: ['Colelitíase (cálculos na vesícula, pode ser assintomática)', 'Colecistite (cálculo obstrui o cístico e a vesícula inflama)', 'Coledocolitíase (cálculo no colédoco: icterícia obstrutiva)', 'Colangite (infecção da via biliar obstruída)', 'Colangite grave (Reynolds: choque e confusão)'],
+    why: 'O cálculo na vesícula pode não dar nada; no cístico inflama a vesícula; no colédoco bloqueia a bile (icterícia); a bile parada infecta (colangite).' },
+  { type: 'classificar', q: 'Que quadro cada achado sugere?', buckets: ['Colecistite', 'Coledocolitíase / colangite', 'Neoplasia periampular'],
+    items: [['Murphy positivo', 0], ['Dor contínua no HD após comida gordurosa, sem icterícia', 0], ['Irradiação para escápula direita', 0], ['Febre + icterícia + dor (Charcot)', 1], ['Colúria e acolia com cólica', 1], ['Icterícia progressiva e indolor', 2], ['Vesícula palpável e indolor', 2], ['Emagrecimento importante', 2]],
+    why: 'Colecistite raramente dá icterícia franca (o colédoco está livre). Icterícia com dor e febre aponta para o colédoco. Icterícia silenciosa com vesícula distendida e indolor aponta para tumor.', add: { s: ['Doença das vias biliares'] } },
+  { type: 'escolha', q: 'Tríade de Charcot e pêntade de Reynolds:', o: ['Febre + icterícia + dor = colangite; + hipotensão + confusão = colangite grave', 'Hipotensão + turgência jugular + bulhas abafadas', 'Dor + vômitos + peristaltismo visível', 'Febre + sopro + embolia'], a: 0,
+    why: 'Charcot = colangite. Reynolds = Charcot + choque + rebaixamento de consciência (supurativa, grave). A hipotensão-TJ-abafamento é a tríade de Beck (tamponamento).' },
+  { type: 'escolha', q: 'Onde fica o ponto cístico para pesquisar o Murphy?', o: ['Rebordo costal direito × linha hemiclavicular (ou borda do reto direito)', 'Ângulo costovertebral', 'Ponto de McBurney', 'Epigástrio na linha média'], a: 0,
+    why: 'Comprima o ponto cístico e peça inspiração profunda: o fígado desce, empurra a vesícula inflamada contra os dedos e a dor interrompe a inspiração. Alguns materiais descrevem o ponto pela borda lateral do reto; os dois coincidem na prática.' },
+  { type: 'escolha', q: 'Por que a dor biliar irradia para o ombro e a escápula direita?', o: ['Por inervação compartilhada (frênico e dermátomos cervicais/torácicos)', 'Porque o fígado está no ombro', 'Por compressão muscular', 'Não irradia'], a: 0,
+    why: 'Dor referida: a irritação do diafragma e da região subdiafragmática é percebida no território do nervo frênico (C3–C5), no ombro.' },
+  { type: 'medidor', q: 'Mulher de 55 anos, cálculos conhecidos. Pese as pistas.', hip: ['Colecistite', 'Colangite', 'Pancreatite biliar', 'Neoplasia de pâncreas'],
+    pistas: [
+      { t: 'Febre alta com calafrios', e: [0, 1, 0, -1], why: 'Febre alta separa colangite de colecistite (que costuma ter febre mais baixa).' },
+      { t: 'Icterícia com colúria', e: [-1, 1, 0, 1], why: 'Icterícia exige obstrução do colédoco: colangite ou tumor; colecistite raramente.' },
+      { t: 'Dor no HD em cólica', e: [1, 1, 0, -1], why: 'Tumor obstrui sem dor.' },
+      { t: 'Sem dor em faixa para o dorso, sem equimoses', e: [0, 0, -1, 0], why: 'Pancreatite dá dor epigástrica em faixa.' },
+      { t: 'Hipotensa e confusa', e: [0, 1, 0, 0], why: 'Charcot + choque + confusão = pêntade de Reynolds.' }
+    ], add: { h: 'Colangite grave (pêntade de Reynolds)' } }
+  ],
+  licao: 'Na via biliar, localize o cálculo: vesícula (silencioso), cístico (colecistite, Murphy), colédoco (icterícia), colédoco infectado (Charcot, Reynolds). Icterícia indolor com vesícula palpável é tumor (Courvoisier).'
+},
+{
+  id: 'derrame-pneumonia', titulo: 'Macicez na base: pneumonia ou derrame?', area: 'Respiratório', cor: 'var(--a3)',
+  resumo: 'Os dois são maciços. Use FTV, Signorelli, Lemos-Torres, a posição e a egofonia para separar.',
+  passos: [
+  { type: 'texto', html: '<p class="eyebrow">Dois pacientes com macicez na base direita</p><div class="speech"><b>A:</b> homem de 58 anos, febre há 3 dias, tosse com catarro amarelado, dor ao respirar à direita.<br><b>B:</b> homem de 72 anos, hipertenso e diabético, dispneia há 10 dias, ortopneia, edema de MMII, sem febre.</div>' },
+  { type: 'escolha', q: 'Qual achado da palpação separa os dois de forma mais confiável?', o: ['Expansibilidade', 'Frêmito toracovocal', 'Sensibilidade', 'Temperatura da pele'], a: 1,
+    why: 'Só a condensação aumenta o FTV. "Pneumonia: tudo aumenta; derrame: tudo some."' },
+  { type: 'escolha', q: 'Ao percutir os processos espinhosos de T1 a T12 do paciente B, há macicez no terço inferior da coluna. Esse é o sinal de:', o: ['Signorelli: derrame pleural', 'Castell: esplenomegalia', 'Ramond: pleurite', 'Jobert'], a: 0,
+    why: 'Na condensação a coluna continua clara. Faça o Signorelli sempre que encontrar macicez na base.', add: { p: ['Signorelli positivo (B)'] } },
+  { type: 'escolha', q: 'Se o paciente B se inclinar para frente, a macicez na coluna:', o: ['Desaparece (líquido livre se desloca)', 'Permanece igual', 'Vira timpanismo', 'Aumenta'], a: 0,
+    why: 'Em derrame livre não septado, o líquido muda de lugar com a posição. A condensação não se move.' },
+  { type: 'escolha', q: 'Na inspeção do paciente B, os espaços intercostais inferiores (9º–11º) abaulam na expiração. Esse é o sinal de:', o: ['Lemos-Torres: derrame pleural', 'Tiragem: obstrução', 'Ramond', 'Kussmaul'], a: 0,
+    why: 'O líquido empurra os espaços intercostais na expiração. A tiragem é o contrário: retração na inspiração.' },
+  { type: 'classificar', q: 'Atribua cada achado ao paciente certo.', buckets: ['A: condensação (pneumonia)', 'B: derrame pleural'],
+    items: [['FTV aumentado', 0], ['Sopro tubário', 0], ['Broncofonia e pectorilóquia', 0], ['Estertores finos localizados', 0], ['FTV abolido', 1], ['MV e voz abolidos', 1], ['Egofonia no limite superior', 1], ['Deita sobre o lado são (trepopneia)', 1]],
+    why: 'Condensação conduz; líquido abafa. A egofonia aparece no pulmão comprimido logo acima do líquido.', add: { s: ['A: síndrome de condensação', 'B: síndrome de derrame pleural'] } },
+  { type: 'escolha', q: 'O paciente B também tem crepitantes bilaterais nas bases, B3 e turgência jugular. O derrame dele provavelmente é:', o: ['Transudato por insuficiência cardíaca', 'Empiema', 'Tumoral', 'Quilotórax'], a: 0,
+    why: 'Congestão: ortopneia/DPN (IC esquerda), estase jugular (IC direita), sem febre. Se fosse pneumonia que não melhora com febre persistente, pensaríamos em derrame parapneumônico (exsudato).' },
+  { type: 'escolha', q: 'Uma semana depois, o paciente A continua febril e a dor piorou. Agora a base tem macicez com FTV abolido. O que aconteceu?', o: ['Curou', 'Derrame parapneumônico (exsudato, pode virar empiema)', 'Pneumotórax', 'Asma'], a: 1,
+    why: 'Pneumonia sem resposta ao antibiótico sugere complicação. O FTV que era aumentado ficou abolido: agora há líquido entre o pulmão e a parede.', add: { h: 'FTV + Signorelli separam condensação de derrame' } }
+  ],
+  licao: 'Macicez diz "denso", não diz "o quê". O FTV (aumenta só na condensação), o Signorelli, a mudança com a posição, Lemos-Torres e a egofonia apontam o derrame.'
+},
+{
+  id: 'tep', titulo: 'O grande simulador', area: 'Respiratório', cor: 'var(--a3)',
+  resumo: 'Tromboembolismo pulmonar: história forte, exame pobre. Aprenda a desconfiar.',
+  passos: [
+  { type: 'texto', html: '<p class="eyebrow">Enfermaria de ortopedia · Mulher, 42 anos</p><div class="speech">8º dia de pós-operatório de cirurgia ortopédica. "De repente fiquei sem ar e senti uma pontada no peito ao respirar. Tossi um pouco de sangue."</div><p>Nega febre. FC 118 bpm, FR 26 irpm, SpO₂ 88%.</p>' },
+  { type: 'classificar', q: 'Quais itens da tríade de Virchow ela tem?', buckets: ['Estase', 'Hipercoagulabilidade', 'Lesão endotelial'],
+    items: [['Imobilização no pós-operatório', 0], ['Repouso prolongado no leito', 0], ['Estado pós-cirúrgico (inflamação)', 1], ['Uso de anticoncepcional, câncer', 1], ['Trauma ortopédico e manipulação venosa', 2]],
+    why: 'Estase + hipercoagulabilidade + lesão vascular: os três favorecem trombose venosa, que embolizar para o pulmão.', add: { p: ['Pós-operatório ortopédico (Virchow)'] } },
+  { type: 'medidor', q: 'Pese as pistas.', hip: ['TEP', 'Pneumonia', 'Pneumotórax', 'IC descompensada'],
+    pistas: [
+      { t: 'Dispneia súbita, sem pródromo', e: [1, -1, 1, -1], why: 'Súbito = TEP ou pneumotórax. Pneumonia e IC se instalam em dias.' },
+      { t: 'Sem febre', e: [1, -1, 0, 0], why: 'Nas primeiras horas, a ausência de febre ajuda a separar de pneumonia.' },
+      { t: 'Hemoptise discreta, sangue vivo', e: [1, 0, 0, 0], why: 'Infarto pulmonar. Hemoptise em recém-operado sugere embolia.' },
+      { t: 'MV presente, FTV normal, percussão normal', e: [1, -1, -1, 0], why: 'O TEP é vascular: o parênquima e a pleura podem estar normais. Pneumotórax daria timpanismo e MV abolido.' },
+      { t: 'Panturrilha esquerda empastada e dolorosa', e: [1, 0, 0, 0], why: 'TVP, a fonte do êmbolo.' }
+    ], add: { s: ['Síndrome respiratória aguda com exame pulmonar pobre'] } },
+  { type: 'prever', q: 'Se o TEP for grande, que sinais cardíacos aparecem?', o: ['B3 de VE e estertores', 'P2 hiperfonética, turgência jugular, hepatomegalia dolorosa', 'Sopro diastólico aspirativo', 'Ictus desviado para a esquerda'], a: 1,
+    reveal: 'Taquicardia, P2 hiperfonética, turgência jugular.', why: '<b>Cor pulmonale agudo</b>: a artéria pulmonar obstruída sobrecarrega o VD, que falha (congestão sistêmica).' },
+  { type: 'classificar', q: 'Que sinais você pesquisa na perna para TVP?', buckets: ['Sinal de TVP', 'Não é sinal de TVP'],
+    items: [['Edema assimétrico (> 3 cm de diferença)', 0], ['Homans (dor na panturrilha à dorsiflexão do pé)', 0], ['Bancroft (dor à compressão da panturrilha contra a tíbia)', 0], ['Bandeira (menor mobilidade/empastamento da panturrilha)', 0], ['Edema bilateral simétrico', 1], ['Giordano', 1]],
+    why: 'Edema bilateral sugere causa sistêmica (IC, hipoalbuminemia). TVP é tipicamente unilateral.' },
+  { type: 'escolha', q: 'Por que o TEP é chamado de "grande simulador"?', o: ['Porque o exame pulmonar costuma ser normal ou inespecífico, apesar de quadro grave', 'Porque sempre tem febre', 'Porque o RX é sempre alterado', 'Porque dá sopro tubário'], a: 0,
+    why: 'Taquicardia, taquipneia e hipoxemia com pulmão quase normal: desconfie e use escores (Wells) para indicar a angiotomografia.', add: { h: 'Tromboembolismo pulmonar (fonte: TVP de membro inferior)' } }
+  ],
+  licao: 'Dispneia súbita com fatores de Virchow e exame pulmonar pobre é TEP até prova em contrário. Procure a fonte na perna e os sinais de sobrecarga do VD.'
+},
+{
+  id: 'dpoc-fenotipos', titulo: 'Pink puffer × blue bloater', area: 'Respiratório', cor: 'var(--a3)',
+  resumo: 'Os dois fenótipos da DPOC, a exacerbação (Anthonisen) e como o tórax muda.',
+  passos: [
+  { type: 'texto', html: '<p class="eyebrow">Homem, 69 anos</p><div class="speech">Ex-tabagista de 40 maços-ano, com DPOC e oxigênio em casa. Há 3 dias: mais falta de ar que o habitual, mais catarro, e o catarro ficou esverdeado. Nega febre alta. SpO₂ 87%.</div>' },
+  { type: 'escolha', q: 'Ele fumou 2 maços por dia durante 20 anos. Carga tabágica?', o: ['20 maços-ano', '40 maços-ano', '10 maços-ano', '400 maços-ano'], a: 1,
+    why: 'Maços por dia × anos = 2 × 20 = 40 maços-ano.' },
+  { type: 'multi', q: 'Quais critérios de Anthonisen (exacerbação) ele tem?', o: ['Piora da dispneia basal', 'Aumento do volume de escarro', 'Escarro purulento (mudança de cor)', 'Febre alta obrigatória', 'Dor torácica pleurítica'], correct: [0, 1, 2],
+    why: 'Os três critérios: piora da dispneia, aumento do escarro e purulência. Dois de três já caracterizam exacerbação. Investigue causa infecciosa.', add: { p: ['40 maços-ano', 'Exacerbação (3 critérios de Anthonisen)'] } },
+  { type: 'classificar', q: 'Separe as características dos dois fenótipos.', buckets: ['Pink puffer (enfisema)', 'Blue bloater (bronquite crônica)'],
+    items: [['Magro, taquipneico', 0], ['Corado (mantém a oxigenação com esforço)', 0], ['Tórax em tonel, hipersonoridade, MV muito ↓', 0], ['Expira com lábios semicerrados', 0], ['Obeso, cianótico', 1], ['Retém CO₂, edema periférico (cor pulmonale)', 1], ['Tosse com muito catarro pela manhã', 1], ['Roncos e estertores grossos', 1]],
+    why: 'O "soprador rosado" destrói parênquima e faz muito esforço para expirar; o "inchado azul" hipersecreta, hipoventila e evolui com cor pulmonale.', add: { s: ['DPOC'] } },
+  { type: 'prever', q: 'Como estará o ângulo de Charpy dele?', o: ['Agudo (< 90°)', 'Reto (90°)', 'Obtuso (> 90°)'], a: 2,
+    reveal: 'Charpy obtuso, tórax em tonel.', why: 'A hiperinsuflação abre o gradil costal e horizontaliza as costelas.' },
+  { type: 'prever', q: 'E os limites da macicez hepática à percussão?', o: ['Mais altos', 'Mais baixos, na inspiração e na expiração', 'Iguais', 'Somem'], a: 1,
+    reveal: 'Limite superior do fígado rebaixado.', why: 'O pulmão hiperinsuflado retifica e rebaixa o diafragma. Pode até parecer hepatomegalia na palpação (fígado empurrado).' },
+  { type: 'escolha', q: 'Na asma em crise grave, a ausculta fica silenciosa. Isso significa:', o: ['Melhora', 'Sinal de alarme: fluxo tão baixo que nem o sibilo aparece', 'Pneumotórax sempre', 'Erro de técnica'], a: 1,
+    why: '"Silêncio auscultatório" = broncoespasmo grave. A asma difere da DPOC por ser episódica, com atopia e escarro "clara de ovo".', add: { h: 'Exacerbação de DPOC (fenótipo predominante a definir pelo exame)' } }
+  ],
+  licao: 'Na DPOC, o exame mostra o tipo de doença: enfisema (magro, rosado, tonel, hipersonoro) ou bronquite crônica (obeso, cianótico, catarro, roncos). Exacerbação se define por dispneia, volume e purulência do escarro.'
+},
+{
+  id: 'remodelamento', titulo: 'Remodelamento: ictus e bulha extra', area: 'Cardiovascular', cor: 'var(--a4)',
+  resumo: 'Sobrecarga de pressão, de volume ou lesão do miocárdio: deduza o ictus e a bulha extra.',
+  passos: [
+  { type: 'texto', html: '<h3>A regra</h3><div class="mini-cards"><div class="mini-card"><div class="mini-card-h">Parede grossa e rígida</div><div class="mini-card-b">O átrio empurra contra um ventrículo duro: <b>B4</b>.</div></div><div class="mini-card"><div class="mini-card-h">Cavidade grande e frouxa</div><div class="mini-card-b">O sangue entra rápido num ventrículo dilatado: <b>B3</b>.</div></div></div>' },
+  { type: 'classificar', q: 'Que tipo de sobrecarga cada doença impõe ao VE?', buckets: ['Pressão (hipertrofia concêntrica)', 'Volume (hipertrofia excêntrica)', 'Lesão do miocárdio (dilatação)'],
+    items: [['HAS', 0], ['Estenose aórtica', 0], ['Cardiomiopatia hipertrófica', 0], ['Insuficiência mitral', 1], ['Insuficiência aórtica', 1], ['Chagas', 2], ['Pós-infarto', 2], ['Miocardiopatia alcoólica', 2]],
+    why: 'Pressão: o VE empurra contra resistência e engrossa a parede. Volume: recebe sangue a mais e dilata. Lesão: o músculo perde força e a cavidade dilata com parede fina.' },
+  { type: 'classificar', q: 'Associe o ictus ao mecanismo.', buckets: ['Sobrecarga de pressão', 'Sobrecarga de volume', 'Miocárdio lesado'],
+    items: [['Cupuliforme, no lugar, propulsivo', 0], ['Globoso, desviado, amplo e forte', 1], ['Globoso, > 3 polpas, fraco', 2]],
+    why: 'Hipertrofia sem dilatação mantém a posição e aumenta a força; dilatação desloca e alarga; miocárdio doente dilata e perde força.', add: { s: ['Remodelamento ventricular'] } },
+  { type: 'escolha', q: 'Paciente com fibrilação atrial e HAS. Pode ter B4?', o: ['Sim, sempre', 'Nunca: B4 exige contração atrial', 'Só deitado', 'Só com campânula'], a: 1,
+    why: 'B4 é a contração atrial contra um VE rígido. Na FA não há contração atrial efetiva, logo não há B4 (e o reforço pré-sistólico da EM também some).' },
+  { type: 'escolha', q: 'Na isquemia aguda (angina/IAM), que bulha extra é mais comum?', o: ['B3', 'B4', 'Estalido', 'Nenhuma'], a: 1,
+    why: 'O miocárdio isquêmico fica rígido agudamente: B4. Se evoluir com IC, aparece B3 e estertores finos (o gabarito cita: estertor fino após IAM).' },
+  { type: 'escolha', q: 'Impulsão paraesternal esquerda (a mão sobe junto ao esterno) indica:', o: ['Sobrecarga do VD (EM, DPOC, TEP)', 'Hipertrofia do VE', 'Derrame pericárdico', 'Normal'], a: 0,
+    why: 'O VD fica atrás do esterno; quando cresce, empurra a parede paraesternal. Pode ter B3/B4 de VD que aumentam na inspiração.' },
+  { type: 'escolha', q: 'Ictus que não muda de lugar com o decúbito sugere:', o: ['Pericardite constritiva (coração preso)', 'Normal', 'Enfisema', 'Ansiedade'], a: 0,
+    why: 'Normalmente o ictus desloca 1–2 cm no DLE. Fixo sugere aderência pericárdica.', add: { h: 'Pressão → B4 e ictus propulsivo; volume/lesão → B3 e ictus desviado' } }
+  ],
+  licao: 'Descubra a sobrecarga e o resto se deduz: pressão engrossa (ictus propulsivo no lugar, B4); volume ou lesão dilatam (ictus desviado e globoso, B3). Sem contração atrial, nunca há B4.'
+},
+{
+  id: 'choque-tamponamento', titulo: 'Hipotensão na emergência', area: 'Cardiovascular', cor: 'var(--a4)',
+  resumo: 'Tipos de choque, tamponamento (tríade de Beck), pulso paradoxal e jugular de Kussmaul.',
+  passos: [
+  { type: 'classificar', q: 'Classifique os tipos de choque pelos achados.', buckets: ['Hipovolêmico', 'Cardiogênico', 'Obstrutivo', 'Séptico (inicial)'],
+    items: [['Jugulares colabadas, pele fria, perda de sangue', 0], ['Pós-IAM, estertores, turgência jugular, frio', 1], ['Turgência jugular + bulhas abafadas', 2], ['Pneumotórax hipertensivo ou TEP maciço', 2], ['Febre, extremidades quentes no início', 3]],
+    why: 'Todos têm pulso fino e TEC > 3 s. A jugular separa: vazia no hipovolêmico, cheia no cardiogênico e obstrutivo. A temperatura da pele separa o séptico inicial (quente).', add: { s: ['Choque'] } },
+  { type: 'texto', html: '<p class="eyebrow">Pronto-socorro</p><div class="speech">Homem de 40 anos, vítima de facada no tórax há 1 hora. Muito dispneico, pálido, sudoreico.</div><p>PA 80 × 60 mmHg, FC 130 bpm. Jugulares muito túrgidas.</p>' },
+  { type: 'prever', q: 'Na ausculta cardíaca, as bulhas estarão:', o: ['Hiperfonéticas', 'Abafadas', 'Normais', 'Com B3 alta'], a: 1,
+    reveal: 'Bulhas abafadas.', why: 'Sangue no pericárdio afasta o coração da parede e comprime as câmaras.' },
+  { type: 'escolha', q: 'Hipotensão + turgência jugular + bulhas abafadas formam:', o: ['Tríade de Charcot', 'Tríade de Beck (tamponamento)', 'Tríade de Virchow', 'SAD'], a: 1,
+    why: 'Tamponamento: o pericárdio cheio impede o enchimento, o débito cai e o sangue represa nas veias.', add: { p: ['Tríade de Beck'] } },
+  { type: 'prever', q: 'Ao medir a PA, na inspiração a sistólica cai 18 mmHg. Esse é o:', o: ['Pulso alternante', 'Pulso paradoxal', 'Pulso dicrótico', 'Corrigan'], a: 1,
+    reveal: 'Pulso paradoxal (queda > 10 mmHg na inspiração).', why: 'Na inspiração o VD enche mais e, num pericárdio que não cede, empurra o septo e reduz o enchimento do VE. Também ocorre em asma e DPOC graves.' },
+  { type: 'escolha', q: 'Jugular que SOBE na inspiração (em vez de descer) é o sinal de:', o: ['Kussmaul: pericardite constritiva, IC grave, infarto de VD', 'Lewis', 'Lemos-Torres', 'Normal'], a: 0,
+    why: 'Normalmente a inspiração esvazia a jugular. Se o coração direito não aceita o retorno extra, a pressão sobe. Não confunda com a respiração de Kussmaul (acidose).' },
+  { type: 'escolha', q: 'Como estimar a PVC pela jugular (Lewis)?', o: ['Altura do pulso venoso acima do ângulo de Louis + 5 cm; > 3 cm acima do Louis = estase', 'Contando a FC', 'Pela PA sistólica', 'Pelo ictus'], a: 0,
+    why: 'Com o paciente a 45°, o ângulo de Louis fica ~5 cm acima do átrio direito. Refluxo hepatojugular: comprimir o HCD 10–30 s; se a jugular sobe ≥ 3 cm e se mantém, a PVC está elevada.', add: { h: 'Choque obstrutivo por tamponamento cardíaco' } }
+  ],
+  licao: 'No paciente hipotenso, olhe a jugular primeiro: vazia sugere perda de volume; cheia sugere coração que não bombeia ou não enche (cardiogênico, tamponamento, pneumotórax hipertensivo, TEP).'
+},
+{
+  id: 'ascite-dif', titulo: 'Ascite: fígado, coração ou porta?', area: 'Abdome', cor: 'var(--a5)',
+  resumo: 'Aumento do abdome indolor: cirrose, IC direita, esquistossomose ou trombose de porta. Use a circulação colateral e a jugular.',
+  passos: [
+  { type: 'texto', html: '<p class="eyebrow">Caso da aula</p><div class="speech">Aumento progressivo do volume abdominal há 30 dias, edema de MMII, falta de ar e um episódio de vômito com sangue.</div><p>Distensão de cápsula (fígado, rim) dói; aumento do abdome <b>indolor</b> sugere ascite.</p>' },
+  { type: 'escolha', q: 'Por que ele tem falta de ar, mesmo com pulmão normal?', o: ['Causa mecânica: o abdome cheio empurra o diafragma', 'Asma', 'Pneumonia', 'Ansiedade'], a: 0,
+    why: 'Ascite volumosa limita a descida do diafragma (dispneia mecânica) e pode dar tórax em sino.' },
+  { type: 'classificar', q: 'Que causa cada achado favorece?', buckets: ['Cirrose', 'IC direita', 'Esquistossomose hepatoesplênica', 'Trombose de veia porta'],
+    items: [['Eritema palmar, aranhas, ginecomastia', 0], ['Fígado nodular, borda romba', 0], ['Turgência jugular e refluxo hepatojugular', 1], ['Fígado liso, doloroso (cápsula distendida)', 1], ['Área endêmica, banho de rio', 2], ['Lobo esquerdo aumentado, duro + baço volumoso', 2], ['Sem icterícia, sem hipoalbuminemia, colateral tipo cava', 3]],
+    why: 'Cirrose = falência + hipertensão portal. IC direita = congestão com jugular cheia. Esquistossomose = fibrose periportal com função hepática preservada. Trombose de porta = bloqueio antes do fígado: sem insuficiência hepática.', add: { s: ['Síndrome ascítica'] } },
+  { type: 'prever', q: 'Por onde começar a percussão do semicírculo de Skoda?', o: ['Pela cicatriz umbilical', 'Abaixo do xifoide (epigástrio), em raios para flancos e hipogástrio', 'Pelos flancos', 'Pela fossa ilíaca'], a: 1,
+    reveal: 'Começa no epigástrio, polo timpânico superior.', why: 'Em ascite moderada o umbigo já pode estar no líquido, ou as alças flutuantes confundem. A linha timpanismo-macicez forma um semicírculo com concavidade para cima.' },
+  { type: 'escolha', q: 'Volumes aproximados: macicez móvel e Skoda aparecem a partir de ___; piparote só em ___.', o: ['1–3 L; > 3–4 L', '100 mL; 500 mL', '10 L; 20 L', 'Qualquer volume; nunca'], a: 0,
+    why: 'Pouco líquido escapa ao exame (o ultrassom detecta). O piparote é o último a positivar.' },
+  { type: 'escolha', q: 'Por que o cirrótico tem eritema palmar, aranhas vasculares e ginecomastia?', o: ['Hiperestrogenismo: o fígado não degrada estrogênio e há mais aromatização periférica', 'Excesso de testosterona', 'Falta de vitamina K', 'Hipertensão portal'], a: 0,
+    why: 'Estrogênio dilata capilares (eritema, aranhas) e estimula a mama. Há também rarefação de pelos e atrofia testicular.', add: { h: 'Hipertensão portal: diferenciar cirrose, IC direita, esquistossomose e trombose de porta' } }
+  ],
+  licao: 'Diante de ascite, pergunte onde está o bloqueio: depois do fígado (coração: jugular cheia), dentro do fígado (cirrose: estigmas de falência; esquistossomose: baço enorme e função preservada) ou antes do fígado (trombose de porta: sem falência hepática).'
+},
+{
+  id: 'anamnese-digestiva', titulo: 'Anamnese digestiva: diarreia, sangue e disfagia', area: 'Abdome', cor: 'var(--a5)',
+  resumo: 'As perguntas certas localizam o problema no tubo digestivo antes de encostar no abdome.',
+  passos: [
+  { type: 'classificar', q: 'Diarreia de qual segmento?', buckets: ['Intestino delgado (alta)', 'Cólon (baixa)'],
+    items: [['Grande volume, menos episódios', 0], ['Aquosa ou gordurosa (esteatorreia, fezes boiando)', 0], ['Pequeno volume, muitos episódios', 1], ['Com muco e sangue, tenesmo', 1]],
+    why: 'O delgado absorve muito líquido e gordura: diarreia volumosa. O cólon e o reto dão urgência, tenesmo e evacuações pequenas e frequentes.', add: { p: ['Caracterizar volume, frequência, muco e sangue'] } },
+  { type: 'classificar', q: 'Sangramento digestivo: alto ou baixo?', buckets: ['Alto (antes do ângulo de Treitz)', 'Baixo'],
+    items: [['Hematêmese (vômito de sangue)', 0], ['Melena (fezes negras, fétidas)', 0], ['Varizes esofágicas na cirrose', 0], ['Enterorragia (sangue vivo puro)', 1], ['Hematoquezia (sangue misturado às fezes)', 1], ['Hemorroidas', 1]],
+    why: 'O sangue que passa pelo tubo é digerido e escurece (melena). Trânsito muito rápido pode fazer um sangramento alto aparecer vivo, mas é exceção.' },
+  { type: 'escolha', q: 'Disfagia só para sólidos × para sólidos e líquidos:', o: ['Só para sólidos é geralmente obstrutiva (estreitamento); para os dois sugere distúrbio motor', 'São iguais', 'Líquidos é sempre câncer', 'Só sólidos é sempre motor'], a: 0,
+    why: 'Pergunte tempo, progressão e para que alimentos. Disfagia progressiva de sólidos para líquidos com emagrecimento sugere tumor.' },
+  { type: 'escolha', q: 'Vômito que não é precedido de náusea, em jato, sugere:', o: ['Origem neurológica (hipertensão intracraniana)', 'Gastrite', 'Regurgitação', 'Normal'], a: 0,
+    why: 'Sempre pergunte o conteúdo do vômito, o jato e se houve náusea. A regurgitação também não tem náusea, mas é retorno sem esforço de vômito.' },
+  { type: 'escolha', q: 'Gengivorragia espontânea com petéquias na pele faz pensar em:', o: ['Plaquetopenia (investigar)', 'Má higiene apenas', 'Refluxo', 'Normal'], a: 0,
+    why: 'Sangramento gengival por trauma é comum; espontâneo, com petéquias ou púrpuras, sugere queda de plaquetas.' },
+  { type: 'escolha', q: 'Hábito intestinal considerado normal:', o: ['De 8 h a 48 h entre evacuações (tolerável até 72 h)', 'Uma vez por semana', 'Mínimo 3 por dia', 'Sem regra'], a: 0,
+    why: 'Fora disso, caracterize obstipação ou diarreia: consistência, cor, muco, sangue, tenesmo.', add: { h: 'A anamnese localiza o segmento antes do exame físico' } }
+  ],
+  licao: 'No tubo digestivo, a anamnese já localiza: volume e frequência da diarreia separam delgado de cólon; cor do sangue separa alto de baixo; tipo de alimento separa disfagia obstrutiva de motora.'
 }
-
 ];
 
 /* ---------- motor das trilhas ---------- */

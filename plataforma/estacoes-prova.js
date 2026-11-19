@@ -253,7 +253,7 @@ const PROVAS = [
     modelo: 'Na esquistossomose a função hepática é preservada: sem icterícia e sem estigmas.' },
   { tipo: 'explicar', q: 'Diferencie a circulação colateral tipo porta da tipo cava inferior.',
     pontos: ['Tipo porta: veias em torno do umbigo (cabeça de medusa)', 'Porta: fluxo centrífugo, para cima acima do umbigo e para baixo abaixo dele', 'Tipo cava inferior: veias nos flancos e fossas ilíacas', 'Cava inferior: fluxo sempre ascendente', 'Como testar: esvazia um segmento da veia com dois dedos e solta um lado para ver de onde enche'],
-    modelo: 'Na trombose de veia porta a colateral costuma ser tipo cava.' }
+    modelo: 'Tipo porta = hipertensão portal (cirrose, esquistossomose): o sangue sai do umbigo pela veia paraumbilical recanalizada e se espalha em raios. Tipo cava inferior = obstrução da veia cava inferior (trombose, compressão tumoral): o sangue das pernas sobe pela parede até a axila, por isso o fluxo é ascendente inclusive abaixo do umbigo, onde o normal seria descer.' }
   ] },
 /* ================= EXAME GERAL ================= */
 { id: 'edema-nefrotico', sist: 'geral', titulo: 'Edema generalizado (síndrome nefrótica)',

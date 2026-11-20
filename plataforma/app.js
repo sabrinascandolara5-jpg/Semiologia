@@ -17,9 +17,9 @@ const norm = s => strip(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''
 function shuffle(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 function toast(msg) { const t = document.createElement('div'); t.className = 'toast'; t.textContent = msg; document.body.appendChild(t); setTimeout(() => t.remove(), 2200); }
 const fmtTime = s => { const neg = s < 0; s = Math.abs(Math.round(s)); return (neg ? '+' : '') + String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); };
-const TOPICOS = { anamnese: 'Anamnese', geral: 'Exame geral', resp: 'Respiratório', cardio: 'Cardiovascular', abdome: 'Abdome' };
-const TOPIC_COLOR = { anamnese: 'var(--a1)', geral: 'var(--a2)', resp: 'var(--a3)', cardio: 'var(--a4)', abdome: 'var(--a5)' };
-const TEO_TO_TOP = { anamnese: 'anamnese', geral: 'geral', respiratorio: 'resp', cardio: 'cardio', abdome: 'abdome' };
+const TOPICOS = { anamnese: 'Anamnese', geral: 'Exame geral', resp: 'Respiratório', cardio: 'Cardiovascular', abdome: 'Abdome', neuro: 'Neurológico' };
+const TOPIC_COLOR = { anamnese: 'var(--a1)', geral: 'var(--a2)', resp: 'var(--a3)', cardio: 'var(--a4)', abdome: 'var(--a5)', neuro: 'var(--a6)' };
+const TEO_TO_TOP = { anamnese: 'anamnese', geral: 'geral', respiratorio: 'resp', cardio: 'cardio', abdome: 'abdome', neuro: 'neuro' };
 const ICON = {
   play: '<svg viewBox="0 0 24 24"><path d="M7 5v14l11-7z"/></svg>',
   stop: '<svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1"/></svg>',

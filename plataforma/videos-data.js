@@ -246,5 +246,111 @@ window.SEMIO_VIDEOS = [
     "Roteiros de exame"
    ]
   ]
+ },
+ {
+  "id": "10-neuro-consciencia",
+  "n": 10,
+  "titulo": "Neuro: anamnese, consciência e Glasgow",
+  "url": "/_blob/ecf416f291622db7bbb38d0e3267dee6",
+  "dur": 254,
+  "topicos": [
+   "A história localiza a lesão",
+   "Itens que mudam o raciocínio",
+   "Do vigil ao coma",
+   "Parece coma, mas não é",
+   "Três domínios: 4 + 5 + 6",
+   "Decorticação × descerebração",
+   "O que as pupilas contam",
+   "Para levar"
+  ],
+  "depois": [
+   [
+    "teoria-neuro",
+    "Teoria: semiologia neurológica"
+   ],
+   [
+    "trilhas-neuro-meninge",
+    "Trilha: Febre, cefaleia e nuca dura"
+   ]
+  ]
+ },
+ {
+  "id": "11-neuro-marcha-nc",
+  "n": 11,
+  "titulo": "Neuro: marcha, equilíbrio e nervos cranianos",
+  "url": "/_blob/40dea9cbd6bd312b6f79210104307afc",
+  "dur": 245,
+  "topicos": [
+   "A marcha integra tudo",
+   "Sinal de Romberg",
+   "De onde vem o desequilíbrio?",
+   "Doze pares, organizados por nível",
+   "Olfato, visão e movimento dos olhos",
+   "Face, ouvido, garganta e língua",
+   "Central × periférica",
+   "Periférico × central"
+  ],
+  "depois": [
+   [
+    "trilhas-neuro-romberg",
+    "Trilha: Quedas no escuro"
+   ],
+   [
+    "trilhas-neuro-facial",
+    "Trilha: O rosto torto"
+   ]
+  ]
+ },
+ {
+  "id": "12-neuro-motricidade",
+  "n": 12,
+  "titulo": "Neuro: motricidade, tônus e reflexos",
+  "url": "/_blob/06efac6dd16842f4bdd21bd703c5afdb",
+  "dur": 216,
+  "topicos": [
+   "O caminho do movimento",
+   "1º neurônio × 2º neurônio",
+   "Escala MRC de 0 a 5",
+   "Canivete × roda denteada",
+   "O arco reflexo",
+   "Raízes e reflexos superficiais",
+   "Localizando a raiz"
+  ],
+  "depois": [
+   [
+    "trilhas-neuro-avc",
+    "Trilha: Acordou sem conseguir falar"
+   ],
+   [
+    "mecanismos",
+    "Laboratório: neuro"
+   ]
+  ]
+ },
+ {
+  "id": "13-neuro-sensibilidade",
+  "n": 13,
+  "titulo": "Neuro: coordenação, sensibilidade e meninges",
+  "url": "/_blob/c909664f55ba207f1f537de5c396292d",
+  "dur": 178,
+  "topicos": [
+   "O cerebelo em teste",
+   "Duas vias, dois cruzamentos",
+   "Brown-Séquard: hemissecção da medula",
+   "Irritação das meninges",
+   "Tremores",
+   "Coreia, balismo, mioclonia, distonia",
+   "Para levar"
+  ],
+  "depois": [
+   [
+    "mecanismos",
+    "Laboratório: neuro"
+   ],
+   [
+    "trilhas-neuro-tremor",
+    "Trilha: A mão que treme"
+   ]
+  ]
  }
 ];

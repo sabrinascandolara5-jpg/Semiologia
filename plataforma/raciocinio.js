@@ -1077,7 +1077,7 @@ function abdSVG(proc, vol) {
 }
 
 /* ---------- view dos mecanismos ---------- */
-const MEC = { tab: 'pulmao', proc: 'consolidacao', lado: 'D', hip: false, prever: false, resp: {}, valv: 'aortica', les: 'estenose', edema: 'ic', abd: 'ascite', vol: 'medio', desafio: null };
+const MEC = { tab: 'pulmao', proc: 'consolidacao', lado: 'D', hip: false, prever: false, resp: {}, valv: 'aortica', les: 'estenose', edema: 'ic', abd: 'ascite', vol: 'medio', nsite: 'cortex', desafio: null };
 function rowsHTML(rows, data, keyPrefix) {
   return rows.map(r => {
     const k = r[0], val = data[k]; if (!val) return '';
@@ -1097,7 +1097,7 @@ function scoreLine(rows, data, prefix) {
   return `<p class="mono">${ok}/${ks.length} previsões corretas</p>`;
 }
 function viewMecanismos(v) {
-  const tabs = [['pulmao', 'Pulmão: o que há no tórax?'], ['coracao', 'Coração: deduza o sopro'], ['abdome', 'Abdome: o que há na cavidade?'], ['edema', 'Edema: forças de Starling']];
+  const tabs = [['pulmao', 'Pulmão: o que há no tórax?'], ['coracao', 'Coração: deduza o sopro'], ['abdome', 'Abdome: o que há na cavidade?'], ['edema', 'Edema: forças de Starling'], ['neuro', 'Neuro: onde está a lesão?']];
   let body = '';
   if (MEC.tab === 'pulmao') {
     const dz = MEC.desafio && MEC.desafio.t === 'pulmao' ? MEC.desafio : null;
@@ -1160,6 +1160,21 @@ function viewMecanismos(v) {
         ${dz.done ? `<div class="row"><button class="btn primary" type="button" data-novo>Outro desafio</button><button class="btn" type="button" data-sair>Sair do desafio</button></div>` : ''}`
         : rowsHTML(AROW, data, prefix) + scoreLine(AROW, data, prefix)}</div>
     </div>`;
+  } else if (MEC.tab === 'neuro') {
+    const NL = window.NEURO_LAB, dz = MEC.desafio && MEC.desafio.t === 'neuro' ? MEC.desafio : null;
+    const site = dz ? dz.site : MEC.nsite, P = NL.NEU[site], prefix = 'n-' + site + '-';
+    body = `
+    ${dz ? `<div class="callout warn"><div class="callout-t">Desafio</div>Leia o exame neurológico e descubra onde está a lesão. O desenho fica escondido até você responder.</div>` : `
+    <div style="margin-bottom:14px"><div class="qgroup-h">Onde está a lesão?</div><div class="seg">${Object.keys(NL.NEU).map(k => `<button class="chip" type="button" data-nsite="${k}" aria-pressed="${MEC.nsite === k}">${NL.NEU[k].n}</button>`).join('')}</div></div>`}
+    <div class="lab-grid">
+      <div>${dz && !dz.done ? '<div class="empty" style="min-height:260px;display:grid;place-items:center">?</div>' : NL.svg(site)}
+        ${dz && !dz.done ? '' : `<div class="callout tip"><div class="callout-t">${P.n}</div>${P.chave}</div><p class="small muted">As vias desenhadas são as do membro inferior <b>direito</b>. Vias apagadas passam longe da lesão. Repare onde cada uma cruza: corticoespinhal e coluna posterior no bulbo; espinotalâmica logo ao entrar na medula.</p>`}
+      </div>
+      <div>${dz ? NL.NROW.map(r => `<div class="frow"><div class="frow-h">${r[1]}</div><div class="frow-v">${r[2][P.v[r[0]][0]]}</div>${dz.done ? `<div class="frow-why">${P.v[r[0]][1]}</div>` : ''}</div>`).join('')
+        + `<div class="qgroup-h" style="margin-top:12px">Onde está a lesão?</div>${dz.opts.map(k => { let c = ''; if (dz.done) { if (k === site) c = 'right'; else if (k === dz.ans) c = 'wrong'; } return `<button class="opt ${c}" type="button" data-dz="${k}" ${dz.done ? 'disabled' : ''}>${NL.NEU[k].n}</button>`; }).join('')}
+        ${dz.done ? `<div class="row"><button class="btn primary" type="button" data-novo>Outro desafio</button><button class="btn" type="button" data-sair>Sair do desafio</button></div>` : ''}`
+        : rowsHTML(NL.NROW, P.v, prefix) + scoreLine(NL.NROW, P.v, prefix)}</div>
+    </div>`;
   } else {
     const E = EDEMAS[MEC.edema]; const prefix = 'e-' + MEC.edema + '-';
     body = `<div style="margin-bottom:14px"><div class="qgroup-h">Causa</div><div class="seg">${Object.keys(EDEMAS).map(k => `<button class="chip" type="button" data-ed="${k}" aria-pressed="${MEC.edema === k}">${EDEMAS[k].n}</button>`).join('')}</div></div>
@@ -1167,7 +1182,7 @@ function viewMecanismos(v) {
       <p class="small muted">Equilíbrio de Starling: a pressão hidrostática empurra líquido para fora do capilar; a oncótica (albumina) segura dentro; a parede controla o vazamento; a linfa recolhe o excesso. O edema surge quando uma dessas forças falha.</p></div>
       <div>${rowsHTML(EROW, E.v, prefix) + scoreLine(EROW, E.v, prefix)}</div></div>`;
   }
-  v.innerHTML = `<div class="page-head"><div class="eyebrow">Aprender fazendo</div><h1>Laboratório de mecanismos</h1><p>Mude a causa (no tórax, no coração, no abdome ou no capilar) e veja os achados mudarem, cada um com o porquê. Ligue "Prever antes de ver" para responder cada achado antes de ele aparecer, ou entre no desafio reverso.</p></div>
+  v.innerHTML = `<div class="page-head"><div class="eyebrow">Aprender fazendo</div><h1>Laboratório de mecanismos</h1><p>Mude a causa (no tórax, no coração, no abdome, no capilar ou no sistema nervoso) e veja os achados mudarem, cada um com o porquê. Ligue "Prever antes de ver" para responder cada achado antes de ele aparecer, ou entre no desafio reverso.</p></div>
   <div class="tabs" role="tablist">${tabs.map(t => `<button class="tab" role="tab" type="button" data-mt="${t[0]}" aria-selected="${MEC.tab === t[0]}">${t[1]}</button>`).join('')}</div>
   <div class="row" style="margin-bottom:12px;justify-content:space-between">
     <label class="row small" style="gap:6px;font-weight:600"><input type="checkbox" id="prever" ${MEC.prever ? 'checked' : ''} style="width:18px;height:18px;accent-color:var(--teal)">Prever antes de ver</label>
@@ -1184,6 +1199,9 @@ function novoDesafio() {
   } else if (MEC.tab === 'abdome') {
     const ks = Object.keys(ABD); const proc = ks[Math.floor(Math.random() * ks.length)];
     MEC.desafio = { t: 'abdome', proc, opts: shuffle(shuffle(ks.filter(k => k !== proc)).slice(0, 3).concat(proc)), done: false };
+  } else if (MEC.tab === 'neuro') {
+    const ks = Object.keys(window.NEURO_LAB.NEU); const site = ks[Math.floor(Math.random() * ks.length)];
+    MEC.desafio = { t: 'neuro', site, opts: shuffle(shuffle(ks.filter(k => k !== site)).slice(0, 3).concat(site)), done: false };
   } else {
     const all = []; Object.keys(VALV).forEach(vv => ['estenose', 'insuficiencia'].forEach(l => all.push(vv + '|' + l)));
     const pick = all[Math.floor(Math.random() * all.length)]; const [valv, les] = pick.split('|');
@@ -1201,6 +1219,7 @@ function mecView(v) {
     if (g('[data-les]')) { MEC.les = g('[data-les]').dataset.les; A().stopSound(); return re(); }
     if (g('[data-abd]')) { MEC.abd = g('[data-abd]').dataset.abd; return re(); }
     if (g('[data-vol]')) { MEC.vol = g('[data-vol]').dataset.vol; return re(); }
+    if (g('[data-nsite]')) { MEC.nsite = g('[data-nsite]').dataset.nsite; return re(); }
     if (g('[data-ed]')) { MEC.edema = g('[data-ed]').dataset.ed; return re(); }
     if (g('[data-pr]')) { const [k, i] = g('[data-pr]').dataset.pr.split(':'); MEC.resp[k] = +i; return re(); }
     if (g('[data-limpa]')) { MEC.resp = {}; return re(); }

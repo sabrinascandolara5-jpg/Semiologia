@@ -33,9 +33,11 @@ li b { color:var(--teal); }
 .brand { position:absolute; left:110px; bottom:56px; font-family:"Inter Display", Inter; font-weight:800; font-size:24px; }
 .brand span { color:var(--trace); }
 </style></head><body><div id="root"></div>
+<script src="../plataforma/neuro-lab.js"></script>
 <script src="../plataforma/raciocinio.js"></script>
 <script src="roteiros-1.js"></script>
 <script src="roteiros-2.js"></script>
+<script src="roteiros-3.js"></script>
 <script>
 function phonoSVG(key) {
   var M = PH[key], W = 480, H = 260, mid = 130, amp = 90, pad = 20, X = function (f) { return pad + f * (W - 2 * pad); };
@@ -62,6 +64,7 @@ function visHTML(v) {
   if (v.fn === 'lung') return D.lungSVG(v.arg[0], v.arg[1], false);
   if (v.fn === 'heart') return D.heartSVG(v.arg[0], v.arg[1]);
   if (v.fn === 'abd') return D.abdSVG(v.arg[0], v.arg[1]);
+  if (v.fn === 'neuro') return window.NEURO_LAB.svg(v.arg);
   if (v.fn === 'edema') return D.edemaSVG(D.EDEMAS[v.arg].f);
   return '';
 }

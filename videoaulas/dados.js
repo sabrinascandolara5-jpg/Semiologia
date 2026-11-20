@@ -3,7 +3,7 @@ const fs = require('fs'), vm = require('vm'), path = require('path'), { execFile
 const [DIR, URLS] = process.argv.slice(2);
 const urls = JSON.parse(fs.readFileSync(URLS, 'utf8'));
 const c = {}; vm.createContext(c);
-['roteiros-1.js', 'roteiros-2.js'].forEach(f => vm.runInContext(fs.readFileSync(path.join(__dirname, f), 'utf8'), c));
+['roteiros-1.js', 'roteiros-2.js', 'roteiros-3.js'].forEach(f => vm.runInContext(fs.readFileSync(path.join(__dirname, f), 'utf8'), c));
 const DEPOIS = {
   '01-anamnese': [['trilhas-historia', 'Trilha: Organizando a história'], ['osce-anamnese-lucia', 'Estação de anamnese']],
   '02-exame-geral': [['trilhas-ectoscopia', 'Trilha: Ectoscopia'], ['mecanismos', 'Laboratório: edema']],
@@ -13,7 +13,11 @@ const DEPOIS = {
   '06-cardio-sopros': [['trilhas-sopro-ea', 'Trilha: Deduzindo um sopro'], ['mecanismos', 'Laboratório: coração']],
   '07-abdome-exame': [['roteiros', 'Roteiro do exame do abdome'], ['mecanismos', 'Laboratório: abdome']],
   '08-abdome-agudo': [['trilhas-abdome-agudo-tipos', 'Trilha: Os 5 abdomes agudos'], ['trilhas-vias-biliares', 'Trilha: Vias biliares']],
-  '09-estacao-osce': [['osce', 'Simulador OSCE'], ['roteiros', 'Roteiros de exame']]
+  '09-estacao-osce': [['osce', 'Simulador OSCE'], ['roteiros', 'Roteiros de exame']],
+  '10-neuro-consciencia': [['teoria-neuro', 'Teoria: semiologia neurológica'], ['trilhas-neuro-meninge', 'Trilha: Febre, cefaleia e nuca dura']],
+  '11-neuro-marcha-nc': [['trilhas-neuro-romberg', 'Trilha: Quedas no escuro'], ['trilhas-neuro-facial', 'Trilha: O rosto torto']],
+  '12-neuro-motricidade': [['trilhas-neuro-avc', 'Trilha: Acordou sem conseguir falar'], ['mecanismos', 'Laboratório: neuro']],
+  '13-neuro-sensibilidade': [['mecanismos', 'Laboratório: neuro'], ['trilhas-neuro-tremor', 'Trilha: A mão que treme']]
 };
 const out = c.AULAS.filter(A => fs.readdirSync(DIR).some(f => f.startsWith('Aula ' + A.id.slice(0, 2)) && urls[f])).map(A => {
   const file = fs.readdirSync(DIR).find(f => f.startsWith('Aula ' + A.id.slice(0, 2)));
